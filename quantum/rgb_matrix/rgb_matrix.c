@@ -182,7 +182,12 @@ uint8_t rgb_matrix_map_row_column_to_led(uint8_t row, uint8_t column, uint8_t *l
 
 void rgb_matrix_update_pwm_buffers(void) { rgb_matrix_driver.flush(); }
 
-void rgb_matrix_set_color(int index, uint8_t red, uint8_t green, uint8_t blue) { rgb_matrix_driver.set_color(index, red, green, blue); }
+void rgb_matrix_set_color(int index, uint8_t red, uint8_t green, uint8_t blue) {
+    red   = (uint16_t)red   * 127 / 255;
+    green = (uint16_t)green * 255 / 255;
+    blue  = (uint16_t)blue  * 127 / 255;
+    rgb_matrix_driver.set_color(index, red, green, blue);
+}
 
 void rgb_matrix_set_color_all(uint8_t red, uint8_t green, uint8_t blue) {
 #if defined(RGB_MATRIX_ENABLE) && defined(RGB_MATRIX_SPLIT)
