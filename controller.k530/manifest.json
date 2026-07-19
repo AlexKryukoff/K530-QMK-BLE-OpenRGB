@@ -1,0 +1,40 @@
+{
+    "id": "controller.qmk_k530",
+    "version": "1.0.0",
+    "name": "meta.name",
+    "publisher": "Custom",
+    "description": "meta.description",
+    "license": "MIT",
+    "type": "controller",
+    "language": "lua",
+    "entry": "main.lua",
+
+    "match": {
+        "protocol": "hid",
+        "timeout_ms": 300,
+        "rules": [
+            { "vid": "0x0C45", "pid": "0x5004", "interface_number": 1 }
+        ]
+    },
+
+    "permissions": [
+        "hid:read",
+        "hid:write",
+        "log"
+    ],
+
+    "locales": {
+        "en-US": {
+            "meta": {
+                "name": "Redragon K530",
+                "description": "Per-key RGB control for the Redragon K530 Draconic keyboard via the QMK OpenRGB protocol (SonixQMK, sn32_master_openrgb)."
+            }
+        },
+        "ru": {
+            "meta": {
+                "name": "Redragon K530",
+                "description": "Адресное управление RGB-подсветкой клавиатуры Redragon K530 через протокол QMK OpenRGB (SonixQMK, sn32_master_openrgb)."
+            }
+        }
+    }
+}
