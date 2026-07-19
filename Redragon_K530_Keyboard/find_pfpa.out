@@ -1,0 +1,1424 @@
+======================================================================
+XREF на PFPA (0x40042000):
+======================================================================
+Найдено xref'ов: 1
+
+----- PFPA-xref (ldr@0x9466 lit@0x981C) func@0x945E -----
+  0x0945E: 00b5         push     {lr}
+  0x09460: fff7e0ff     bl       #0x9424
+  0x09464: 1f20         movs     r0, #0x1f
+  0x09466: ed49         ldr      r1, [pc, #0x3b4]  ; =0x40042000 <PERIPH>
+  0x09468: 0860         str      r0, [r1]
+  0x0946A: ff20         movs     r0, #0xff
+  0x0946C: ec49         ldr      r1, [pc, #0x3b0]  ; =0x40002080 <PERIPH>
+  0x0946E: 0860         str      r0, [r1]
+  0x09470: 0020         movs     r0, #0
+  0x09472: eb49         ldr      r1, [pc, #0x3ac]  ; =0x40002080 <PERIPH>
+  0x09474: 8039         subs     r1, #0x80
+  0x09476: 0862         str      r0, [r1, #0x20]
+  0x09478: 4862         str      r0, [r1, #0x24]
+  0x0947A: 8862         str      r0, [r1, #0x28]
+  0x0947C: c862         str      r0, [r1, #0x2c]
+  0x0947E: 0863         str      r0, [r1, #0x30]
+  0x09480: 4863         str      r0, [r1, #0x34]
+  0x09482: 8863         str      r0, [r1, #0x38]
+  0x09484: c863         str      r0, [r1, #0x3c]
+  0x09486: e649         ldr      r1, [pc, #0x398]  ; =0x40002080 <PERIPH>
+  0x09488: 4039         subs     r1, #0x40
+  0x0948A: 0860         str      r0, [r1]
+  0x0948C: 4860         str      r0, [r1, #4]
+  0x0948E: 8860         str      r0, [r1, #8]
+  0x09490: c860         str      r0, [r1, #0xc]
+  0x09492: 0861         str      r0, [r1, #0x10]
+  0x09494: 4861         str      r0, [r1, #0x14]
+  0x09496: 8861         str      r0, [r1, #0x18]
+  0x09498: c861         str      r0, [r1, #0x1c]
+  0x0949A: 0862         str      r0, [r1, #0x20]
+  0x0949C: 4862         str      r0, [r1, #0x24]
+  0x0949E: 8862         str      r0, [r1, #0x28]
+  0x094A0: c862         str      r0, [r1, #0x2c]
+  0x094A2: 0863         str      r0, [r1, #0x30]
+  0x094A4: 4863         str      r0, [r1, #0x34]
+  0x094A6: 8863         str      r0, [r1, #0x38]
+  0x094A8: c863         str      r0, [r1, #0x3c]
+  0x094AA: de48         ldr      r0, [pc, #0x378]  ; =0x00FFFF1F
+  0x094AC: dc49         ldr      r1, [pc, #0x370]  ; =0x40002080 <PERIPH>
+  0x094AE: c861         str      r0, [r1, #0x1c]
+  0x094B0: 0862         str      r0, [r1, #0x20]
+  0x094B2: 0020         movs     r0, #0
+  0x094B4: 4861         str      r0, [r1, #0x14]
+  0x094B6: 8861         str      r0, [r1, #0x18]
+  0x094B8: 2420         movs     r0, #0x24
+  0x094BA: d949         ldr      r1, [pc, #0x364]  ; =0x40002080 <PERIPH>
+  0x094BC: 8039         subs     r1, #0x80
+  0x094BE: 8860         str      r0, [r1, #8]
+  0x094C0: 0520         movs     r0, #5
+  0x094C2: 0003         lsls     r0, r0, #0xc
+  0x094C4: c861         str      r0, [r1, #0x1c]
+  0x094C6: 0220         movs     r0, #2
+  0x094C8: 0860         str      r0, [r1]
+  0x094CA: 00bf         nop      
+  0x094CC: d448         ldr      r0, [pc, #0x350]  ; =0x40002080 <PERIPH>
+  0x094CE: 8038         subs     r0, #0x80
+  0x094D0: 0068         ldr      r0, [r0]
+  0x094D2: 0221         movs     r1, #2
+  0x094D4: 0840         ands     r0, r1
+  0x094D6: 0028         cmp      r0, #0
+  0x094D8: f8d1         bne      #0x94cc
+  0x094DA: d148         ldr      r0, [pc, #0x344]  ; =0x40002080 <PERIPH>
+  0x094DC: 8038         subs     r0, #0x80
+  0x094DE: 0068         ldr      r0, [r0]
+  0x094E0: 0121         movs     r1, #1
+  0x094E2: 0843         orrs     r0, r1
+  0x094E4: ce49         ldr      r1, [pc, #0x338]  ; =0x40002080 <PERIPH>
+  0x094E6: 8039         subs     r1, #0x80
+  0x094E8: 0860         str      r0, [r1]
+  0x094EA: fff7a3ff     bl       #0x9434
+  0x094EE: ce48         ldr      r0, [pc, #0x338]  ; =0x40048000 <PERIPH>
+  0x094F0: 806a         ldr      r0, [r0, #0x28]
+  0x094F2: ce49         ldr      r1, [pc, #0x338]  ; =0x0000FFFB
+  0x094F4: 0843         orrs     r0, r1
+  0x094F6: cc49         ldr      r1, [pc, #0x330]  ; =0x40048000 <PERIPH>
+  0x094F8: 8862         str      r0, [r1, #0x28]
+  0x094FA: cd48         ldr      r0, [pc, #0x334]  ; =0x4004A000 <PERIPH>
+  0x094FC: 806a         ldr      r0, [r0, #0x28]
+  0x094FE: 0721         movs     r1, #7
+  0x09500: 4902         lsls     r1, r1, #9
+  0x09502: 0843         orrs     r0, r1
+  0x09504: ca49         ldr      r1, [pc, #0x328]  ; =0x4004A000 <PERIPH>
+  0x09506: 8862         str      r0, [r1, #0x28]
+  0x09508: 00bd         pop      {pc}
+
+======================================================================
+XREF на UART0 (0x40010000):
+======================================================================
+Найдено xref'ов: 27
+
+----- UART0-xref (ldr@0x262 lit@0x648) func@0x25A -----
+  0x0025A: 00b5         push     {lr}
+  0x0025C: 0346         mov      r3, r0
+  0x0025E: 05e0         b        #0x26c
+  0x00260: f848         ldr      r0, [pc, #0x3e0]  ; =0x5AFA55AA
+  0x00262: f949         ldr      r1, [pc, #0x3e4]  ; =0x40010000 <PERIPH>
+  0x00264: c860         str      r0, [r1, #0xc]
+  0x00266: 1920         movs     r0, #0x19
+  0x00268: fff7ecff     bl       #0x244
+  0x0026C: 1846         mov      r0, r3
+  0x0026E: 5b1e         subs     r3, r3, #1
+  0x00270: 0028         cmp      r0, #0
+  0x00272: f5d1         bne      #0x260
+  0x00274: 00bd         pop      {pc}
+
+----- UART0-xref (ldr@0x27A lit@0x648) func@0x25A -----
+  0x0025A: 00b5         push     {lr}
+  0x0025C: 0346         mov      r3, r0
+  0x0025E: 05e0         b        #0x26c
+  0x00260: f848         ldr      r0, [pc, #0x3e0]  ; =0x5AFA55AA
+  0x00262: f949         ldr      r1, [pc, #0x3e4]  ; =0x40010000 <PERIPH>
+  0x00264: c860         str      r0, [r1, #0xc]
+  0x00266: 1920         movs     r0, #0x19
+  0x00268: fff7ecff     bl       #0x244
+  0x0026C: 1846         mov      r0, r3
+  0x0026E: 5b1e         subs     r3, r3, #1
+  0x00270: 0028         cmp      r0, #0
+  0x00272: f5d1         bne      #0x260
+  0x00274: 00bd         pop      {pc}
+
+----- UART0-xref (ldr@0xCE4 lit@0xF48) func@0xCC2 -----
+  0x00CC2: 70b5         push     {r4, r5, r6, lr}
+  0x00CC4: 04f04bfe     bl       #0x595e
+  0x00CC8: 01f0a4fb     bl       #0x2414
+  0x00CCC: 01f034fa     bl       #0x2138
+  0x00CD0: fff7ecfa     bl       #0x2ac
+  0x00CD4: fff7b6fb     bl       #0x444
+  0x00CD8: 9748         ldr      r0, [pc, #0x25c]  ; =0x20000000 <SRAM>
+  0x00CDA: 0068         ldr      r0, [r0]
+  0x00CDC: c002         lsls     r0, r0, #0xb
+  0x00CDE: c00f         lsrs     r0, r0, #0x1f
+  0x00CE0: 0028         cmp      r0, #0
+  0x00CE2: 44d0         beq      #0xd6e
+  0x00CE4: 9848         ldr      r0, [pc, #0x260]  ; =0x40010000 <PERIPH>
+  0x00CE6: 0068         ldr      r0, [r0]
+  0x00CE8: 4008         lsrs     r0, r0, #1
+  0x00CEA: 4000         lsls     r0, r0, #1
+  0x00CEC: 9749         ldr      r1, [pc, #0x25c]  ; =0x5AFA0000
+  0x00CEE: 0843         orrs     r0, r1
+  0x00CF0: 9549         ldr      r1, [pc, #0x254]  ; =0x40010000 <PERIPH>
+  0x00CF2: 0860         str      r0, [r1]
+  0x00CF4: 03f00afc     bl       #0x450c
+  0x00CF8: 01f08cfb     bl       #0x2414
+  0x00CFC: 7e21         movs     r1, #0x7e
+  0x00CFE: 9448         ldr      r0, [pc, #0x250]  ; =0x20000444 <SRAM>
+  0x00D00: fff7c2fa     bl       #0x288
+  0x00D04: 7e21         movs     r1, #0x7e
+  0x00D06: 9348         ldr      r0, [pc, #0x24c]  ; =0x200004C2 <SRAM>
+  0x00D08: fff7befa     bl       #0x288
+  0x00D0C: 7e21         movs     r1, #0x7e
+  0x00D0E: 9248         ldr      r0, [pc, #0x248]  ; =0x20000540 <SRAM>
+  0x00D10: fff7bafa     bl       #0x288
+  0x00D14: 7e21         movs     r1, #0x7e
+  0x00D16: 9148         ldr      r0, [pc, #0x244]  ; =0x200002CA <SRAM>
+  0x00D18: fff7b6fa     bl       #0x288
+  0x00D1C: 7e21         movs     r1, #0x7e
+  0x00D1E: 9048         ldr      r0, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x00D20: fff7b2fa     bl       #0x288
+  0x00D24: 7e21         movs     r1, #0x7e
+  0x00D26: 8f48         ldr      r0, [pc, #0x23c]  ; =0x200003C6 <SRAM>
+  0x00D28: fff7aefa     bl       #0x288
+  0x00D2C: 08f061fa     bl       #0x91f2
+  0x00D30: 03f0b4f9     bl       #0x409c
+  0x00D34: 07f084fb     bl       #0x8440
+  0x00D38: 08f03efe     bl       #0x99b8
+  0x00D3C: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x00D3E: 0068         ldr      r0, [r0]
+  0x00D40: 0121         movs     r1, #1
+  0x00D42: 0905         lsls     r1, r1, #0x14
+  0x00D44: 8843         bics     r0, r1
+  0x00D46: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x00D48: 0860         str      r0, [r1]
+  0x00D4A: 0846         mov      r0, r1
+  0x00D4C: 0068         ldr      r0, [r0]
+  0x00D4E: 0121         movs     r1, #1
+  0x00D50: c905         lsls     r1, r1, #0x17
+  0x00D52: 8843         bics     r0, r1
+  0x00D54: 4018         adds     r0, r0, r1
+  0x00D56: 7849         ldr      r1, [pc, #0x1e0]  ; =0x20000000 <SRAM>
+  0x00D58: 0860         str      r0, [r1]
+  0x00D5A: 3d20         movs     r0, #0x3d
+  0x00D5C: 0bf019fc     bl       #0xc592
+  0x00D60: 7948         ldr      r0, [pc, #0x1e4]  ; =0x40010000 <PERIPH>
+  0x00D62: 0068         ldr      r0, [r0]
+  0x00D64: 7949         ldr      r1, [pc, #0x1e4]  ; =0x5AFA0000
+  0x00D66: 491c         adds     r1, r1, #1
+  0x00D68: 0843         orrs     r0, r1
+  0x00D6A: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40010000 <PERIPH>
+  0x00D6C: 0860         str      r0, [r1]
+  0x00D6E: 7248         ldr      r0, [pc, #0x1c8]  ; =0x20000000 <SRAM>
+  0x00D70: 0068         ldr      r0, [r0]
+  0x00D72: 8002         lsls     r0, r0, #0xa
+  0x00D74: c00f         lsrs     r0, r0, #0x1f
+  0x00D76: 0028         cmp      r0, #0
+  0x00D78: 4fd0         beq      #0xe1a
+  0x00D7A: 7348         ldr      r0, [pc, #0x1cc]  ; =0x40010000 <PERIPH>
+  0x00D7C: 0068         ldr      r0, [r0]
+  0x00D7E: 4008         lsrs     r0, r0, #1
+  0x00D80: 4000         lsls     r0, r0, #1
+
+----- UART0-xref (ldr@0xCF0 lit@0xF48) func@0xCC2 -----
+  0x00CC2: 70b5         push     {r4, r5, r6, lr}
+  0x00CC4: 04f04bfe     bl       #0x595e
+  0x00CC8: 01f0a4fb     bl       #0x2414
+  0x00CCC: 01f034fa     bl       #0x2138
+  0x00CD0: fff7ecfa     bl       #0x2ac
+  0x00CD4: fff7b6fb     bl       #0x444
+  0x00CD8: 9748         ldr      r0, [pc, #0x25c]  ; =0x20000000 <SRAM>
+  0x00CDA: 0068         ldr      r0, [r0]
+  0x00CDC: c002         lsls     r0, r0, #0xb
+  0x00CDE: c00f         lsrs     r0, r0, #0x1f
+  0x00CE0: 0028         cmp      r0, #0
+  0x00CE2: 44d0         beq      #0xd6e
+  0x00CE4: 9848         ldr      r0, [pc, #0x260]  ; =0x40010000 <PERIPH>
+  0x00CE6: 0068         ldr      r0, [r0]
+  0x00CE8: 4008         lsrs     r0, r0, #1
+  0x00CEA: 4000         lsls     r0, r0, #1
+  0x00CEC: 9749         ldr      r1, [pc, #0x25c]  ; =0x5AFA0000
+  0x00CEE: 0843         orrs     r0, r1
+  0x00CF0: 9549         ldr      r1, [pc, #0x254]  ; =0x40010000 <PERIPH>
+  0x00CF2: 0860         str      r0, [r1]
+  0x00CF4: 03f00afc     bl       #0x450c
+  0x00CF8: 01f08cfb     bl       #0x2414
+  0x00CFC: 7e21         movs     r1, #0x7e
+  0x00CFE: 9448         ldr      r0, [pc, #0x250]  ; =0x20000444 <SRAM>
+  0x00D00: fff7c2fa     bl       #0x288
+  0x00D04: 7e21         movs     r1, #0x7e
+  0x00D06: 9348         ldr      r0, [pc, #0x24c]  ; =0x200004C2 <SRAM>
+  0x00D08: fff7befa     bl       #0x288
+  0x00D0C: 7e21         movs     r1, #0x7e
+  0x00D0E: 9248         ldr      r0, [pc, #0x248]  ; =0x20000540 <SRAM>
+  0x00D10: fff7bafa     bl       #0x288
+  0x00D14: 7e21         movs     r1, #0x7e
+  0x00D16: 9148         ldr      r0, [pc, #0x244]  ; =0x200002CA <SRAM>
+  0x00D18: fff7b6fa     bl       #0x288
+  0x00D1C: 7e21         movs     r1, #0x7e
+  0x00D1E: 9048         ldr      r0, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x00D20: fff7b2fa     bl       #0x288
+  0x00D24: 7e21         movs     r1, #0x7e
+  0x00D26: 8f48         ldr      r0, [pc, #0x23c]  ; =0x200003C6 <SRAM>
+  0x00D28: fff7aefa     bl       #0x288
+  0x00D2C: 08f061fa     bl       #0x91f2
+  0x00D30: 03f0b4f9     bl       #0x409c
+  0x00D34: 07f084fb     bl       #0x8440
+  0x00D38: 08f03efe     bl       #0x99b8
+  0x00D3C: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x00D3E: 0068         ldr      r0, [r0]
+  0x00D40: 0121         movs     r1, #1
+  0x00D42: 0905         lsls     r1, r1, #0x14
+  0x00D44: 8843         bics     r0, r1
+  0x00D46: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x00D48: 0860         str      r0, [r1]
+  0x00D4A: 0846         mov      r0, r1
+  0x00D4C: 0068         ldr      r0, [r0]
+  0x00D4E: 0121         movs     r1, #1
+  0x00D50: c905         lsls     r1, r1, #0x17
+  0x00D52: 8843         bics     r0, r1
+  0x00D54: 4018         adds     r0, r0, r1
+  0x00D56: 7849         ldr      r1, [pc, #0x1e0]  ; =0x20000000 <SRAM>
+  0x00D58: 0860         str      r0, [r1]
+  0x00D5A: 3d20         movs     r0, #0x3d
+  0x00D5C: 0bf019fc     bl       #0xc592
+  0x00D60: 7948         ldr      r0, [pc, #0x1e4]  ; =0x40010000 <PERIPH>
+  0x00D62: 0068         ldr      r0, [r0]
+  0x00D64: 7949         ldr      r1, [pc, #0x1e4]  ; =0x5AFA0000
+  0x00D66: 491c         adds     r1, r1, #1
+  0x00D68: 0843         orrs     r0, r1
+  0x00D6A: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40010000 <PERIPH>
+  0x00D6C: 0860         str      r0, [r1]
+  0x00D6E: 7248         ldr      r0, [pc, #0x1c8]  ; =0x20000000 <SRAM>
+  0x00D70: 0068         ldr      r0, [r0]
+  0x00D72: 8002         lsls     r0, r0, #0xa
+  0x00D74: c00f         lsrs     r0, r0, #0x1f
+  0x00D76: 0028         cmp      r0, #0
+  0x00D78: 4fd0         beq      #0xe1a
+  0x00D7A: 7348         ldr      r0, [pc, #0x1cc]  ; =0x40010000 <PERIPH>
+  0x00D7C: 0068         ldr      r0, [r0]
+  0x00D7E: 4008         lsrs     r0, r0, #1
+  0x00D80: 4000         lsls     r0, r0, #1
+
+----- UART0-xref (ldr@0xD60 lit@0xF48) func@0xCC2 -----
+  0x00CC2: 70b5         push     {r4, r5, r6, lr}
+  0x00CC4: 04f04bfe     bl       #0x595e
+  0x00CC8: 01f0a4fb     bl       #0x2414
+  0x00CCC: 01f034fa     bl       #0x2138
+  0x00CD0: fff7ecfa     bl       #0x2ac
+  0x00CD4: fff7b6fb     bl       #0x444
+  0x00CD8: 9748         ldr      r0, [pc, #0x25c]  ; =0x20000000 <SRAM>
+  0x00CDA: 0068         ldr      r0, [r0]
+  0x00CDC: c002         lsls     r0, r0, #0xb
+  0x00CDE: c00f         lsrs     r0, r0, #0x1f
+  0x00CE0: 0028         cmp      r0, #0
+  0x00CE2: 44d0         beq      #0xd6e
+  0x00CE4: 9848         ldr      r0, [pc, #0x260]  ; =0x40010000 <PERIPH>
+  0x00CE6: 0068         ldr      r0, [r0]
+  0x00CE8: 4008         lsrs     r0, r0, #1
+  0x00CEA: 4000         lsls     r0, r0, #1
+  0x00CEC: 9749         ldr      r1, [pc, #0x25c]  ; =0x5AFA0000
+  0x00CEE: 0843         orrs     r0, r1
+  0x00CF0: 9549         ldr      r1, [pc, #0x254]  ; =0x40010000 <PERIPH>
+  0x00CF2: 0860         str      r0, [r1]
+  0x00CF4: 03f00afc     bl       #0x450c
+  0x00CF8: 01f08cfb     bl       #0x2414
+  0x00CFC: 7e21         movs     r1, #0x7e
+  0x00CFE: 9448         ldr      r0, [pc, #0x250]  ; =0x20000444 <SRAM>
+  0x00D00: fff7c2fa     bl       #0x288
+  0x00D04: 7e21         movs     r1, #0x7e
+  0x00D06: 9348         ldr      r0, [pc, #0x24c]  ; =0x200004C2 <SRAM>
+  0x00D08: fff7befa     bl       #0x288
+  0x00D0C: 7e21         movs     r1, #0x7e
+  0x00D0E: 9248         ldr      r0, [pc, #0x248]  ; =0x20000540 <SRAM>
+  0x00D10: fff7bafa     bl       #0x288
+  0x00D14: 7e21         movs     r1, #0x7e
+  0x00D16: 9148         ldr      r0, [pc, #0x244]  ; =0x200002CA <SRAM>
+  0x00D18: fff7b6fa     bl       #0x288
+  0x00D1C: 7e21         movs     r1, #0x7e
+  0x00D1E: 9048         ldr      r0, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x00D20: fff7b2fa     bl       #0x288
+  0x00D24: 7e21         movs     r1, #0x7e
+  0x00D26: 8f48         ldr      r0, [pc, #0x23c]  ; =0x200003C6 <SRAM>
+  0x00D28: fff7aefa     bl       #0x288
+  0x00D2C: 08f061fa     bl       #0x91f2
+  0x00D30: 03f0b4f9     bl       #0x409c
+  0x00D34: 07f084fb     bl       #0x8440
+  0x00D38: 08f03efe     bl       #0x99b8
+  0x00D3C: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x00D3E: 0068         ldr      r0, [r0]
+  0x00D40: 0121         movs     r1, #1
+  0x00D42: 0905         lsls     r1, r1, #0x14
+  0x00D44: 8843         bics     r0, r1
+  0x00D46: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x00D48: 0860         str      r0, [r1]
+  0x00D4A: 0846         mov      r0, r1
+  0x00D4C: 0068         ldr      r0, [r0]
+  0x00D4E: 0121         movs     r1, #1
+  0x00D50: c905         lsls     r1, r1, #0x17
+  0x00D52: 8843         bics     r0, r1
+  0x00D54: 4018         adds     r0, r0, r1
+  0x00D56: 7849         ldr      r1, [pc, #0x1e0]  ; =0x20000000 <SRAM>
+  0x00D58: 0860         str      r0, [r1]
+  0x00D5A: 3d20         movs     r0, #0x3d
+  0x00D5C: 0bf019fc     bl       #0xc592
+  0x00D60: 7948         ldr      r0, [pc, #0x1e4]  ; =0x40010000 <PERIPH>
+  0x00D62: 0068         ldr      r0, [r0]
+  0x00D64: 7949         ldr      r1, [pc, #0x1e4]  ; =0x5AFA0000
+  0x00D66: 491c         adds     r1, r1, #1
+  0x00D68: 0843         orrs     r0, r1
+  0x00D6A: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40010000 <PERIPH>
+  0x00D6C: 0860         str      r0, [r1]
+  0x00D6E: 7248         ldr      r0, [pc, #0x1c8]  ; =0x20000000 <SRAM>
+  0x00D70: 0068         ldr      r0, [r0]
+  0x00D72: 8002         lsls     r0, r0, #0xa
+  0x00D74: c00f         lsrs     r0, r0, #0x1f
+  0x00D76: 0028         cmp      r0, #0
+  0x00D78: 4fd0         beq      #0xe1a
+  0x00D7A: 7348         ldr      r0, [pc, #0x1cc]  ; =0x40010000 <PERIPH>
+  0x00D7C: 0068         ldr      r0, [r0]
+  0x00D7E: 4008         lsrs     r0, r0, #1
+  0x00D80: 4000         lsls     r0, r0, #1
+
+----- UART0-xref (ldr@0xD6A lit@0xF48) func@0xCC2 -----
+  0x00CC2: 70b5         push     {r4, r5, r6, lr}
+  0x00CC4: 04f04bfe     bl       #0x595e
+  0x00CC8: 01f0a4fb     bl       #0x2414
+  0x00CCC: 01f034fa     bl       #0x2138
+  0x00CD0: fff7ecfa     bl       #0x2ac
+  0x00CD4: fff7b6fb     bl       #0x444
+  0x00CD8: 9748         ldr      r0, [pc, #0x25c]  ; =0x20000000 <SRAM>
+  0x00CDA: 0068         ldr      r0, [r0]
+  0x00CDC: c002         lsls     r0, r0, #0xb
+  0x00CDE: c00f         lsrs     r0, r0, #0x1f
+  0x00CE0: 0028         cmp      r0, #0
+  0x00CE2: 44d0         beq      #0xd6e
+  0x00CE4: 9848         ldr      r0, [pc, #0x260]  ; =0x40010000 <PERIPH>
+  0x00CE6: 0068         ldr      r0, [r0]
+  0x00CE8: 4008         lsrs     r0, r0, #1
+  0x00CEA: 4000         lsls     r0, r0, #1
+  0x00CEC: 9749         ldr      r1, [pc, #0x25c]  ; =0x5AFA0000
+  0x00CEE: 0843         orrs     r0, r1
+  0x00CF0: 9549         ldr      r1, [pc, #0x254]  ; =0x40010000 <PERIPH>
+  0x00CF2: 0860         str      r0, [r1]
+  0x00CF4: 03f00afc     bl       #0x450c
+  0x00CF8: 01f08cfb     bl       #0x2414
+  0x00CFC: 7e21         movs     r1, #0x7e
+  0x00CFE: 9448         ldr      r0, [pc, #0x250]  ; =0x20000444 <SRAM>
+  0x00D00: fff7c2fa     bl       #0x288
+  0x00D04: 7e21         movs     r1, #0x7e
+  0x00D06: 9348         ldr      r0, [pc, #0x24c]  ; =0x200004C2 <SRAM>
+  0x00D08: fff7befa     bl       #0x288
+  0x00D0C: 7e21         movs     r1, #0x7e
+  0x00D0E: 9248         ldr      r0, [pc, #0x248]  ; =0x20000540 <SRAM>
+  0x00D10: fff7bafa     bl       #0x288
+  0x00D14: 7e21         movs     r1, #0x7e
+  0x00D16: 9148         ldr      r0, [pc, #0x244]  ; =0x200002CA <SRAM>
+  0x00D18: fff7b6fa     bl       #0x288
+  0x00D1C: 7e21         movs     r1, #0x7e
+  0x00D1E: 9048         ldr      r0, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x00D20: fff7b2fa     bl       #0x288
+  0x00D24: 7e21         movs     r1, #0x7e
+  0x00D26: 8f48         ldr      r0, [pc, #0x23c]  ; =0x200003C6 <SRAM>
+  0x00D28: fff7aefa     bl       #0x288
+  0x00D2C: 08f061fa     bl       #0x91f2
+  0x00D30: 03f0b4f9     bl       #0x409c
+  0x00D34: 07f084fb     bl       #0x8440
+  0x00D38: 08f03efe     bl       #0x99b8
+  0x00D3C: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x00D3E: 0068         ldr      r0, [r0]
+  0x00D40: 0121         movs     r1, #1
+  0x00D42: 0905         lsls     r1, r1, #0x14
+  0x00D44: 8843         bics     r0, r1
+  0x00D46: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x00D48: 0860         str      r0, [r1]
+  0x00D4A: 0846         mov      r0, r1
+  0x00D4C: 0068         ldr      r0, [r0]
+  0x00D4E: 0121         movs     r1, #1
+  0x00D50: c905         lsls     r1, r1, #0x17
+  0x00D52: 8843         bics     r0, r1
+  0x00D54: 4018         adds     r0, r0, r1
+  0x00D56: 7849         ldr      r1, [pc, #0x1e0]  ; =0x20000000 <SRAM>
+  0x00D58: 0860         str      r0, [r1]
+  0x00D5A: 3d20         movs     r0, #0x3d
+  0x00D5C: 0bf019fc     bl       #0xc592
+  0x00D60: 7948         ldr      r0, [pc, #0x1e4]  ; =0x40010000 <PERIPH>
+  0x00D62: 0068         ldr      r0, [r0]
+  0x00D64: 7949         ldr      r1, [pc, #0x1e4]  ; =0x5AFA0000
+  0x00D66: 491c         adds     r1, r1, #1
+  0x00D68: 0843         orrs     r0, r1
+  0x00D6A: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40010000 <PERIPH>
+  0x00D6C: 0860         str      r0, [r1]
+  0x00D6E: 7248         ldr      r0, [pc, #0x1c8]  ; =0x20000000 <SRAM>
+  0x00D70: 0068         ldr      r0, [r0]
+  0x00D72: 8002         lsls     r0, r0, #0xa
+  0x00D74: c00f         lsrs     r0, r0, #0x1f
+  0x00D76: 0028         cmp      r0, #0
+  0x00D78: 4fd0         beq      #0xe1a
+  0x00D7A: 7348         ldr      r0, [pc, #0x1cc]  ; =0x40010000 <PERIPH>
+  0x00D7C: 0068         ldr      r0, [r0]
+  0x00D7E: 4008         lsrs     r0, r0, #1
+  0x00D80: 4000         lsls     r0, r0, #1
+
+----- UART0-xref (ldr@0xD7A lit@0xF48) func@0xCC2 -----
+  0x00CC2: 70b5         push     {r4, r5, r6, lr}
+  0x00CC4: 04f04bfe     bl       #0x595e
+  0x00CC8: 01f0a4fb     bl       #0x2414
+  0x00CCC: 01f034fa     bl       #0x2138
+  0x00CD0: fff7ecfa     bl       #0x2ac
+  0x00CD4: fff7b6fb     bl       #0x444
+  0x00CD8: 9748         ldr      r0, [pc, #0x25c]  ; =0x20000000 <SRAM>
+  0x00CDA: 0068         ldr      r0, [r0]
+  0x00CDC: c002         lsls     r0, r0, #0xb
+  0x00CDE: c00f         lsrs     r0, r0, #0x1f
+  0x00CE0: 0028         cmp      r0, #0
+  0x00CE2: 44d0         beq      #0xd6e
+  0x00CE4: 9848         ldr      r0, [pc, #0x260]  ; =0x40010000 <PERIPH>
+  0x00CE6: 0068         ldr      r0, [r0]
+  0x00CE8: 4008         lsrs     r0, r0, #1
+  0x00CEA: 4000         lsls     r0, r0, #1
+  0x00CEC: 9749         ldr      r1, [pc, #0x25c]  ; =0x5AFA0000
+  0x00CEE: 0843         orrs     r0, r1
+  0x00CF0: 9549         ldr      r1, [pc, #0x254]  ; =0x40010000 <PERIPH>
+  0x00CF2: 0860         str      r0, [r1]
+  0x00CF4: 03f00afc     bl       #0x450c
+  0x00CF8: 01f08cfb     bl       #0x2414
+  0x00CFC: 7e21         movs     r1, #0x7e
+  0x00CFE: 9448         ldr      r0, [pc, #0x250]  ; =0x20000444 <SRAM>
+  0x00D00: fff7c2fa     bl       #0x288
+  0x00D04: 7e21         movs     r1, #0x7e
+  0x00D06: 9348         ldr      r0, [pc, #0x24c]  ; =0x200004C2 <SRAM>
+  0x00D08: fff7befa     bl       #0x288
+  0x00D0C: 7e21         movs     r1, #0x7e
+  0x00D0E: 9248         ldr      r0, [pc, #0x248]  ; =0x20000540 <SRAM>
+  0x00D10: fff7bafa     bl       #0x288
+  0x00D14: 7e21         movs     r1, #0x7e
+  0x00D16: 9148         ldr      r0, [pc, #0x244]  ; =0x200002CA <SRAM>
+  0x00D18: fff7b6fa     bl       #0x288
+  0x00D1C: 7e21         movs     r1, #0x7e
+  0x00D1E: 9048         ldr      r0, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x00D20: fff7b2fa     bl       #0x288
+  0x00D24: 7e21         movs     r1, #0x7e
+  0x00D26: 8f48         ldr      r0, [pc, #0x23c]  ; =0x200003C6 <SRAM>
+  0x00D28: fff7aefa     bl       #0x288
+  0x00D2C: 08f061fa     bl       #0x91f2
+  0x00D30: 03f0b4f9     bl       #0x409c
+  0x00D34: 07f084fb     bl       #0x8440
+  0x00D38: 08f03efe     bl       #0x99b8
+  0x00D3C: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x00D3E: 0068         ldr      r0, [r0]
+  0x00D40: 0121         movs     r1, #1
+  0x00D42: 0905         lsls     r1, r1, #0x14
+  0x00D44: 8843         bics     r0, r1
+  0x00D46: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x00D48: 0860         str      r0, [r1]
+  0x00D4A: 0846         mov      r0, r1
+  0x00D4C: 0068         ldr      r0, [r0]
+  0x00D4E: 0121         movs     r1, #1
+  0x00D50: c905         lsls     r1, r1, #0x17
+  0x00D52: 8843         bics     r0, r1
+  0x00D54: 4018         adds     r0, r0, r1
+  0x00D56: 7849         ldr      r1, [pc, #0x1e0]  ; =0x20000000 <SRAM>
+  0x00D58: 0860         str      r0, [r1]
+  0x00D5A: 3d20         movs     r0, #0x3d
+  0x00D5C: 0bf019fc     bl       #0xc592
+  0x00D60: 7948         ldr      r0, [pc, #0x1e4]  ; =0x40010000 <PERIPH>
+  0x00D62: 0068         ldr      r0, [r0]
+  0x00D64: 7949         ldr      r1, [pc, #0x1e4]  ; =0x5AFA0000
+  0x00D66: 491c         adds     r1, r1, #1
+  0x00D68: 0843         orrs     r0, r1
+  0x00D6A: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40010000 <PERIPH>
+  0x00D6C: 0860         str      r0, [r1]
+  0x00D6E: 7248         ldr      r0, [pc, #0x1c8]  ; =0x20000000 <SRAM>
+  0x00D70: 0068         ldr      r0, [r0]
+  0x00D72: 8002         lsls     r0, r0, #0xa
+  0x00D74: c00f         lsrs     r0, r0, #0x1f
+  0x00D76: 0028         cmp      r0, #0
+  0x00D78: 4fd0         beq      #0xe1a
+  0x00D7A: 7348         ldr      r0, [pc, #0x1cc]  ; =0x40010000 <PERIPH>
+  0x00D7C: 0068         ldr      r0, [r0]
+  0x00D7E: 4008         lsrs     r0, r0, #1
+  0x00D80: 4000         lsls     r0, r0, #1
+
+----- UART0-xref (ldr@0xD86 lit@0xF48) func@0xCC2 -----
+  0x00CC2: 70b5         push     {r4, r5, r6, lr}
+  0x00CC4: 04f04bfe     bl       #0x595e
+  0x00CC8: 01f0a4fb     bl       #0x2414
+  0x00CCC: 01f034fa     bl       #0x2138
+  0x00CD0: fff7ecfa     bl       #0x2ac
+  0x00CD4: fff7b6fb     bl       #0x444
+  0x00CD8: 9748         ldr      r0, [pc, #0x25c]  ; =0x20000000 <SRAM>
+  0x00CDA: 0068         ldr      r0, [r0]
+  0x00CDC: c002         lsls     r0, r0, #0xb
+  0x00CDE: c00f         lsrs     r0, r0, #0x1f
+  0x00CE0: 0028         cmp      r0, #0
+  0x00CE2: 44d0         beq      #0xd6e
+  0x00CE4: 9848         ldr      r0, [pc, #0x260]  ; =0x40010000 <PERIPH>
+  0x00CE6: 0068         ldr      r0, [r0]
+  0x00CE8: 4008         lsrs     r0, r0, #1
+  0x00CEA: 4000         lsls     r0, r0, #1
+  0x00CEC: 9749         ldr      r1, [pc, #0x25c]  ; =0x5AFA0000
+  0x00CEE: 0843         orrs     r0, r1
+  0x00CF0: 9549         ldr      r1, [pc, #0x254]  ; =0x40010000 <PERIPH>
+  0x00CF2: 0860         str      r0, [r1]
+  0x00CF4: 03f00afc     bl       #0x450c
+  0x00CF8: 01f08cfb     bl       #0x2414
+  0x00CFC: 7e21         movs     r1, #0x7e
+  0x00CFE: 9448         ldr      r0, [pc, #0x250]  ; =0x20000444 <SRAM>
+  0x00D00: fff7c2fa     bl       #0x288
+  0x00D04: 7e21         movs     r1, #0x7e
+  0x00D06: 9348         ldr      r0, [pc, #0x24c]  ; =0x200004C2 <SRAM>
+  0x00D08: fff7befa     bl       #0x288
+  0x00D0C: 7e21         movs     r1, #0x7e
+  0x00D0E: 9248         ldr      r0, [pc, #0x248]  ; =0x20000540 <SRAM>
+  0x00D10: fff7bafa     bl       #0x288
+  0x00D14: 7e21         movs     r1, #0x7e
+  0x00D16: 9148         ldr      r0, [pc, #0x244]  ; =0x200002CA <SRAM>
+  0x00D18: fff7b6fa     bl       #0x288
+  0x00D1C: 7e21         movs     r1, #0x7e
+  0x00D1E: 9048         ldr      r0, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x00D20: fff7b2fa     bl       #0x288
+  0x00D24: 7e21         movs     r1, #0x7e
+  0x00D26: 8f48         ldr      r0, [pc, #0x23c]  ; =0x200003C6 <SRAM>
+  0x00D28: fff7aefa     bl       #0x288
+  0x00D2C: 08f061fa     bl       #0x91f2
+  0x00D30: 03f0b4f9     bl       #0x409c
+  0x00D34: 07f084fb     bl       #0x8440
+  0x00D38: 08f03efe     bl       #0x99b8
+  0x00D3C: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x00D3E: 0068         ldr      r0, [r0]
+  0x00D40: 0121         movs     r1, #1
+  0x00D42: 0905         lsls     r1, r1, #0x14
+  0x00D44: 8843         bics     r0, r1
+  0x00D46: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x00D48: 0860         str      r0, [r1]
+  0x00D4A: 0846         mov      r0, r1
+  0x00D4C: 0068         ldr      r0, [r0]
+  0x00D4E: 0121         movs     r1, #1
+  0x00D50: c905         lsls     r1, r1, #0x17
+  0x00D52: 8843         bics     r0, r1
+  0x00D54: 4018         adds     r0, r0, r1
+  0x00D56: 7849         ldr      r1, [pc, #0x1e0]  ; =0x20000000 <SRAM>
+  0x00D58: 0860         str      r0, [r1]
+  0x00D5A: 3d20         movs     r0, #0x3d
+  0x00D5C: 0bf019fc     bl       #0xc592
+  0x00D60: 7948         ldr      r0, [pc, #0x1e4]  ; =0x40010000 <PERIPH>
+  0x00D62: 0068         ldr      r0, [r0]
+  0x00D64: 7949         ldr      r1, [pc, #0x1e4]  ; =0x5AFA0000
+  0x00D66: 491c         adds     r1, r1, #1
+  0x00D68: 0843         orrs     r0, r1
+  0x00D6A: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40010000 <PERIPH>
+  0x00D6C: 0860         str      r0, [r1]
+  0x00D6E: 7248         ldr      r0, [pc, #0x1c8]  ; =0x20000000 <SRAM>
+  0x00D70: 0068         ldr      r0, [r0]
+  0x00D72: 8002         lsls     r0, r0, #0xa
+  0x00D74: c00f         lsrs     r0, r0, #0x1f
+  0x00D76: 0028         cmp      r0, #0
+  0x00D78: 4fd0         beq      #0xe1a
+  0x00D7A: 7348         ldr      r0, [pc, #0x1cc]  ; =0x40010000 <PERIPH>
+  0x00D7C: 0068         ldr      r0, [r0]
+  0x00D7E: 4008         lsrs     r0, r0, #1
+  0x00D80: 4000         lsls     r0, r0, #1
+
+----- UART0-xref (ldr@0xE0C lit@0xF48) func@0xCC2 -----
+  0x00CC2: 70b5         push     {r4, r5, r6, lr}
+  0x00CC4: 04f04bfe     bl       #0x595e
+  0x00CC8: 01f0a4fb     bl       #0x2414
+  0x00CCC: 01f034fa     bl       #0x2138
+  0x00CD0: fff7ecfa     bl       #0x2ac
+  0x00CD4: fff7b6fb     bl       #0x444
+  0x00CD8: 9748         ldr      r0, [pc, #0x25c]  ; =0x20000000 <SRAM>
+  0x00CDA: 0068         ldr      r0, [r0]
+  0x00CDC: c002         lsls     r0, r0, #0xb
+  0x00CDE: c00f         lsrs     r0, r0, #0x1f
+  0x00CE0: 0028         cmp      r0, #0
+  0x00CE2: 44d0         beq      #0xd6e
+  0x00CE4: 9848         ldr      r0, [pc, #0x260]  ; =0x40010000 <PERIPH>
+  0x00CE6: 0068         ldr      r0, [r0]
+  0x00CE8: 4008         lsrs     r0, r0, #1
+  0x00CEA: 4000         lsls     r0, r0, #1
+  0x00CEC: 9749         ldr      r1, [pc, #0x25c]  ; =0x5AFA0000
+  0x00CEE: 0843         orrs     r0, r1
+  0x00CF0: 9549         ldr      r1, [pc, #0x254]  ; =0x40010000 <PERIPH>
+  0x00CF2: 0860         str      r0, [r1]
+  0x00CF4: 03f00afc     bl       #0x450c
+  0x00CF8: 01f08cfb     bl       #0x2414
+  0x00CFC: 7e21         movs     r1, #0x7e
+  0x00CFE: 9448         ldr      r0, [pc, #0x250]  ; =0x20000444 <SRAM>
+  0x00D00: fff7c2fa     bl       #0x288
+  0x00D04: 7e21         movs     r1, #0x7e
+  0x00D06: 9348         ldr      r0, [pc, #0x24c]  ; =0x200004C2 <SRAM>
+  0x00D08: fff7befa     bl       #0x288
+  0x00D0C: 7e21         movs     r1, #0x7e
+  0x00D0E: 9248         ldr      r0, [pc, #0x248]  ; =0x20000540 <SRAM>
+  0x00D10: fff7bafa     bl       #0x288
+  0x00D14: 7e21         movs     r1, #0x7e
+  0x00D16: 9148         ldr      r0, [pc, #0x244]  ; =0x200002CA <SRAM>
+  0x00D18: fff7b6fa     bl       #0x288
+  0x00D1C: 7e21         movs     r1, #0x7e
+  0x00D1E: 9048         ldr      r0, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x00D20: fff7b2fa     bl       #0x288
+  0x00D24: 7e21         movs     r1, #0x7e
+  0x00D26: 8f48         ldr      r0, [pc, #0x23c]  ; =0x200003C6 <SRAM>
+  0x00D28: fff7aefa     bl       #0x288
+  0x00D2C: 08f061fa     bl       #0x91f2
+  0x00D30: 03f0b4f9     bl       #0x409c
+  0x00D34: 07f084fb     bl       #0x8440
+  0x00D38: 08f03efe     bl       #0x99b8
+  0x00D3C: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x00D3E: 0068         ldr      r0, [r0]
+  0x00D40: 0121         movs     r1, #1
+  0x00D42: 0905         lsls     r1, r1, #0x14
+  0x00D44: 8843         bics     r0, r1
+  0x00D46: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x00D48: 0860         str      r0, [r1]
+  0x00D4A: 0846         mov      r0, r1
+  0x00D4C: 0068         ldr      r0, [r0]
+  0x00D4E: 0121         movs     r1, #1
+  0x00D50: c905         lsls     r1, r1, #0x17
+  0x00D52: 8843         bics     r0, r1
+  0x00D54: 4018         adds     r0, r0, r1
+  0x00D56: 7849         ldr      r1, [pc, #0x1e0]  ; =0x20000000 <SRAM>
+  0x00D58: 0860         str      r0, [r1]
+  0x00D5A: 3d20         movs     r0, #0x3d
+  0x00D5C: 0bf019fc     bl       #0xc592
+  0x00D60: 7948         ldr      r0, [pc, #0x1e4]  ; =0x40010000 <PERIPH>
+  0x00D62: 0068         ldr      r0, [r0]
+  0x00D64: 7949         ldr      r1, [pc, #0x1e4]  ; =0x5AFA0000
+  0x00D66: 491c         adds     r1, r1, #1
+  0x00D68: 0843         orrs     r0, r1
+  0x00D6A: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40010000 <PERIPH>
+  0x00D6C: 0860         str      r0, [r1]
+  0x00D6E: 7248         ldr      r0, [pc, #0x1c8]  ; =0x20000000 <SRAM>
+  0x00D70: 0068         ldr      r0, [r0]
+  0x00D72: 8002         lsls     r0, r0, #0xa
+  0x00D74: c00f         lsrs     r0, r0, #0x1f
+  0x00D76: 0028         cmp      r0, #0
+  0x00D78: 4fd0         beq      #0xe1a
+  0x00D7A: 7348         ldr      r0, [pc, #0x1cc]  ; =0x40010000 <PERIPH>
+  0x00D7C: 0068         ldr      r0, [r0]
+  0x00D7E: 4008         lsrs     r0, r0, #1
+  0x00D80: 4000         lsls     r0, r0, #1
+
+----- UART0-xref (ldr@0xE16 lit@0xF48) func@0xCC2 -----
+  0x00CC2: 70b5         push     {r4, r5, r6, lr}
+  0x00CC4: 04f04bfe     bl       #0x595e
+  0x00CC8: 01f0a4fb     bl       #0x2414
+  0x00CCC: 01f034fa     bl       #0x2138
+  0x00CD0: fff7ecfa     bl       #0x2ac
+  0x00CD4: fff7b6fb     bl       #0x444
+  0x00CD8: 9748         ldr      r0, [pc, #0x25c]  ; =0x20000000 <SRAM>
+  0x00CDA: 0068         ldr      r0, [r0]
+  0x00CDC: c002         lsls     r0, r0, #0xb
+  0x00CDE: c00f         lsrs     r0, r0, #0x1f
+  0x00CE0: 0028         cmp      r0, #0
+  0x00CE2: 44d0         beq      #0xd6e
+  0x00CE4: 9848         ldr      r0, [pc, #0x260]  ; =0x40010000 <PERIPH>
+  0x00CE6: 0068         ldr      r0, [r0]
+  0x00CE8: 4008         lsrs     r0, r0, #1
+  0x00CEA: 4000         lsls     r0, r0, #1
+  0x00CEC: 9749         ldr      r1, [pc, #0x25c]  ; =0x5AFA0000
+  0x00CEE: 0843         orrs     r0, r1
+  0x00CF0: 9549         ldr      r1, [pc, #0x254]  ; =0x40010000 <PERIPH>
+  0x00CF2: 0860         str      r0, [r1]
+  0x00CF4: 03f00afc     bl       #0x450c
+  0x00CF8: 01f08cfb     bl       #0x2414
+  0x00CFC: 7e21         movs     r1, #0x7e
+  0x00CFE: 9448         ldr      r0, [pc, #0x250]  ; =0x20000444 <SRAM>
+  0x00D00: fff7c2fa     bl       #0x288
+  0x00D04: 7e21         movs     r1, #0x7e
+  0x00D06: 9348         ldr      r0, [pc, #0x24c]  ; =0x200004C2 <SRAM>
+  0x00D08: fff7befa     bl       #0x288
+  0x00D0C: 7e21         movs     r1, #0x7e
+  0x00D0E: 9248         ldr      r0, [pc, #0x248]  ; =0x20000540 <SRAM>
+  0x00D10: fff7bafa     bl       #0x288
+  0x00D14: 7e21         movs     r1, #0x7e
+  0x00D16: 9148         ldr      r0, [pc, #0x244]  ; =0x200002CA <SRAM>
+  0x00D18: fff7b6fa     bl       #0x288
+  0x00D1C: 7e21         movs     r1, #0x7e
+  0x00D1E: 9048         ldr      r0, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x00D20: fff7b2fa     bl       #0x288
+  0x00D24: 7e21         movs     r1, #0x7e
+  0x00D26: 8f48         ldr      r0, [pc, #0x23c]  ; =0x200003C6 <SRAM>
+  0x00D28: fff7aefa     bl       #0x288
+  0x00D2C: 08f061fa     bl       #0x91f2
+  0x00D30: 03f0b4f9     bl       #0x409c
+  0x00D34: 07f084fb     bl       #0x8440
+  0x00D38: 08f03efe     bl       #0x99b8
+  0x00D3C: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x00D3E: 0068         ldr      r0, [r0]
+  0x00D40: 0121         movs     r1, #1
+  0x00D42: 0905         lsls     r1, r1, #0x14
+  0x00D44: 8843         bics     r0, r1
+  0x00D46: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x00D48: 0860         str      r0, [r1]
+  0x00D4A: 0846         mov      r0, r1
+  0x00D4C: 0068         ldr      r0, [r0]
+  0x00D4E: 0121         movs     r1, #1
+  0x00D50: c905         lsls     r1, r1, #0x17
+  0x00D52: 8843         bics     r0, r1
+  0x00D54: 4018         adds     r0, r0, r1
+  0x00D56: 7849         ldr      r1, [pc, #0x1e0]  ; =0x20000000 <SRAM>
+  0x00D58: 0860         str      r0, [r1]
+  0x00D5A: 3d20         movs     r0, #0x3d
+  0x00D5C: 0bf019fc     bl       #0xc592
+  0x00D60: 7948         ldr      r0, [pc, #0x1e4]  ; =0x40010000 <PERIPH>
+  0x00D62: 0068         ldr      r0, [r0]
+  0x00D64: 7949         ldr      r1, [pc, #0x1e4]  ; =0x5AFA0000
+  0x00D66: 491c         adds     r1, r1, #1
+  0x00D68: 0843         orrs     r0, r1
+  0x00D6A: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40010000 <PERIPH>
+  0x00D6C: 0860         str      r0, [r1]
+  0x00D6E: 7248         ldr      r0, [pc, #0x1c8]  ; =0x20000000 <SRAM>
+  0x00D70: 0068         ldr      r0, [r0]
+  0x00D72: 8002         lsls     r0, r0, #0xa
+  0x00D74: c00f         lsrs     r0, r0, #0x1f
+  0x00D76: 0028         cmp      r0, #0
+  0x00D78: 4fd0         beq      #0xe1a
+  0x00D7A: 7348         ldr      r0, [pc, #0x1cc]  ; =0x40010000 <PERIPH>
+  0x00D7C: 0068         ldr      r0, [r0]
+  0x00D7E: 4008         lsrs     r0, r0, #1
+  0x00D80: 4000         lsls     r0, r0, #1
+
+----- UART0-xref (ldr@0x13DE lit@0x1690) func@0x133C -----
+  0x0133C: 70b5         push     {r4, r5, r6, lr}
+  0x0133E: 0025         movs     r5, #0
+  0x01340: 1c48         ldr      r0, [pc, #0x70]  ; =0x20000B84 <SRAM>
+  0x01342: 0069         ldr      r0, [r0, #0x10]
+  0x01344: 0221         movs     r1, #2
+  0x01346: 8843         bics     r0, r1
+  0x01348: 1a49         ldr      r1, [pc, #0x68]  ; =0x20000B84 <SRAM>
+  0x0134A: 0861         str      r0, [r1, #0x10]
+  0x0134C: 0848         ldr      r0, [pc, #0x20]  ; =0x4005C048 <PERIPH>
+  0x0134E: 4838         subs     r0, #0x48
+  0x01350: 4068         ldr      r0, [r0, #4]
+  0x01352: 0121         movs     r1, #1
+  0x01354: 8907         lsls     r1, r1, #0x1e
+  0x01356: 0840         ands     r0, r1
+  0x01358: 0028         cmp      r0, #0
+  0x0135A: 00d1         bne      #0x135e
+  0x0135C: 70bd         pop      {r4, r5, r6, pc}
+
+----- UART0-xref (ldr@0x13EA lit@0x1690) func@0x133C -----
+  0x0133C: 70b5         push     {r4, r5, r6, lr}
+  0x0133E: 0025         movs     r5, #0
+  0x01340: 1c48         ldr      r0, [pc, #0x70]  ; =0x20000B84 <SRAM>
+  0x01342: 0069         ldr      r0, [r0, #0x10]
+  0x01344: 0221         movs     r1, #2
+  0x01346: 8843         bics     r0, r1
+  0x01348: 1a49         ldr      r1, [pc, #0x68]  ; =0x20000B84 <SRAM>
+  0x0134A: 0861         str      r0, [r1, #0x10]
+  0x0134C: 0848         ldr      r0, [pc, #0x20]  ; =0x4005C048 <PERIPH>
+  0x0134E: 4838         subs     r0, #0x48
+  0x01350: 4068         ldr      r0, [r0, #4]
+  0x01352: 0121         movs     r1, #1
+  0x01354: 8907         lsls     r1, r1, #0x1e
+  0x01356: 0840         ands     r0, r1
+  0x01358: 0028         cmp      r0, #0
+  0x0135A: 00d1         bne      #0x135e
+  0x0135C: 70bd         pop      {r4, r5, r6, pc}
+
+----- UART0-xref (ldr@0x147C lit@0x1690) func@0x133C -----
+  0x0133C: 70b5         push     {r4, r5, r6, lr}
+  0x0133E: 0025         movs     r5, #0
+  0x01340: 1c48         ldr      r0, [pc, #0x70]  ; =0x20000B84 <SRAM>
+  0x01342: 0069         ldr      r0, [r0, #0x10]
+  0x01344: 0221         movs     r1, #2
+  0x01346: 8843         bics     r0, r1
+  0x01348: 1a49         ldr      r1, [pc, #0x68]  ; =0x20000B84 <SRAM>
+  0x0134A: 0861         str      r0, [r1, #0x10]
+  0x0134C: 0848         ldr      r0, [pc, #0x20]  ; =0x4005C048 <PERIPH>
+  0x0134E: 4838         subs     r0, #0x48
+  0x01350: 4068         ldr      r0, [r0, #4]
+  0x01352: 0121         movs     r1, #1
+  0x01354: 8907         lsls     r1, r1, #0x1e
+  0x01356: 0840         ands     r0, r1
+  0x01358: 0028         cmp      r0, #0
+  0x0135A: 00d1         bne      #0x135e
+  0x0135C: 70bd         pop      {r4, r5, r6, pc}
+
+----- UART0-xref (ldr@0x1486 lit@0x1690) func@0x133C -----
+  0x0133C: 70b5         push     {r4, r5, r6, lr}
+  0x0133E: 0025         movs     r5, #0
+  0x01340: 1c48         ldr      r0, [pc, #0x70]  ; =0x20000B84 <SRAM>
+  0x01342: 0069         ldr      r0, [r0, #0x10]
+  0x01344: 0221         movs     r1, #2
+  0x01346: 8843         bics     r0, r1
+  0x01348: 1a49         ldr      r1, [pc, #0x68]  ; =0x20000B84 <SRAM>
+  0x0134A: 0861         str      r0, [r1, #0x10]
+  0x0134C: 0848         ldr      r0, [pc, #0x20]  ; =0x4005C048 <PERIPH>
+  0x0134E: 4838         subs     r0, #0x48
+  0x01350: 4068         ldr      r0, [r0, #4]
+  0x01352: 0121         movs     r1, #1
+  0x01354: 8907         lsls     r1, r1, #0x1e
+  0x01356: 0840         ands     r0, r1
+  0x01358: 0028         cmp      r0, #0
+  0x0135A: 00d1         bne      #0x135e
+  0x0135C: 70bd         pop      {r4, r5, r6, pc}
+
+----- UART0-xref (ldr@0x14AE lit@0x1690) func@0x133C -----
+  0x0133C: 70b5         push     {r4, r5, r6, lr}
+  0x0133E: 0025         movs     r5, #0
+  0x01340: 1c48         ldr      r0, [pc, #0x70]  ; =0x20000B84 <SRAM>
+  0x01342: 0069         ldr      r0, [r0, #0x10]
+  0x01344: 0221         movs     r1, #2
+  0x01346: 8843         bics     r0, r1
+  0x01348: 1a49         ldr      r1, [pc, #0x68]  ; =0x20000B84 <SRAM>
+  0x0134A: 0861         str      r0, [r1, #0x10]
+  0x0134C: 0848         ldr      r0, [pc, #0x20]  ; =0x4005C048 <PERIPH>
+  0x0134E: 4838         subs     r0, #0x48
+  0x01350: 4068         ldr      r0, [r0, #4]
+  0x01352: 0121         movs     r1, #1
+  0x01354: 8907         lsls     r1, r1, #0x1e
+  0x01356: 0840         ands     r0, r1
+  0x01358: 0028         cmp      r0, #0
+  0x0135A: 00d1         bne      #0x135e
+  0x0135C: 70bd         pop      {r4, r5, r6, pc}
+
+----- UART0-xref (ldr@0x14B8 lit@0x1690) func@0x133C -----
+  0x0133C: 70b5         push     {r4, r5, r6, lr}
+  0x0133E: 0025         movs     r5, #0
+  0x01340: 1c48         ldr      r0, [pc, #0x70]  ; =0x20000B84 <SRAM>
+  0x01342: 0069         ldr      r0, [r0, #0x10]
+  0x01344: 0221         movs     r1, #2
+  0x01346: 8843         bics     r0, r1
+  0x01348: 1a49         ldr      r1, [pc, #0x68]  ; =0x20000B84 <SRAM>
+  0x0134A: 0861         str      r0, [r1, #0x10]
+  0x0134C: 0848         ldr      r0, [pc, #0x20]  ; =0x4005C048 <PERIPH>
+  0x0134E: 4838         subs     r0, #0x48
+  0x01350: 4068         ldr      r0, [r0, #4]
+  0x01352: 0121         movs     r1, #1
+  0x01354: 8907         lsls     r1, r1, #0x1e
+  0x01356: 0840         ands     r0, r1
+  0x01358: 0028         cmp      r0, #0
+  0x0135A: 00d1         bne      #0x135e
+  0x0135C: 70bd         pop      {r4, r5, r6, pc}
+
+----- UART0-xref (ldr@0x286C lit@0x290C) func@0x2762 -----
+  0x02762: 10b5         push     {r4, lr}
+  0x02764: 6748         ldr      r0, [pc, #0x19c]  ; =0x4004A000 <PERIPH>
+  0x02766: 4068         ldr      r0, [r0, #4]
+  0x02768: f821         movs     r1, #0xf8
+  0x0276A: 8843         bics     r0, r1
+  0x0276C: 6549         ldr      r1, [pc, #0x194]  ; =0x4004A000 <PERIPH>
+  0x0276E: 4860         str      r0, [r1, #4]
+  0x02770: 0846         mov      r0, r1
+  0x02772: 8068         ldr      r0, [r0, #8]
+  0x02774: 0321         movs     r1, #3
+  0x02776: 0904         lsls     r1, r1, #0x10
+  0x02778: 8843         bics     r0, r1
+  0x0277A: 0121         movs     r1, #1
+  0x0277C: 4904         lsls     r1, r1, #0x11
+  0x0277E: 4018         adds     r0, r0, r1
+  0x02780: 6049         ldr      r1, [pc, #0x180]  ; =0x4004A000 <PERIPH>
+  0x02782: 8860         str      r0, [r1, #8]
+  0x02784: 0846         mov      r0, r1
+  0x02786: 8068         ldr      r0, [r0, #8]
+  0x02788: 0321         movs     r1, #3
+  0x0278A: 8903         lsls     r1, r1, #0xe
+  0x0278C: 8843         bics     r0, r1
+  0x0278E: 0121         movs     r1, #1
+  0x02790: c903         lsls     r1, r1, #0xf
+  0x02792: 4018         adds     r0, r0, r1
+  0x02794: 5b49         ldr      r1, [pc, #0x16c]  ; =0x4004A000 <PERIPH>
+  0x02796: 8860         str      r0, [r1, #8]
+  0x02798: 0846         mov      r0, r1
+  0x0279A: 8068         ldr      r0, [r0, #8]
+  0x0279C: 0321         movs     r1, #3
+  0x0279E: 0903         lsls     r1, r1, #0xc
+  0x027A0: 8843         bics     r0, r1
+  0x027A2: 0121         movs     r1, #1
+  0x027A4: 4903         lsls     r1, r1, #0xd
+  0x027A6: 4018         adds     r0, r0, r1
+  0x027A8: 5649         ldr      r1, [pc, #0x158]  ; =0x4004A000 <PERIPH>
+  0x027AA: 8860         str      r0, [r1, #8]
+  0x027AC: 0846         mov      r0, r1
+  0x027AE: 8068         ldr      r0, [r0, #8]
+  0x027B0: 0321         movs     r1, #3
+  0x027B2: 8902         lsls     r1, r1, #0xa
+  0x027B4: 8843         bics     r0, r1
+  0x027B6: 0121         movs     r1, #1
+  0x027B8: c902         lsls     r1, r1, #0xb
+  0x027BA: 4018         adds     r0, r0, r1
+  0x027BC: 5149         ldr      r1, [pc, #0x144]  ; =0x4004A000 <PERIPH>
+  0x027BE: 8860         str      r0, [r1, #8]
+  0x027C0: 0846         mov      r0, r1
+  0x027C2: 8068         ldr      r0, [r0, #8]
+  0x027C4: 0321         movs     r1, #3
+  0x027C6: 0902         lsls     r1, r1, #8
+  0x027C8: 8843         bics     r0, r1
+  0x027CA: ff30         adds     r0, #0xff
+  0x027CC: ff30         adds     r0, #0xff
+  0x027CE: 0230         adds     r0, #2
+  0x027D0: 4c49         ldr      r1, [pc, #0x130]  ; =0x4004A000 <PERIPH>
+  0x027D2: 8860         str      r0, [r1, #8]
+  0x027D4: 0846         mov      r0, r1
+  0x027D6: 8068         ldr      r0, [r0, #8]
+  0x027D8: c021         movs     r1, #0xc0
+  0x027DA: 8843         bics     r0, r1
+  0x027DC: 8030         adds     r0, #0x80
+  0x027DE: 4949         ldr      r1, [pc, #0x124]  ; =0x4004A000 <PERIPH>
+  0x027E0: 8860         str      r0, [r1, #8]
+  0x027E2: 4548         ldr      r0, [pc, #0x114]  ; =0x40044000 <PERIPH>
+  0x027E4: 4068         ldr      r0, [r0, #4]
+  0x027E6: ff21         movs     r1, #0xff
+  0x027E8: 0902         lsls     r1, r1, #8
+  0x027EA: 0843         orrs     r0, r1
+  0x027EC: 4249         ldr      r1, [pc, #0x108]  ; =0x40044000 <PERIPH>
+  0x027EE: 4860         str      r0, [r1, #4]
+  0x027F0: 4348         ldr      r0, [pc, #0x10c]  ; =0x40046000 <PERIPH>
+  0x027F2: 4068         ldr      r0, [r0, #4]
+  0x027F4: 4449         ldr      r1, [pc, #0x110]  ; =0x00001FFF
+  0x027F6: 0843         orrs     r0, r1
+  0x027F8: 4149         ldr      r1, [pc, #0x104]  ; =0x40046000 <PERIPH>
+  0x027FA: 4860         str      r0, [r1, #4]
+  0x027FC: 3e48         ldr      r0, [pc, #0xf8]  ; =0x40044000 <PERIPH>
+  0x027FE: 406a         ldr      r0, [r0, #0x24]
+  0x02800: ff21         movs     r1, #0xff
+  0x02802: 0902         lsls     r1, r1, #8
+  0x02804: 0843         orrs     r0, r1
+  0x02806: 3c49         ldr      r1, [pc, #0xf0]  ; =0x40044000 <PERIPH>
+  0x02808: 4862         str      r0, [r1, #0x24]
+  0x0280A: 3d48         ldr      r0, [pc, #0xf4]  ; =0x40046000 <PERIPH>
+  0x0280C: 406a         ldr      r0, [r0, #0x24]
+  0x0280E: 3e49         ldr      r1, [pc, #0xf8]  ; =0x00001FFF
+  0x02810: 0843         orrs     r0, r1
+  0x02812: 3b49         ldr      r1, [pc, #0xec]  ; =0x40046000 <PERIPH>
+  0x02814: 4862         str      r0, [r1, #0x24]
+  0x02816: 3b48         ldr      r0, [pc, #0xec]  ; =0x4004A000 <PERIPH>
+  0x02818: 0068         ldr      r0, [r0]
+  0x0281A: 0006         lsls     r0, r0, #0x18
+  0x0281C: c00f         lsrs     r0, r0, #0x1f
+  0x0281E: 0028         cmp      r0, #0
+  0x02820: 17d1         bne      #0x2852
+
+----- UART0-xref (ldr@0x2878 lit@0x290C) func@0x2762 -----
+  0x02762: 10b5         push     {r4, lr}
+  0x02764: 6748         ldr      r0, [pc, #0x19c]  ; =0x4004A000 <PERIPH>
+  0x02766: 4068         ldr      r0, [r0, #4]
+  0x02768: f821         movs     r1, #0xf8
+  0x0276A: 8843         bics     r0, r1
+  0x0276C: 6549         ldr      r1, [pc, #0x194]  ; =0x4004A000 <PERIPH>
+  0x0276E: 4860         str      r0, [r1, #4]
+  0x02770: 0846         mov      r0, r1
+  0x02772: 8068         ldr      r0, [r0, #8]
+  0x02774: 0321         movs     r1, #3
+  0x02776: 0904         lsls     r1, r1, #0x10
+  0x02778: 8843         bics     r0, r1
+  0x0277A: 0121         movs     r1, #1
+  0x0277C: 4904         lsls     r1, r1, #0x11
+  0x0277E: 4018         adds     r0, r0, r1
+  0x02780: 6049         ldr      r1, [pc, #0x180]  ; =0x4004A000 <PERIPH>
+  0x02782: 8860         str      r0, [r1, #8]
+  0x02784: 0846         mov      r0, r1
+  0x02786: 8068         ldr      r0, [r0, #8]
+  0x02788: 0321         movs     r1, #3
+  0x0278A: 8903         lsls     r1, r1, #0xe
+  0x0278C: 8843         bics     r0, r1
+  0x0278E: 0121         movs     r1, #1
+  0x02790: c903         lsls     r1, r1, #0xf
+  0x02792: 4018         adds     r0, r0, r1
+  0x02794: 5b49         ldr      r1, [pc, #0x16c]  ; =0x4004A000 <PERIPH>
+  0x02796: 8860         str      r0, [r1, #8]
+  0x02798: 0846         mov      r0, r1
+  0x0279A: 8068         ldr      r0, [r0, #8]
+  0x0279C: 0321         movs     r1, #3
+  0x0279E: 0903         lsls     r1, r1, #0xc
+  0x027A0: 8843         bics     r0, r1
+  0x027A2: 0121         movs     r1, #1
+  0x027A4: 4903         lsls     r1, r1, #0xd
+  0x027A6: 4018         adds     r0, r0, r1
+  0x027A8: 5649         ldr      r1, [pc, #0x158]  ; =0x4004A000 <PERIPH>
+  0x027AA: 8860         str      r0, [r1, #8]
+  0x027AC: 0846         mov      r0, r1
+  0x027AE: 8068         ldr      r0, [r0, #8]
+  0x027B0: 0321         movs     r1, #3
+  0x027B2: 8902         lsls     r1, r1, #0xa
+  0x027B4: 8843         bics     r0, r1
+  0x027B6: 0121         movs     r1, #1
+  0x027B8: c902         lsls     r1, r1, #0xb
+  0x027BA: 4018         adds     r0, r0, r1
+  0x027BC: 5149         ldr      r1, [pc, #0x144]  ; =0x4004A000 <PERIPH>
+  0x027BE: 8860         str      r0, [r1, #8]
+  0x027C0: 0846         mov      r0, r1
+  0x027C2: 8068         ldr      r0, [r0, #8]
+  0x027C4: 0321         movs     r1, #3
+  0x027C6: 0902         lsls     r1, r1, #8
+  0x027C8: 8843         bics     r0, r1
+  0x027CA: ff30         adds     r0, #0xff
+  0x027CC: ff30         adds     r0, #0xff
+  0x027CE: 0230         adds     r0, #2
+  0x027D0: 4c49         ldr      r1, [pc, #0x130]  ; =0x4004A000 <PERIPH>
+  0x027D2: 8860         str      r0, [r1, #8]
+  0x027D4: 0846         mov      r0, r1
+  0x027D6: 8068         ldr      r0, [r0, #8]
+  0x027D8: c021         movs     r1, #0xc0
+  0x027DA: 8843         bics     r0, r1
+  0x027DC: 8030         adds     r0, #0x80
+  0x027DE: 4949         ldr      r1, [pc, #0x124]  ; =0x4004A000 <PERIPH>
+  0x027E0: 8860         str      r0, [r1, #8]
+  0x027E2: 4548         ldr      r0, [pc, #0x114]  ; =0x40044000 <PERIPH>
+  0x027E4: 4068         ldr      r0, [r0, #4]
+  0x027E6: ff21         movs     r1, #0xff
+  0x027E8: 0902         lsls     r1, r1, #8
+  0x027EA: 0843         orrs     r0, r1
+  0x027EC: 4249         ldr      r1, [pc, #0x108]  ; =0x40044000 <PERIPH>
+  0x027EE: 4860         str      r0, [r1, #4]
+  0x027F0: 4348         ldr      r0, [pc, #0x10c]  ; =0x40046000 <PERIPH>
+  0x027F2: 4068         ldr      r0, [r0, #4]
+  0x027F4: 4449         ldr      r1, [pc, #0x110]  ; =0x00001FFF
+  0x027F6: 0843         orrs     r0, r1
+  0x027F8: 4149         ldr      r1, [pc, #0x104]  ; =0x40046000 <PERIPH>
+  0x027FA: 4860         str      r0, [r1, #4]
+  0x027FC: 3e48         ldr      r0, [pc, #0xf8]  ; =0x40044000 <PERIPH>
+  0x027FE: 406a         ldr      r0, [r0, #0x24]
+  0x02800: ff21         movs     r1, #0xff
+  0x02802: 0902         lsls     r1, r1, #8
+  0x02804: 0843         orrs     r0, r1
+  0x02806: 3c49         ldr      r1, [pc, #0xf0]  ; =0x40044000 <PERIPH>
+  0x02808: 4862         str      r0, [r1, #0x24]
+  0x0280A: 3d48         ldr      r0, [pc, #0xf4]  ; =0x40046000 <PERIPH>
+  0x0280C: 406a         ldr      r0, [r0, #0x24]
+  0x0280E: 3e49         ldr      r1, [pc, #0xf8]  ; =0x00001FFF
+  0x02810: 0843         orrs     r0, r1
+  0x02812: 3b49         ldr      r1, [pc, #0xec]  ; =0x40046000 <PERIPH>
+  0x02814: 4862         str      r0, [r1, #0x24]
+  0x02816: 3b48         ldr      r0, [pc, #0xec]  ; =0x4004A000 <PERIPH>
+  0x02818: 0068         ldr      r0, [r0]
+  0x0281A: 0006         lsls     r0, r0, #0x18
+  0x0281C: c00f         lsrs     r0, r0, #0x1f
+  0x0281E: 0028         cmp      r0, #0
+  0x02820: 17d1         bne      #0x2852
+
+----- UART0-xref (ldr@0x293C lit@0x2A40) func@0x2762 -----
+  0x02762: 10b5         push     {r4, lr}
+  0x02764: 6748         ldr      r0, [pc, #0x19c]  ; =0x4004A000 <PERIPH>
+  0x02766: 4068         ldr      r0, [r0, #4]
+  0x02768: f821         movs     r1, #0xf8
+  0x0276A: 8843         bics     r0, r1
+  0x0276C: 6549         ldr      r1, [pc, #0x194]  ; =0x4004A000 <PERIPH>
+  0x0276E: 4860         str      r0, [r1, #4]
+  0x02770: 0846         mov      r0, r1
+  0x02772: 8068         ldr      r0, [r0, #8]
+  0x02774: 0321         movs     r1, #3
+  0x02776: 0904         lsls     r1, r1, #0x10
+  0x02778: 8843         bics     r0, r1
+  0x0277A: 0121         movs     r1, #1
+  0x0277C: 4904         lsls     r1, r1, #0x11
+  0x0277E: 4018         adds     r0, r0, r1
+  0x02780: 6049         ldr      r1, [pc, #0x180]  ; =0x4004A000 <PERIPH>
+  0x02782: 8860         str      r0, [r1, #8]
+  0x02784: 0846         mov      r0, r1
+  0x02786: 8068         ldr      r0, [r0, #8]
+  0x02788: 0321         movs     r1, #3
+  0x0278A: 8903         lsls     r1, r1, #0xe
+  0x0278C: 8843         bics     r0, r1
+  0x0278E: 0121         movs     r1, #1
+  0x02790: c903         lsls     r1, r1, #0xf
+  0x02792: 4018         adds     r0, r0, r1
+  0x02794: 5b49         ldr      r1, [pc, #0x16c]  ; =0x4004A000 <PERIPH>
+  0x02796: 8860         str      r0, [r1, #8]
+  0x02798: 0846         mov      r0, r1
+  0x0279A: 8068         ldr      r0, [r0, #8]
+  0x0279C: 0321         movs     r1, #3
+  0x0279E: 0903         lsls     r1, r1, #0xc
+  0x027A0: 8843         bics     r0, r1
+  0x027A2: 0121         movs     r1, #1
+  0x027A4: 4903         lsls     r1, r1, #0xd
+  0x027A6: 4018         adds     r0, r0, r1
+  0x027A8: 5649         ldr      r1, [pc, #0x158]  ; =0x4004A000 <PERIPH>
+  0x027AA: 8860         str      r0, [r1, #8]
+  0x027AC: 0846         mov      r0, r1
+  0x027AE: 8068         ldr      r0, [r0, #8]
+  0x027B0: 0321         movs     r1, #3
+  0x027B2: 8902         lsls     r1, r1, #0xa
+  0x027B4: 8843         bics     r0, r1
+  0x027B6: 0121         movs     r1, #1
+  0x027B8: c902         lsls     r1, r1, #0xb
+  0x027BA: 4018         adds     r0, r0, r1
+  0x027BC: 5149         ldr      r1, [pc, #0x144]  ; =0x4004A000 <PERIPH>
+  0x027BE: 8860         str      r0, [r1, #8]
+  0x027C0: 0846         mov      r0, r1
+  0x027C2: 8068         ldr      r0, [r0, #8]
+  0x027C4: 0321         movs     r1, #3
+  0x027C6: 0902         lsls     r1, r1, #8
+  0x027C8: 8843         bics     r0, r1
+  0x027CA: ff30         adds     r0, #0xff
+  0x027CC: ff30         adds     r0, #0xff
+  0x027CE: 0230         adds     r0, #2
+  0x027D0: 4c49         ldr      r1, [pc, #0x130]  ; =0x4004A000 <PERIPH>
+  0x027D2: 8860         str      r0, [r1, #8]
+  0x027D4: 0846         mov      r0, r1
+  0x027D6: 8068         ldr      r0, [r0, #8]
+  0x027D8: c021         movs     r1, #0xc0
+  0x027DA: 8843         bics     r0, r1
+  0x027DC: 8030         adds     r0, #0x80
+  0x027DE: 4949         ldr      r1, [pc, #0x124]  ; =0x4004A000 <PERIPH>
+  0x027E0: 8860         str      r0, [r1, #8]
+  0x027E2: 4548         ldr      r0, [pc, #0x114]  ; =0x40044000 <PERIPH>
+  0x027E4: 4068         ldr      r0, [r0, #4]
+  0x027E6: ff21         movs     r1, #0xff
+  0x027E8: 0902         lsls     r1, r1, #8
+  0x027EA: 0843         orrs     r0, r1
+  0x027EC: 4249         ldr      r1, [pc, #0x108]  ; =0x40044000 <PERIPH>
+  0x027EE: 4860         str      r0, [r1, #4]
+  0x027F0: 4348         ldr      r0, [pc, #0x10c]  ; =0x40046000 <PERIPH>
+  0x027F2: 4068         ldr      r0, [r0, #4]
+  0x027F4: 4449         ldr      r1, [pc, #0x110]  ; =0x00001FFF
+  0x027F6: 0843         orrs     r0, r1
+  0x027F8: 4149         ldr      r1, [pc, #0x104]  ; =0x40046000 <PERIPH>
+  0x027FA: 4860         str      r0, [r1, #4]
+  0x027FC: 3e48         ldr      r0, [pc, #0xf8]  ; =0x40044000 <PERIPH>
+  0x027FE: 406a         ldr      r0, [r0, #0x24]
+  0x02800: ff21         movs     r1, #0xff
+  0x02802: 0902         lsls     r1, r1, #8
+  0x02804: 0843         orrs     r0, r1
+  0x02806: 3c49         ldr      r1, [pc, #0xf0]  ; =0x40044000 <PERIPH>
+  0x02808: 4862         str      r0, [r1, #0x24]
+  0x0280A: 3d48         ldr      r0, [pc, #0xf4]  ; =0x40046000 <PERIPH>
+  0x0280C: 406a         ldr      r0, [r0, #0x24]
+  0x0280E: 3e49         ldr      r1, [pc, #0xf8]  ; =0x00001FFF
+  0x02810: 0843         orrs     r0, r1
+  0x02812: 3b49         ldr      r1, [pc, #0xec]  ; =0x40046000 <PERIPH>
+  0x02814: 4862         str      r0, [r1, #0x24]
+  0x02816: 3b48         ldr      r0, [pc, #0xec]  ; =0x4004A000 <PERIPH>
+  0x02818: 0068         ldr      r0, [r0]
+  0x0281A: 0006         lsls     r0, r0, #0x18
+  0x0281C: c00f         lsrs     r0, r0, #0x1f
+  0x0281E: 0028         cmp      r0, #0
+  0x02820: 17d1         bne      #0x2852
+
+----- UART0-xref (ldr@0x2944 lit@0x2A40) func@0x2762 -----
+  0x02762: 10b5         push     {r4, lr}
+  0x02764: 6748         ldr      r0, [pc, #0x19c]  ; =0x4004A000 <PERIPH>
+  0x02766: 4068         ldr      r0, [r0, #4]
+  0x02768: f821         movs     r1, #0xf8
+  0x0276A: 8843         bics     r0, r1
+  0x0276C: 6549         ldr      r1, [pc, #0x194]  ; =0x4004A000 <PERIPH>
+  0x0276E: 4860         str      r0, [r1, #4]
+  0x02770: 0846         mov      r0, r1
+  0x02772: 8068         ldr      r0, [r0, #8]
+  0x02774: 0321         movs     r1, #3
+  0x02776: 0904         lsls     r1, r1, #0x10
+  0x02778: 8843         bics     r0, r1
+  0x0277A: 0121         movs     r1, #1
+  0x0277C: 4904         lsls     r1, r1, #0x11
+  0x0277E: 4018         adds     r0, r0, r1
+  0x02780: 6049         ldr      r1, [pc, #0x180]  ; =0x4004A000 <PERIPH>
+  0x02782: 8860         str      r0, [r1, #8]
+  0x02784: 0846         mov      r0, r1
+  0x02786: 8068         ldr      r0, [r0, #8]
+  0x02788: 0321         movs     r1, #3
+  0x0278A: 8903         lsls     r1, r1, #0xe
+  0x0278C: 8843         bics     r0, r1
+  0x0278E: 0121         movs     r1, #1
+  0x02790: c903         lsls     r1, r1, #0xf
+  0x02792: 4018         adds     r0, r0, r1
+  0x02794: 5b49         ldr      r1, [pc, #0x16c]  ; =0x4004A000 <PERIPH>
+  0x02796: 8860         str      r0, [r1, #8]
+  0x02798: 0846         mov      r0, r1
+  0x0279A: 8068         ldr      r0, [r0, #8]
+  0x0279C: 0321         movs     r1, #3
+  0x0279E: 0903         lsls     r1, r1, #0xc
+  0x027A0: 8843         bics     r0, r1
+  0x027A2: 0121         movs     r1, #1
+  0x027A4: 4903         lsls     r1, r1, #0xd
+  0x027A6: 4018         adds     r0, r0, r1
+  0x027A8: 5649         ldr      r1, [pc, #0x158]  ; =0x4004A000 <PERIPH>
+  0x027AA: 8860         str      r0, [r1, #8]
+  0x027AC: 0846         mov      r0, r1
+  0x027AE: 8068         ldr      r0, [r0, #8]
+  0x027B0: 0321         movs     r1, #3
+  0x027B2: 8902         lsls     r1, r1, #0xa
+  0x027B4: 8843         bics     r0, r1
+  0x027B6: 0121         movs     r1, #1
+  0x027B8: c902         lsls     r1, r1, #0xb
+  0x027BA: 4018         adds     r0, r0, r1
+  0x027BC: 5149         ldr      r1, [pc, #0x144]  ; =0x4004A000 <PERIPH>
+  0x027BE: 8860         str      r0, [r1, #8]
+  0x027C0: 0846         mov      r0, r1
+  0x027C2: 8068         ldr      r0, [r0, #8]
+  0x027C4: 0321         movs     r1, #3
+  0x027C6: 0902         lsls     r1, r1, #8
+  0x027C8: 8843         bics     r0, r1
+  0x027CA: ff30         adds     r0, #0xff
+  0x027CC: ff30         adds     r0, #0xff
+  0x027CE: 0230         adds     r0, #2
+  0x027D0: 4c49         ldr      r1, [pc, #0x130]  ; =0x4004A000 <PERIPH>
+  0x027D2: 8860         str      r0, [r1, #8]
+  0x027D4: 0846         mov      r0, r1
+  0x027D6: 8068         ldr      r0, [r0, #8]
+  0x027D8: c021         movs     r1, #0xc0
+  0x027DA: 8843         bics     r0, r1
+  0x027DC: 8030         adds     r0, #0x80
+  0x027DE: 4949         ldr      r1, [pc, #0x124]  ; =0x4004A000 <PERIPH>
+  0x027E0: 8860         str      r0, [r1, #8]
+  0x027E2: 4548         ldr      r0, [pc, #0x114]  ; =0x40044000 <PERIPH>
+  0x027E4: 4068         ldr      r0, [r0, #4]
+  0x027E6: ff21         movs     r1, #0xff
+  0x027E8: 0902         lsls     r1, r1, #8
+  0x027EA: 0843         orrs     r0, r1
+  0x027EC: 4249         ldr      r1, [pc, #0x108]  ; =0x40044000 <PERIPH>
+  0x027EE: 4860         str      r0, [r1, #4]
+  0x027F0: 4348         ldr      r0, [pc, #0x10c]  ; =0x40046000 <PERIPH>
+  0x027F2: 4068         ldr      r0, [r0, #4]
+  0x027F4: 4449         ldr      r1, [pc, #0x110]  ; =0x00001FFF
+  0x027F6: 0843         orrs     r0, r1
+  0x027F8: 4149         ldr      r1, [pc, #0x104]  ; =0x40046000 <PERIPH>
+  0x027FA: 4860         str      r0, [r1, #4]
+  0x027FC: 3e48         ldr      r0, [pc, #0xf8]  ; =0x40044000 <PERIPH>
+  0x027FE: 406a         ldr      r0, [r0, #0x24]
+  0x02800: ff21         movs     r1, #0xff
+  0x02802: 0902         lsls     r1, r1, #8
+  0x02804: 0843         orrs     r0, r1
+  0x02806: 3c49         ldr      r1, [pc, #0xf0]  ; =0x40044000 <PERIPH>
+  0x02808: 4862         str      r0, [r1, #0x24]
+  0x0280A: 3d48         ldr      r0, [pc, #0xf4]  ; =0x40046000 <PERIPH>
+  0x0280C: 406a         ldr      r0, [r0, #0x24]
+  0x0280E: 3e49         ldr      r1, [pc, #0xf8]  ; =0x00001FFF
+  0x02810: 0843         orrs     r0, r1
+  0x02812: 3b49         ldr      r1, [pc, #0xec]  ; =0x40046000 <PERIPH>
+  0x02814: 4862         str      r0, [r1, #0x24]
+  0x02816: 3b48         ldr      r0, [pc, #0xec]  ; =0x4004A000 <PERIPH>
+  0x02818: 0068         ldr      r0, [r0]
+  0x0281A: 0006         lsls     r0, r0, #0x18
+  0x0281C: c00f         lsrs     r0, r0, #0x1f
+  0x0281E: 0028         cmp      r0, #0
+  0x02820: 17d1         bne      #0x2852
+
+----- UART0-xref (ldr@0xC55A lit@0xC66C) func@0xC55A -----
+  0x0C55A: 4449         ldr      r1, [pc, #0x110]  ; =0x40010000 <PERIPH>
+  0x0C55C: c860         str      r0, [r1, #0xc]
+  0x0C55E: 0846         mov      r0, r1
+  0x0C560: 0068         ldr      r0, [r0]
+  0x0C562: 0421         movs     r1, #4
+  0x0C564: 8843         bics     r0, r1
+  0x0C566: 4249         ldr      r1, [pc, #0x108]  ; =0x5AFA0000
+  0x0C568: 0843         orrs     r0, r1
+  0x0C56A: 4049         ldr      r1, [pc, #0x100]  ; =0x40010000 <PERIPH>
+  0x0C56C: 0860         str      r0, [r1]
+  0x0C56E: 7047         bx       lr
+
+----- UART0-xref (ldr@0xC56A lit@0xC66C) func@0xC56A -----
+  0x0C56A: 4049         ldr      r1, [pc, #0x100]  ; =0x40010000 <PERIPH>
+  0x0C56C: 0860         str      r0, [r1]
+  0x0C56E: 7047         bx       lr
+
+----- UART0-xref (ldr@0xC598 lit@0xC66C) func@0xC570 -----
+  0x0C570: 10b5         push     {r4, lr}
+  0x0C572: 1920         movs     r0, #0x19
+  0x0C574: 0121         movs     r1, #1
+  0x0C576: 8140         lsls     r1, r0
+  0x0C578: 3e4a         ldr      r2, [pc, #0xf8]  ; =0xE000E280
+  0x0C57A: 1160         str      r1, [r2]
+  0x0C57C: 00bf         nop      
+  0x0C57E: 00bf         nop      
+  0x0C580: 0121         movs     r1, #1
+  0x0C582: 8140         lsls     r1, r0
+  0x0C584: 3c4a         ldr      r2, [pc, #0xf0]  ; =0xE000E100
+  0x0C586: 1160         str      r1, [r2]
+  0x0C588: 00bf         nop      
+  0x0C58A: 0021         movs     r1, #0
+  0x0C58C: 00f033f8     bl       #0xc5f6
+  0x0C590: 10bd         pop      {r4, pc}
+
+----- UART0-xref (ldr@0xC59E lit@0xC66C) func@0xC570 -----
+  0x0C570: 10b5         push     {r4, lr}
+  0x0C572: 1920         movs     r0, #0x19
+  0x0C574: 0121         movs     r1, #1
+  0x0C576: 8140         lsls     r1, r0
+  0x0C578: 3e4a         ldr      r2, [pc, #0xf8]  ; =0xE000E280
+  0x0C57A: 1160         str      r1, [r2]
+  0x0C57C: 00bf         nop      
+  0x0C57E: 00bf         nop      
+  0x0C580: 0121         movs     r1, #1
+  0x0C582: 8140         lsls     r1, r0
+  0x0C584: 3c4a         ldr      r2, [pc, #0xf0]  ; =0xE000E100
+  0x0C586: 1160         str      r1, [r2]
+  0x0C588: 00bf         nop      
+  0x0C58A: 0021         movs     r1, #0
+  0x0C58C: 00f033f8     bl       #0xc5f6
+  0x0C590: 10bd         pop      {r4, pc}
+
+----- UART0-xref (ldr@0xC5C8 lit@0xC66C) func@0xC5A4 -----
+  0x0C5A4: 10b5         push     {r4, lr}
+  0x0C5A6: 3548         ldr      r0, [pc, #0xd4]  ; =0x4005E000 <PERIPH>
+  0x0C5A8: 8068         ldr      r0, [r0, #8]
+  0x0C5AA: 0721         movs     r1, #7
+  0x0C5AC: 0905         lsls     r1, r1, #0x14
+  0x0C5AE: 8843         bics     r0, r1
+  0x0C5B0: 0121         movs     r1, #1
+  0x0C5B2: 4905         lsls     r1, r1, #0x15
+  0x0C5B4: 4018         adds     r0, r0, r1
+  0x0C5B6: 3149         ldr      r1, [pc, #0xc4]  ; =0x4005E000 <PERIPH>
+  0x0C5B8: 8860         str      r0, [r1, #8]
+  0x0C5BA: 0224         movs     r4, #2
+  0x0C5BC: 0421         movs     r1, #4
+  0x0C5BE: 2046         mov      r0, r4
+  0x0C5C0: 8843         bics     r0, r1
+  0x0C5C2: 0446         mov      r4, r0
+  0x0C5C4: 2a48         ldr      r0, [pc, #0xa8]  ; =0x5AFA0000
+  0x0C5C6: 0443         orrs     r4, r0
+  0x0C5C8: 2848         ldr      r0, [pc, #0xa0]  ; =0x40010000 <PERIPH>
+  0x0C5CA: 0460         str      r4, [r0]
+  0x0C5CC: 0d20         movs     r0, #0xd
+  0x0C5CE: fff7e0ff     bl       #0xc592
+  0x0C5D2: fff7cdff     bl       #0xc570
+  0x0C5D6: 2548         ldr      r0, [pc, #0x94]  ; =0x40010000 <PERIPH>
+  0x0C5D8: 0068         ldr      r0, [r0]
+  0x0C5DA: 2549         ldr      r1, [pc, #0x94]  ; =0x5AFA0000
+  0x0C5DC: 491c         adds     r1, r1, #1
+  0x0C5DE: 0843         orrs     r0, r1
+  0x0C5E0: 2249         ldr      r1, [pc, #0x88]  ; =0x40010000 <PERIPH>
+  0x0C5E2: 0860         str      r0, [r1]
+  0x0C5E4: 10bd         pop      {r4, pc}
+
+----- UART0-xref (ldr@0xC5D6 lit@0xC66C) func@0xC5A4 -----
+  0x0C5A4: 10b5         push     {r4, lr}
+  0x0C5A6: 3548         ldr      r0, [pc, #0xd4]  ; =0x4005E000 <PERIPH>
+  0x0C5A8: 8068         ldr      r0, [r0, #8]
+  0x0C5AA: 0721         movs     r1, #7
+  0x0C5AC: 0905         lsls     r1, r1, #0x14
+  0x0C5AE: 8843         bics     r0, r1
+  0x0C5B0: 0121         movs     r1, #1
+  0x0C5B2: 4905         lsls     r1, r1, #0x15
+  0x0C5B4: 4018         adds     r0, r0, r1
+  0x0C5B6: 3149         ldr      r1, [pc, #0xc4]  ; =0x4005E000 <PERIPH>
+  0x0C5B8: 8860         str      r0, [r1, #8]
+  0x0C5BA: 0224         movs     r4, #2
+  0x0C5BC: 0421         movs     r1, #4
+  0x0C5BE: 2046         mov      r0, r4
+  0x0C5C0: 8843         bics     r0, r1
+  0x0C5C2: 0446         mov      r4, r0
+  0x0C5C4: 2a48         ldr      r0, [pc, #0xa8]  ; =0x5AFA0000
+  0x0C5C6: 0443         orrs     r4, r0
+  0x0C5C8: 2848         ldr      r0, [pc, #0xa0]  ; =0x40010000 <PERIPH>
+  0x0C5CA: 0460         str      r4, [r0]
+  0x0C5CC: 0d20         movs     r0, #0xd
+  0x0C5CE: fff7e0ff     bl       #0xc592
+  0x0C5D2: fff7cdff     bl       #0xc570
+  0x0C5D6: 2548         ldr      r0, [pc, #0x94]  ; =0x40010000 <PERIPH>
+  0x0C5D8: 0068         ldr      r0, [r0]
+  0x0C5DA: 2549         ldr      r1, [pc, #0x94]  ; =0x5AFA0000
+  0x0C5DC: 491c         adds     r1, r1, #1
+  0x0C5DE: 0843         orrs     r0, r1
+  0x0C5E0: 2249         ldr      r1, [pc, #0x88]  ; =0x40010000 <PERIPH>
+  0x0C5E2: 0860         str      r0, [r1]
+  0x0C5E4: 10bd         pop      {r4, pc}
+
+----- UART0-xref (ldr@0xC5E0 lit@0xC66C) func@0xC5A4 -----
+  0x0C5A4: 10b5         push     {r4, lr}
+  0x0C5A6: 3548         ldr      r0, [pc, #0xd4]  ; =0x4005E000 <PERIPH>
+  0x0C5A8: 8068         ldr      r0, [r0, #8]
+  0x0C5AA: 0721         movs     r1, #7
+  0x0C5AC: 0905         lsls     r1, r1, #0x14
+  0x0C5AE: 8843         bics     r0, r1
+  0x0C5B0: 0121         movs     r1, #1
+  0x0C5B2: 4905         lsls     r1, r1, #0x15
+  0x0C5B4: 4018         adds     r0, r0, r1
+  0x0C5B6: 3149         ldr      r1, [pc, #0xc4]  ; =0x4005E000 <PERIPH>
+  0x0C5B8: 8860         str      r0, [r1, #8]
+  0x0C5BA: 0224         movs     r4, #2
+  0x0C5BC: 0421         movs     r1, #4
+  0x0C5BE: 2046         mov      r0, r4
+  0x0C5C0: 8843         bics     r0, r1
+  0x0C5C2: 0446         mov      r4, r0
+  0x0C5C4: 2a48         ldr      r0, [pc, #0xa8]  ; =0x5AFA0000
+  0x0C5C6: 0443         orrs     r4, r0
+  0x0C5C8: 2848         ldr      r0, [pc, #0xa0]  ; =0x40010000 <PERIPH>
+  0x0C5CA: 0460         str      r4, [r0]
+  0x0C5CC: 0d20         movs     r0, #0xd
+  0x0C5CE: fff7e0ff     bl       #0xc592
+  0x0C5D2: fff7cdff     bl       #0xc570
+  0x0C5D6: 2548         ldr      r0, [pc, #0x94]  ; =0x40010000 <PERIPH>
+  0x0C5D8: 0068         ldr      r0, [r0]
+  0x0C5DA: 2549         ldr      r1, [pc, #0x94]  ; =0x5AFA0000
+  0x0C5DC: 491c         adds     r1, r1, #1
+  0x0C5DE: 0843         orrs     r0, r1
+  0x0C5E0: 2249         ldr      r1, [pc, #0x88]  ; =0x40010000 <PERIPH>
+  0x0C5E2: 0860         str      r0, [r1]
+  0x0C5E4: 10bd         pop      {r4, pc}

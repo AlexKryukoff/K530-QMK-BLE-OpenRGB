@@ -1,0 +1,1951 @@
+========================================================================
+XREF на GPIO-блоки (реальные обращения через LDR):
+========================================================================
+
+GPIO0 (P0.x — BT-линии) (0x40044000):
+  0x40044000 +0x00 DATA    : literal=10x, xref-ldr=['0x3e0', '0x3ea', '0x418', '0x422', '0x1042', '0x1054', '0x2690', '0x26fc', '0x27e2', '0x27ec', '0x27fc', '0x2806', '0x28b6', '0x28c0', '0x2dfc', '0x2e0e', '0x2ed0', '0x2eda', '0x2eea', '0x2ef4', '0x2f04', '0x2f0c', '0x2f18', '0x2f24', '0x2f30', '0x2f44', '0x2f58', '0x2f66', '0x2f74', '0x2f82', '0x2fae', '0x2fb8', '0x2fc4', '0x2fd0', '0x2fe4', '0x3018', '0x302a', '0x30f0', '0x30fa', '0x310a', '0x3114', '0x3124', '0x312c', '0x3138', '0x3144', '0x3150', '0x3164', '0x3178', '0x3186', '0x3194', '0x31a2', '0x31ce', '0x31d8', '0x31e4', '0x320e', '0x3222', '0x3252', '0x325c', '0x326c', '0x3276', '0x32c4', '0x32ce', '0x32de', '0x32e8', '0x3334', '0x3340', '0x3346', '0x3352', '0x3358', '0x3364', '0x336a', '0x3376', '0x337c', '0x3388', '0x338e', '0x339a', '0x33a0', '0x33ac', '0x33b2', '0x33be', '0x356a', '0x3574', '0x3584', '0x358e', '0x362a', '0x3634', '0x3688', '0x369c', '0x371a', '0x3728', '0x3736', '0x3868', '0x3872', '0x3880', '0x39ca', '0x39d4', '0x3a30', '0x3a44', '0x3a5a', '0x3a70', '0x3b24', '0x3b64', '0x5430', '0x543a', '0x5448', '0x5616', '0x5620', '0x562c', '0x5642', '0x564c', '0x5658', '0x56bc', '0x56c6', '0x56d4', '0x9558', '0x9562', '0x9572', '0x957c']
+
+GPIO1 (матрица) (0x40046000):
+  0x40046000 +0x00 DATA    : literal=17x, xref-ldr=['0x2ae', '0x1070', '0x107c', '0x1088', '0x13c8', '0x26a2', '0x2710', '0x27f0', '0x27f8', '0x280a', '0x2812', '0x299e', '0x2a0a', '0x2e02', '0x2e12', '0x2ede', '0x2ee6', '0x2ef8', '0x2f00', '0x2f8e', '0x2f98', '0x2faa', '0x2fe8', '0x2ff2', '0x3006', '0x301e', '0x302e', '0x30fe', '0x3106', '0x3118', '0x3120', '0x31ae', '0x31b8', '0x31ca', '0x3226', '0x3230', '0x3244', '0x3260', '0x3268', '0x327a', '0x3282', '0x32d2', '0x32da', '0x32ec', '0x32f4', '0x33c4', '0x33ce', '0x33d4', '0x33de', '0x33e4', '0x33ee', '0x33f4', '0x33fe', '0x3404', '0x340e', '0x3414', '0x341e', '0x3424', '0x342e', '0x3434', '0x343e', '0x3444', '0x3450', '0x3456', '0x3462', '0x3468', '0x3474', '0x347a', '0x3486', '0x348c', '0x3498', '0x3578', '0x3580', '0x3592', '0x359a', '0x363a', '0x3644', '0x36a4', '0x36b8', '0x374a', '0x3758', '0x3766', '0x3886', '0x3890', '0x389e', '0x39da', '0x39e4', '0x3a7c', '0x3a90', '0x3aa6', '0x3abc', '0x3b2e', '0x3b6e', '0x4184', '0x41cc', '0x4bb2', '0x6448', '0x648c', '0x64b8', '0x6808', '0x68f4', '0x85d4', '0x8ee2', '0x8eec', '0x9566', '0x956e', '0x9580', '0x9588', '0x9cc6', '0x9cd0', '0x9cdc', '0x9ce6', '0x9cf4', '0x9d28', '0x9d32', '0x9d40', '0x9d6e', '0x9d76', '0x9d86', '0x9d90', '0x9d9a', '0x9dde', '0x9de6', '0x9df4']
+
+GPIO2 (0x40048000):
+  0x40048000 +0x00 DATA    : literal=6x, xref-ldr=['0x2e06', '0x2e16', '0x2e1e', '0x2e26', '0x2e38', '0x2e40', '0x3022', '0x3032', '0x303e', '0x3046', '0x3058', '0x3060', '0x3286', '0x328e', '0x32a0', '0x32a8', '0x364a', '0x3654', '0x36c0', '0x36d4', '0x377a', '0x3788', '0x3796', '0x3808', '0x381c', '0x3832', '0x3848', '0x38a4', '0x38ae', '0x38bc', '0x39ea', '0x39f4', '0x3b38', '0x3b78', '0x94ee', '0x94f6', '0x958c', '0x9594', '0x95a6', '0x95ae', '0xc540', '0xc54a', '0xc554']
+
+GPIO3 (0x4004A000):
+  0x4004A000 +0x00 DATA    : literal=7x, xref-ldr=['0x1422', '0x143e', '0x26b8', '0x2726', '0x2764', '0x276c', '0x2780', '0x2794', '0x27a8', '0x27bc', '0x27d0', '0x27de', '0x2816', '0x2822', '0x282e', '0x283a', '0x2846', '0x2e0a', '0x2e1a', '0x2e2a', '0x2e34', '0x2e44', '0x2e4e', '0x2e5a', '0x2e6e', '0x2e82', '0x2e96', '0x2eaa', '0x2ebe', '0x2ecc', '0x3026', '0x3036', '0x304a', '0x3054', '0x3064', '0x306e', '0x307a', '0x308e', '0x30a2', '0x30b6', '0x30ca', '0x30de', '0x30ec', '0x3292', '0x329c', '0x32ac', '0x32b6', '0x32f8', '0x3300', '0x330c', '0x34a2', '0x34aa', '0x34b6', '0x34c6', '0x34d6', '0x34e6', '0x34f6', '0x365a', '0x3664', '0x36dc', '0x36f0', '0x37ca', '0x37d8', '0x37e6', '0x38c2', '0x38cc', '0x38d8', '0x39fa', '0x3a04', '0x3ac8', '0x3adc', '0x3af2', '0x3b08', '0x3b42', '0x3b82', '0x94fa', '0x9504', '0x9598', '0x95a2', '0x95b2', '0x95bc']
+
+========================================================================
+ФУНКЦИИ, обращающиеся к GPIO0 (BT-линии): 118 xref'ов
+========================================================================
+
+----- GPIO0-доступ (ldr@0x3E0) func@0x2AC -----
+  0x002AC: 70b5         push     {r4, r5, r6, lr}
+  0x002AE: e748         ldr      r0, [pc, #0x39c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x002B0: 0068         ldr      r0, [r0]
+  0x002B2: 4004         lsls     r0, r0, #0x11
+  0x002B4: c00f         lsrs     r0, r0, #0x1f
+  0x002B6: 0028         cmp      r0, #0
+  0x002B8: 01d0         beq      #0x2be
+  0x002BA: 0125         movs     r5, #1
+  0x002BC: 00e0         b        #0x2c0
+  0x002BE: 0225         movs     r5, #2
+  0x002C0: e348         ldr      r0, [pc, #0x38c]  ; =0x20000008 <SRAM>
+  0x002C2: 0068         ldr      r0, [r0]
+  0x002C4: 8006         lsls     r0, r0, #0x1a
+  0x002C6: c00f         lsrs     r0, r0, #0x1f
+  0x002C8: 0028         cmp      r0, #0
+  0x002CA: 77d0         beq      #0x3bc
+  0x002CC: e048         ldr      r0, [pc, #0x380]  ; =0x20000008 <SRAM>
+  0x002CE: 0068         ldr      r0, [r0]
+  0x002D0: 2021         movs     r1, #0x20
+  0x002D2: 8843         bics     r0, r1
+  0x002D4: de49         ldr      r1, [pc, #0x378]  ; =0x20000008 <SRAM>
+  0x002D6: 0860         str      r0, [r1]
+  0x002D8: 09f06efb     bl       #0x99b8
+  0x002DC: dd48         ldr      r0, [pc, #0x374]  ; =0x200000BC <SRAM>
+  0x002DE: 0078         ldrb     r0, [r0]
+  0x002E0: dd49         ldr      r1, [pc, #0x374]  ; =0x20000B34 <SRAM>
+  0x002E2: 0870         strb     r0, [r1]
+  0x002E4: 0846         mov      r0, r1
+  0x002E6: 4570         strb     r5, [r0, #1]
+  0x002E8: dc48         ldr      r0, [pc, #0x370]  ; =0x200000B6 <SRAM>
+  0x002EA: 0078         ldrb     r0, [r0]
+  0x002EC: 8870         strb     r0, [r1, #2]
+  0x002EE: 0846         mov      r0, r1
+  0x002F0: 0078         ldrb     r0, [r0]
+  0x002F2: a138         subs     r0, #0xa1
+  0x002F4: 0300         movs     r3, r0
+  0x002F6: 0cf081fa     bl       #0xc7fc
+  0x002FA: 092c         cmp      r4, #9
+  0x002FC: 493a         subs     r2, #0x49
+  0x002FE: 5706         lsls     r7, r2, #0x19
+  0x00300: 1a57         ldrsb    r2, [r3, r4]
+  0x00302: 2227         movs     r7, #0x22
+  0x00304: 5700         lsls     r7, r2, #1
+  0x00306: d648         ldr      r0, [pc, #0x358]  ; =0x200000C2 <SRAM>
+  0x00308: 0078         ldrb     r0, [r0]
+  0x0030A: d349         ldr      r1, [pc, #0x34c]  ; =0x20000B34 <SRAM>
+  0x0030C: c870         strb     r0, [r1, #3]
+  0x0030E: 0a20         movs     r0, #0xa
+  0x00310: 0871         strb     r0, [r1, #4]
+  0x00312: 1920         movs     r0, #0x19
+  0x00314: 4871         strb     r0, [r1, #5]
+  0x00316: d348         ldr      r0, [pc, #0x34c]  ; =0x200000C3 <SRAM>
+  0x00318: 0078         ldrb     r0, [r0]
+  0x0031A: 8871         strb     r0, [r1, #6]
+  0x0031C: d248         ldr      r0, [pc, #0x348]  ; =0x200000BB <SRAM>
+  0x0031E: 0078         ldrb     r0, [r0]
+  0x00320: c871         strb     r0, [r1, #7]
+  0x00322: 0020         movs     r0, #0
+  0x00324: ce49         ldr      r1, [pc, #0x338]  ; =0x200000C2 <SRAM>
+  0x00326: 0870         strb     r0, [r1]
+  0x00328: ce49         ldr      r1, [pc, #0x338]  ; =0x200000C3 <SRAM>
+  0x0032A: 0870         strb     r0, [r1]
+  0x0032C: 40e0         b        #0x3b0
+  0x0032E: cf48         ldr      r0, [pc, #0x33c]  ; =0x200000BE <SRAM>
+  0x00330: 0078         ldrb     r0, [r0]
+  0x00332: c949         ldr      r1, [pc, #0x324]  ; =0x20000B34 <SRAM>
+  0x00334: c870         strb     r0, [r1, #3]
+  0x00336: ce48         ldr      r0, [pc, #0x338]  ; =0x2000010C <SRAM>
+  0x00338: 407d         ldrb     r0, [r0, #0x15]
+  0x0033A: 0871         strb     r0, [r1, #4]
+  0x0033C: 38e0         b        #0x3b0
+  0x0033E: cc48         ldr      r0, [pc, #0x330]  ; =0x2000010C <SRAM>
+  0x00340: c07d         ldrb     r0, [r0, #0x17]
+  0x00342: c549         ldr      r1, [pc, #0x314]  ; =0x20000B34 <SRAM>
+  0x00344: c870         strb     r0, [r1, #3]
+  0x00346: 33e0         b        #0x3b0
+  0x00348: c948         ldr      r0, [pc, #0x324]  ; =0x2000010C <SRAM>
+  0x0034A: 007d         ldrb     r0, [r0, #0x14]
+  0x0034C: c249         ldr      r1, [pc, #0x308]  ; =0x20000B34 <SRAM>
+  0x0034E: c870         strb     r0, [r1, #3]
+  0x00350: 2ee0         b        #0x3b0
+  0x00352: 0024         movs     r4, #0
+  0x00354: 06e0         b        #0x364
+  0x00356: c748         ldr      r0, [pc, #0x31c]  ; =0x2000003A <SRAM>
+  0x00358: 015d         ldrb     r1, [r0, r4]
+  0x0035A: bf4a         ldr      r2, [pc, #0x2fc]  ; =0x20000B34 <SRAM>
+  0x0035C: e01c         adds     r0, r4, #3
+  0x0035E: 1154         strb     r1, [r2, r0]
+  0x00360: 601c         adds     r0, r4, #1
+  0x00362: c4b2         uxtb     r4, r0
+  0x00364: bd48         ldr      r0, [pc, #0x2f4]  ; =0x200000B6 <SRAM>
+  0x00366: 0078         ldrb     r0, [r0]
+  0x00368: 8442         cmp      r4, r0
+  0x0036A: f4db         blt      #0x356
+  0x0036C: 20e0         b        #0x3b0
+  0x0036E: 0024         movs     r4, #0
+  0x00370: 07e0         b        #0x382
+  0x00372: c149         ldr      r1, [pc, #0x304]  ; =0x20000042 <SRAM>
+  0x00374: 601c         adds     r0, r4, #1
+  0x00376: 095c         ldrb     r1, [r1, r0]
+  0x00378: b74a         ldr      r2, [pc, #0x2dc]  ; =0x20000B34 <SRAM>
+  0x0037A: e01c         adds     r0, r4, #3
+  0x0037C: 1154         strb     r1, [r2, r0]
+  0x0037E: 601c         adds     r0, r4, #1
+  0x00380: c4b2         uxtb     r4, r0
+  0x00382: b648         ldr      r0, [pc, #0x2d8]  ; =0x200000B6 <SRAM>
+  0x00384: 0078         ldrb     r0, [r0]
+  0x00386: 8442         cmp      r4, r0
+  0x00388: f3db         blt      #0x372
+  0x0038A: 11e0         b        #0x3b0
+  0x0038C: 0024         movs     r4, #0
+  0x0038E: 06e0         b        #0x39e
+  0x00390: ba48         ldr      r0, [pc, #0x2e8]  ; =0x20000032 <SRAM>
+  0x00392: 015d         ldrb     r1, [r0, r4]
+  0x00394: b04a         ldr      r2, [pc, #0x2c0]  ; =0x20000B34 <SRAM>
+  0x00396: e01c         adds     r0, r4, #3
+  0x00398: 1154         strb     r1, [r2, r0]
+  0x0039A: 601c         adds     r0, r4, #1
+  0x0039C: c4b2         uxtb     r4, r0
+  0x0039E: af48         ldr      r0, [pc, #0x2bc]  ; =0x200000B6 <SRAM>
+  0x003A0: 0078         ldrb     r0, [r0]
+  0x003A2: 8442         cmp      r4, r0
+  0x003A4: f4db         blt      #0x390
+  0x003A6: 03e0         b        #0x3b0
+  0x003A8: 0020         movs     r0, #0
+  0x003AA: ab49         ldr      r1, [pc, #0x2ac]  ; =0x20000B34 <SRAM>
+  0x003AC: 0870         strb     r0, [r1]
+  0x003AE: 00bf         nop      
+  0x003B0: 00bf         nop      
+  0x003B2: 0020         movs     r0, #0
+  0x003B4: a849         ldr      r1, [pc, #0x2a0]  ; =0x20000B34 <SRAM>
+  0x003B6: 0875         strb     r0, [r1, #0x14]
+  0x003B8: 0024         movs     r4, #0
+  0x003BA: 09e0         b        #0x3d0
+  0x003BC: 22e0         b        #0x404
+  0x003BE: a648         ldr      r0, [pc, #0x298]  ; =0x20000B34 <SRAM>
+  0x003C0: 007d         ldrb     r0, [r0, #0x14]
+  0x003C2: a549         ldr      r1, [pc, #0x294]  ; =0x20000B34 <SRAM>
+  0x003C4: 095d         ldrb     r1, [r1, r4]
+  0x003C6: 4018         adds     r0, r0, r1
+  0x003C8: a349         ldr      r1, [pc, #0x28c]  ; =0x20000B34 <SRAM>
+  0x003CA: 0875         strb     r0, [r1, #0x14]
+  0x003CC: 601c         adds     r0, r4, #1
+  0x003CE: c4b2         uxtb     r4, r0
+  0x003D0: 142c         cmp      r4, #0x14
+  0x003D2: f4db         blt      #0x3be
+  0x003D4: 0020         movs     r0, #0
+  0x003D6: aa49         ldr      r1, [pc, #0x2a8]  ; =0x200000C8 <SRAM>
+  0x003D8: 0870         strb     r0, [r1]
+  0x003DA: 0121         movs     r1, #1
+  0x003DC: 03f0ecfa     bl       #0x39b8
+  0x003E0: a848         ldr      r0, [pc, #0x2a0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x003E2: 4068         ldr      r0, [r0, #4]
+  0x003E4: 0221         movs     r1, #2
+  0x003E6: 8843         bics     r0, r1
+  0x003E8: 801c         adds     r0, r0, #2
+  0x003EA: a649         ldr      r1, [pc, #0x298]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x003EC: 4860         str      r0, [r1, #4]
+  0x003EE: 0121         movs     r1, #1
+  0x003F0: 0020         movs     r0, #0
+  0x003F2: 03f0e1fa     bl       #0x39b8
+  0x003F6: 0a20         movs     r0, #0xa
+  0x003F8: fff724ff     bl       #0x244
+
+----- GPIO0-доступ (ldr@0x418) func@0x406 -----
+  0x00406: 10b5         push     {r4, lr}
+  0x00408: 1521         movs     r1, #0x15
+  0x0040A: 9348         ldr      r0, [pc, #0x24c]  ; =0x20000B34 <SRAM>
+  0x0040C: fff73cff     bl       #0x288
+  0x00410: 0121         movs     r1, #1
+  0x00412: 0020         movs     r0, #0
+  0x00414: 03f0d0fa     bl       #0x39b8
+  0x00418: 9a48         ldr      r0, [pc, #0x268]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0041A: 4068         ldr      r0, [r0, #4]
+  0x0041C: 0221         movs     r1, #2
+  0x0041E: 8843         bics     r0, r1
+  0x00420: 801c         adds     r0, r0, #2
+  0x00422: 9849         ldr      r1, [pc, #0x260]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x00424: 4860         str      r0, [r1, #4]
+  0x00426: 0121         movs     r1, #1
+  0x00428: 0020         movs     r0, #0
+  0x0042A: 03f0c5fa     bl       #0x39b8
+  0x0042E: 0120         movs     r0, #1
+  0x00430: fff713ff     bl       #0x25a
+  0x00434: 0121         movs     r1, #1
+  0x00436: 0020         movs     r0, #0
+  0x00438: 03f0eef8     bl       #0x3618
+  0x0043C: 6420         movs     r0, #0x64
+  0x0043E: fff70cff     bl       #0x25a
+  0x00442: 10bd         pop      {r4, pc}
+
+----- GPIO0-доступ (ldr@0x1042) func@0x103E -----
+  0x0103E: 10b5         push     {r4, lr}
+  0x01040: 0020         movs     r0, #0
+  0x01042: d149         ldr      r1, [pc, #0x344]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x01044: 8860         str      r0, [r1, #8]
+  0x01046: 0846         mov      r0, r1
+  0x01048: 4068         ldr      r0, [r0, #4]
+  0x0104A: 4860         str      r0, [r1, #4]
+  0x0104C: 0a20         movs     r0, #0xa
+  0x0104E: fff7f9f8     bl       #0x244
+  0x01052: 0020         movs     r0, #0
+  0x01054: cc49         ldr      r1, [pc, #0x330]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x01056: c860         str      r0, [r1, #0xc]
+  0x01058: 4861         str      r0, [r1, #0x14]
+  0x0105A: 401e         subs     r0, r0, #1
+  0x0105C: 0862         str      r0, [r1, #0x20]
+  0x0105E: 0020         movs     r0, #0
+  0x01060: 8861         str      r0, [r1, #0x18]
+  0x01062: 1f20         movs     r0, #0x1f
+  0x01064: 00f00bfb     bl       #0x167e
+  0x01068: 1f20         movs     r0, #0x1f
+  0x0106A: 00f001fb     bl       #0x1670
+  0x0106E: 0020         movs     r0, #0
+  0x01070: c649         ldr      r1, [pc, #0x318]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x01072: 8860         str      r0, [r1, #8]
+  0x01074: 0846         mov      r0, r1
+  0x01076: 4068         ldr      r0, [r0, #4]
+  0x01078: 2021         movs     r1, #0x20
+  0x0107A: 8843         bics     r0, r1
+  0x0107C: c349         ldr      r1, [pc, #0x30c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0107E: 4860         str      r0, [r1, #4]
+  0x01080: 0a20         movs     r0, #0xa
+  0x01082: fff7dff8     bl       #0x244
+  0x01086: 0020         movs     r0, #0
+  0x01088: c049         ldr      r1, [pc, #0x300]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0108A: c860         str      r0, [r1, #0xc]
+  0x0108C: 2020         movs     r0, #0x20
+  0x0108E: 4861         str      r0, [r1, #0x14]
+  0x01090: 0020         movs     r0, #0
+  0x01092: c043         mvns     r0, r0
+  0x01094: 0862         str      r0, [r1, #0x20]
+  0x01096: 2020         movs     r0, #0x20
+  0x01098: 8861         str      r0, [r1, #0x18]
+  0x0109A: 1e20         movs     r0, #0x1e
+  0x0109C: 00f0effa     bl       #0x167e
+  0x010A0: 1e20         movs     r0, #0x1e
+  0x010A2: 00f0e5fa     bl       #0x1670
+  0x010A6: 10bd         pop      {r4, pc}
+
+----- GPIO0-доступ (ldr@0x2690) func@0x2684 -----
+  0x02684: 10b5         push     {r4, lr}
+  0x02686: 9b48         ldr      r0, [pc, #0x26c]  ; =0x200000BB <SRAM>
+  0x02688: 0078         ldrb     r0, [r0]
+  0x0268A: 0228         cmp      r0, #2
+  0x0268C: 31d1         bne      #0x26f2
+  0x0268E: 0020         movs     r0, #0
+  0x02690: 9949         ldr      r1, [pc, #0x264]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02692: 0861         str      r0, [r1, #0x10]
+  0x02694: c860         str      r0, [r1, #0xc]
+  0x02696: 9948         ldr      r0, [pc, #0x264]  ; =0x0000FFFF
+  0x02698: 0862         str      r0, [r1, #0x20]
+  0x0269A: 2120         movs     r0, #0x21
+  0x0269C: 4861         str      r0, [r1, #0x14]
+  0x0269E: 8861         str      r0, [r1, #0x18]
+  0x026A0: 0020         movs     r0, #0
+  0x026A2: 9749         ldr      r1, [pc, #0x25c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x026A4: 0861         str      r0, [r1, #0x10]
+  0x026A6: c860         str      r0, [r1, #0xc]
+  0x026A8: 9448         ldr      r0, [pc, #0x250]  ; =0x0000FFFF
+  0x026AA: 0862         str      r0, [r1, #0x20]
+  0x026AC: 0020         movs     r0, #0
+  0x026AE: 4861         str      r0, [r1, #0x14]
+  0x026B0: 0120         movs     r0, #1
+  0x026B2: 8003         lsls     r0, r0, #0xe
+  0x026B4: 8861         str      r0, [r1, #0x18]
+  0x026B6: 0020         movs     r0, #0
+  0x026B8: 9249         ldr      r1, [pc, #0x248]  ; =0x4004A000 <GPIO3 DATA>
+  0x026BA: 0861         str      r0, [r1, #0x10]
+  0x026BC: c860         str      r0, [r1, #0xc]
+  0x026BE: 8f48         ldr      r0, [pc, #0x23c]  ; =0x0000FFFF
+  0x026C0: 0862         str      r0, [r1, #0x20]
+  0x026C2: 0020         movs     r0, #0
+  0x026C4: 4861         str      r0, [r1, #0x14]
+  0x026C6: ff20         movs     r0, #0xff
+  0x026C8: f930         adds     r0, #0xf9
+  0x026CA: 8861         str      r0, [r1, #0x18]
+  0x026CC: 1f20         movs     r0, #0x1f
+  0x026CE: 00f0acf9     bl       #0x2a2a
+  0x026D2: 1f20         movs     r0, #0x1f
+  0x026D4: 00f0a2f9     bl       #0x2a1c
+  0x026D8: 1e20         movs     r0, #0x1e
+  0x026DA: 00f0a6f9     bl       #0x2a2a
+  0x026DE: 1e20         movs     r0, #0x1e
+  0x026E0: 00f09cf9     bl       #0x2a1c
+  0x026E4: 1c20         movs     r0, #0x1c
+  0x026E6: 00f0a0f9     bl       #0x2a2a
+  0x026EA: 1c20         movs     r0, #0x1c
+  0x026EC: 00f096f9     bl       #0x2a1c
+  0x026F0: 33e0         b        #0x275a
+  0x026F2: 8048         ldr      r0, [pc, #0x200]  ; =0x200000BB <SRAM>
+  0x026F4: 0078         ldrb     r0, [r0]
+  0x026F6: 0128         cmp      r0, #1
+  0x026F8: 2fd1         bne      #0x275a
+  0x026FA: 0020         movs     r0, #0
+  0x026FC: 7e49         ldr      r1, [pc, #0x1f8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x026FE: 0861         str      r0, [r1, #0x10]
+  0x02700: c860         str      r0, [r1, #0xc]
+  0x02702: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x0000FFFF
+  0x02704: 0862         str      r0, [r1, #0x20]
+  0x02706: 0020         movs     r0, #0
+  0x02708: 4861         str      r0, [r1, #0x14]
+  0x0270A: 0120         movs     r0, #1
+  0x0270C: 8861         str      r0, [r1, #0x18]
+  0x0270E: 0020         movs     r0, #0
+  0x02710: 7b49         ldr      r1, [pc, #0x1ec]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x02712: 0861         str      r0, [r1, #0x10]
+  0x02714: c860         str      r0, [r1, #0xc]
+  0x02716: 7948         ldr      r0, [pc, #0x1e4]  ; =0x0000FFFF
+  0x02718: 0862         str      r0, [r1, #0x20]
+  0x0271A: 0020         movs     r0, #0
+  0x0271C: 4861         str      r0, [r1, #0x14]
+  0x0271E: 0120         movs     r0, #1
+  0x02720: 8003         lsls     r0, r0, #0xe
+  0x02722: 8861         str      r0, [r1, #0x18]
+  0x02724: 0020         movs     r0, #0
+  0x02726: 7749         ldr      r1, [pc, #0x1dc]  ; =0x4004A000 <GPIO3 DATA>
+  0x02728: 0861         str      r0, [r1, #0x10]
+  0x0272A: c860         str      r0, [r1, #0xc]
+  0x0272C: 7348         ldr      r0, [pc, #0x1cc]  ; =0x0000FFFF
+  0x0272E: 0862         str      r0, [r1, #0x20]
+  0x02730: 0020         movs     r0, #0
+  0x02732: 4861         str      r0, [r1, #0x14]
+  0x02734: 8861         str      r0, [r1, #0x18]
+  0x02736: 1f20         movs     r0, #0x1f
+  0x02738: 00f077f9     bl       #0x2a2a
+  0x0273C: 1f20         movs     r0, #0x1f
+  0x0273E: 00f06df9     bl       #0x2a1c
+  0x02742: 1e20         movs     r0, #0x1e
+  0x02744: 00f071f9     bl       #0x2a2a
+  0x02748: 1e20         movs     r0, #0x1e
+  0x0274A: 00f067f9     bl       #0x2a1c
+  0x0274E: 1c20         movs     r0, #0x1c
+  0x02750: 00f06bf9     bl       #0x2a2a
+  0x02754: 1c20         movs     r0, #0x1c
+  0x02756: 00f061f9     bl       #0x2a1c
+  0x0275A: 1420         movs     r0, #0x14
+  0x0275C: fdf77dfd     bl       #0x25a
+  0x02760: 10bd         pop      {r4, pc}
+
+----- GPIO0-доступ (ldr@0x27E2) func@0x2762 -----
+  0x02762: 10b5         push     {r4, lr}
+  0x02764: 6748         ldr      r0, [pc, #0x19c]  ; =0x4004A000 <GPIO3 DATA>
+  0x02766: 4068         ldr      r0, [r0, #4]
+  0x02768: f821         movs     r1, #0xf8
+  0x0276A: 8843         bics     r0, r1
+  0x0276C: 6549         ldr      r1, [pc, #0x194]  ; =0x4004A000 <GPIO3 DATA>
+  0x0276E: 4860         str      r0, [r1, #4]
+  0x02770: 0846         mov      r0, r1
+  0x02772: 8068         ldr      r0, [r0, #8]
+  0x02774: 0321         movs     r1, #3
+  0x02776: 0904         lsls     r1, r1, #0x10
+  0x02778: 8843         bics     r0, r1
+  0x0277A: 0121         movs     r1, #1
+  0x0277C: 4904         lsls     r1, r1, #0x11
+  0x0277E: 4018         adds     r0, r0, r1
+  0x02780: 6049         ldr      r1, [pc, #0x180]  ; =0x4004A000 <GPIO3 DATA>
+  0x02782: 8860         str      r0, [r1, #8]
+  0x02784: 0846         mov      r0, r1
+  0x02786: 8068         ldr      r0, [r0, #8]
+  0x02788: 0321         movs     r1, #3
+  0x0278A: 8903         lsls     r1, r1, #0xe
+  0x0278C: 8843         bics     r0, r1
+  0x0278E: 0121         movs     r1, #1
+  0x02790: c903         lsls     r1, r1, #0xf
+  0x02792: 4018         adds     r0, r0, r1
+  0x02794: 5b49         ldr      r1, [pc, #0x16c]  ; =0x4004A000 <GPIO3 DATA>
+  0x02796: 8860         str      r0, [r1, #8]
+  0x02798: 0846         mov      r0, r1
+  0x0279A: 8068         ldr      r0, [r0, #8]
+  0x0279C: 0321         movs     r1, #3
+  0x0279E: 0903         lsls     r1, r1, #0xc
+  0x027A0: 8843         bics     r0, r1
+  0x027A2: 0121         movs     r1, #1
+  0x027A4: 4903         lsls     r1, r1, #0xd
+  0x027A6: 4018         adds     r0, r0, r1
+  0x027A8: 5649         ldr      r1, [pc, #0x158]  ; =0x4004A000 <GPIO3 DATA>
+  0x027AA: 8860         str      r0, [r1, #8]
+  0x027AC: 0846         mov      r0, r1
+  0x027AE: 8068         ldr      r0, [r0, #8]
+  0x027B0: 0321         movs     r1, #3
+  0x027B2: 8902         lsls     r1, r1, #0xa
+  0x027B4: 8843         bics     r0, r1
+  0x027B6: 0121         movs     r1, #1
+  0x027B8: c902         lsls     r1, r1, #0xb
+  0x027BA: 4018         adds     r0, r0, r1
+  0x027BC: 5149         ldr      r1, [pc, #0x144]  ; =0x4004A000 <GPIO3 DATA>
+  0x027BE: 8860         str      r0, [r1, #8]
+  0x027C0: 0846         mov      r0, r1
+  0x027C2: 8068         ldr      r0, [r0, #8]
+  0x027C4: 0321         movs     r1, #3
+  0x027C6: 0902         lsls     r1, r1, #8
+  0x027C8: 8843         bics     r0, r1
+  0x027CA: ff30         adds     r0, #0xff
+  0x027CC: ff30         adds     r0, #0xff
+  0x027CE: 0230         adds     r0, #2
+  0x027D0: 4c49         ldr      r1, [pc, #0x130]  ; =0x4004A000 <GPIO3 DATA>
+  0x027D2: 8860         str      r0, [r1, #8]
+  0x027D4: 0846         mov      r0, r1
+  0x027D6: 8068         ldr      r0, [r0, #8]
+  0x027D8: c021         movs     r1, #0xc0
+  0x027DA: 8843         bics     r0, r1
+  0x027DC: 8030         adds     r0, #0x80
+  0x027DE: 4949         ldr      r1, [pc, #0x124]  ; =0x4004A000 <GPIO3 DATA>
+  0x027E0: 8860         str      r0, [r1, #8]
+  0x027E2: 4548         ldr      r0, [pc, #0x114]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x027E4: 4068         ldr      r0, [r0, #4]
+  0x027E6: ff21         movs     r1, #0xff
+  0x027E8: 0902         lsls     r1, r1, #8
+  0x027EA: 0843         orrs     r0, r1
+  0x027EC: 4249         ldr      r1, [pc, #0x108]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x027EE: 4860         str      r0, [r1, #4]
+  0x027F0: 4348         ldr      r0, [pc, #0x10c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x027F2: 4068         ldr      r0, [r0, #4]
+  0x027F4: 4449         ldr      r1, [pc, #0x110]  ; =0x00001FFF
+  0x027F6: 0843         orrs     r0, r1
+  0x027F8: 4149         ldr      r1, [pc, #0x104]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x027FA: 4860         str      r0, [r1, #4]
+  0x027FC: 3e48         ldr      r0, [pc, #0xf8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x027FE: 406a         ldr      r0, [r0, #0x24]
+  0x02800: ff21         movs     r1, #0xff
+  0x02802: 0902         lsls     r1, r1, #8
+  0x02804: 0843         orrs     r0, r1
+  0x02806: 3c49         ldr      r1, [pc, #0xf0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02808: 4862         str      r0, [r1, #0x24]
+  0x0280A: 3d48         ldr      r0, [pc, #0xf4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0280C: 406a         ldr      r0, [r0, #0x24]
+  0x0280E: 3e49         ldr      r1, [pc, #0xf8]  ; =0x00001FFF
+  0x02810: 0843         orrs     r0, r1
+  0x02812: 3b49         ldr      r1, [pc, #0xec]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x02814: 4862         str      r0, [r1, #0x24]
+  0x02816: 3b48         ldr      r0, [pc, #0xec]  ; =0x4004A000 <GPIO3 DATA>
+  0x02818: 0068         ldr      r0, [r0]
+  0x0281A: 0006         lsls     r0, r0, #0x18
+  0x0281C: c00f         lsrs     r0, r0, #0x1f
+  0x0281E: 0028         cmp      r0, #0
+  0x02820: 17d1         bne      #0x2852
+  0x02822: 3848         ldr      r0, [pc, #0xe0]  ; =0x4004A000 <GPIO3 DATA>
+  0x02824: 0068         ldr      r0, [r0]
+  0x02826: 4006         lsls     r0, r0, #0x19
+  0x02828: c00f         lsrs     r0, r0, #0x1f
+  0x0282A: 0028         cmp      r0, #0
+  0x0282C: 11d1         bne      #0x2852
+  0x0282E: 3548         ldr      r0, [pc, #0xd4]  ; =0x4004A000 <GPIO3 DATA>
+  0x02830: 0068         ldr      r0, [r0]
+  0x02832: 8006         lsls     r0, r0, #0x1a
+  0x02834: c00f         lsrs     r0, r0, #0x1f
+  0x02836: 0028         cmp      r0, #0
+  0x02838: 0bd1         bne      #0x2852
+  0x0283A: 3248         ldr      r0, [pc, #0xc8]  ; =0x4004A000 <GPIO3 DATA>
+  0x0283C: 0068         ldr      r0, [r0]
+  0x0283E: c006         lsls     r0, r0, #0x1b
+  0x02840: c00f         lsrs     r0, r0, #0x1f
+  0x02842: 0028         cmp      r0, #0
+  0x02844: 05d1         bne      #0x2852
+  0x02846: 2f48         ldr      r0, [pc, #0xbc]  ; =0x4004A000 <GPIO3 DATA>
+  0x02848: 0068         ldr      r0, [r0]
+  0x0284A: 0007         lsls     r0, r0, #0x1c
+  0x0284C: c00f         lsrs     r0, r0, #0x1f
+  0x0284E: 0028         cmp      r0, #0
+  0x02850: 00d0         beq      #0x2854
+  0x02852: 10bd         pop      {r4, pc}
+
+----- GPIO0-доступ (ldr@0x2DFC) func@0x2DF0 -----
+  0x02DF0: 10b5         push     {r4, lr}
+  0x02DF2: 0120         movs     r0, #1
+  0x02DF4: fe49         ldr      r1, [pc, #0x3f8]  ; =0x40060000 <PERIPH>
+  0x02DF6: c861         str      r0, [r1, #0x1c]
+  0x02DF8: 0862         str      r0, [r1, #0x20]
+  0x02DFA: 0820         movs     r0, #8
+  0x02DFC: fd49         ldr      r1, [pc, #0x3f4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02DFE: 8860         str      r0, [r1, #8]
+  0x02E00: 0020         movs     r0, #0
+  0x02E02: fd49         ldr      r1, [pc, #0x3f4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x02E04: 8860         str      r0, [r1, #8]
+  0x02E06: fd49         ldr      r1, [pc, #0x3f4]  ; =0x40048000 <GPIO2 DATA>
+  0x02E08: 8860         str      r0, [r1, #8]
+  0x02E0A: fd49         ldr      r1, [pc, #0x3f4]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E0C: 8860         str      r0, [r1, #8]
+  0x02E0E: f949         ldr      r1, [pc, #0x3e4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02E10: 4860         str      r0, [r1, #4]
+  0x02E12: f949         ldr      r1, [pc, #0x3e4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x02E14: 4860         str      r0, [r1, #4]
+  0x02E16: f949         ldr      r1, [pc, #0x3e4]  ; =0x40048000 <GPIO2 DATA>
+  0x02E18: 4860         str      r0, [r1, #4]
+  0x02E1A: f949         ldr      r1, [pc, #0x3e4]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E1C: 4860         str      r0, [r1, #4]
+  0x02E1E: f748         ldr      r0, [pc, #0x3dc]  ; =0x40048000 <GPIO2 DATA>
+  0x02E20: 4068         ldr      r0, [r0, #4]
+  0x02E22: f849         ldr      r1, [pc, #0x3e0]  ; =0x0000FFFB
+  0x02E24: 0843         orrs     r0, r1
+  0x02E26: f549         ldr      r1, [pc, #0x3d4]  ; =0x40048000 <GPIO2 DATA>
+  0x02E28: 4860         str      r0, [r1, #4]
+  0x02E2A: f548         ldr      r0, [pc, #0x3d4]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E2C: 4068         ldr      r0, [r0, #4]
+  0x02E2E: 0721         movs     r1, #7
+  0x02E30: 4902         lsls     r1, r1, #9
+  0x02E32: 0843         orrs     r0, r1
+  0x02E34: f249         ldr      r1, [pc, #0x3c8]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E36: 4860         str      r0, [r1, #4]
+  0x02E38: f048         ldr      r0, [pc, #0x3c0]  ; =0x40048000 <GPIO2 DATA>
+  0x02E3A: 806a         ldr      r0, [r0, #0x28]
+  0x02E3C: f149         ldr      r1, [pc, #0x3c4]  ; =0x0000FFFB
+  0x02E3E: 0843         orrs     r0, r1
+  0x02E40: ee49         ldr      r1, [pc, #0x3b8]  ; =0x40048000 <GPIO2 DATA>
+  0x02E42: 8862         str      r0, [r1, #0x28]
+  0x02E44: ee48         ldr      r0, [pc, #0x3b8]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E46: 806a         ldr      r0, [r0, #0x28]
+  0x02E48: 0721         movs     r1, #7
+  0x02E4A: 4902         lsls     r1, r1, #9
+  0x02E4C: 0843         orrs     r0, r1
+  0x02E4E: ec49         ldr      r1, [pc, #0x3b0]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E50: 8862         str      r0, [r1, #0x28]
+  0x02E52: 0846         mov      r0, r1
+  0x02E54: 4068         ldr      r0, [r0, #4]
+  0x02E56: f821         movs     r1, #0xf8
+  0x02E58: 8843         bics     r0, r1
+  0x02E5A: e949         ldr      r1, [pc, #0x3a4]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E5C: 4860         str      r0, [r1, #4]
+  0x02E5E: 0846         mov      r0, r1
+  0x02E60: 8068         ldr      r0, [r0, #8]
+  0x02E62: 0321         movs     r1, #3
+  0x02E64: 0904         lsls     r1, r1, #0x10
+  0x02E66: 8843         bics     r0, r1
+  0x02E68: 0121         movs     r1, #1
+  0x02E6A: 4904         lsls     r1, r1, #0x11
+  0x02E6C: 4018         adds     r0, r0, r1
+  0x02E6E: e449         ldr      r1, [pc, #0x390]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E70: 8860         str      r0, [r1, #8]
+  0x02E72: 0846         mov      r0, r1
+  0x02E74: 8068         ldr      r0, [r0, #8]
+  0x02E76: 0321         movs     r1, #3
+  0x02E78: 8903         lsls     r1, r1, #0xe
+  0x02E7A: 8843         bics     r0, r1
+  0x02E7C: 0121         movs     r1, #1
+  0x02E7E: c903         lsls     r1, r1, #0xf
+  0x02E80: 4018         adds     r0, r0, r1
+  0x02E82: df49         ldr      r1, [pc, #0x37c]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E84: 8860         str      r0, [r1, #8]
+  0x02E86: 0846         mov      r0, r1
+  0x02E88: 8068         ldr      r0, [r0, #8]
+  0x02E8A: 0321         movs     r1, #3
+  0x02E8C: 0903         lsls     r1, r1, #0xc
+  0x02E8E: 8843         bics     r0, r1
+  0x02E90: 0121         movs     r1, #1
+  0x02E92: 4903         lsls     r1, r1, #0xd
+  0x02E94: 4018         adds     r0, r0, r1
+  0x02E96: da49         ldr      r1, [pc, #0x368]  ; =0x4004A000 <GPIO3 DATA>
+  0x02E98: 8860         str      r0, [r1, #8]
+  0x02E9A: 0846         mov      r0, r1
+  0x02E9C: 8068         ldr      r0, [r0, #8]
+  0x02E9E: 0321         movs     r1, #3
+  0x02EA0: 8902         lsls     r1, r1, #0xa
+  0x02EA2: 8843         bics     r0, r1
+  0x02EA4: 0121         movs     r1, #1
+  0x02EA6: c902         lsls     r1, r1, #0xb
+  0x02EA8: 4018         adds     r0, r0, r1
+  0x02EAA: d549         ldr      r1, [pc, #0x354]  ; =0x4004A000 <GPIO3 DATA>
+  0x02EAC: 8860         str      r0, [r1, #8]
+  0x02EAE: 0846         mov      r0, r1
+  0x02EB0: 8068         ldr      r0, [r0, #8]
+  0x02EB2: 0321         movs     r1, #3
+  0x02EB4: 0902         lsls     r1, r1, #8
+  0x02EB6: 8843         bics     r0, r1
+  0x02EB8: ff30         adds     r0, #0xff
+  0x02EBA: ff30         adds     r0, #0xff
+  0x02EBC: 0230         adds     r0, #2
+  0x02EBE: d049         ldr      r1, [pc, #0x340]  ; =0x4004A000 <GPIO3 DATA>
+  0x02EC0: 8860         str      r0, [r1, #8]
+  0x02EC2: 0846         mov      r0, r1
+  0x02EC4: 8068         ldr      r0, [r0, #8]
+  0x02EC6: c021         movs     r1, #0xc0
+  0x02EC8: 8843         bics     r0, r1
+  0x02ECA: 8030         adds     r0, #0x80
+  0x02ECC: cc49         ldr      r1, [pc, #0x330]  ; =0x4004A000 <GPIO3 DATA>
+  0x02ECE: 8860         str      r0, [r1, #8]
+  0x02ED0: c848         ldr      r0, [pc, #0x320]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02ED2: 4068         ldr      r0, [r0, #4]
+  0x02ED4: ff21         movs     r1, #0xff
+  0x02ED6: 0902         lsls     r1, r1, #8
+  0x02ED8: 0843         orrs     r0, r1
+  0x02EDA: c649         ldr      r1, [pc, #0x318]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02EDC: 4860         str      r0, [r1, #4]
+  0x02EDE: c648         ldr      r0, [pc, #0x318]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x02EE0: 4068         ldr      r0, [r0, #4]
+  0x02EE2: c949         ldr      r1, [pc, #0x324]  ; =0x00001FFF
+  0x02EE4: 0843         orrs     r0, r1
+  0x02EE6: c449         ldr      r1, [pc, #0x310]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x02EE8: 4860         str      r0, [r1, #4]
+  0x02EEA: c248         ldr      r0, [pc, #0x308]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02EEC: 406a         ldr      r0, [r0, #0x24]
+  0x02EEE: ff21         movs     r1, #0xff
+  0x02EF0: 0902         lsls     r1, r1, #8
+  0x02EF2: 0843         orrs     r0, r1
+  0x02EF4: bf49         ldr      r1, [pc, #0x2fc]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02EF6: 4862         str      r0, [r1, #0x24]
+  0x02EF8: bf48         ldr      r0, [pc, #0x2fc]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x02EFA: 406a         ldr      r0, [r0, #0x24]
+  0x02EFC: c249         ldr      r1, [pc, #0x308]  ; =0x00001FFF
+  0x02EFE: 0843         orrs     r0, r1
+  0x02F00: bd49         ldr      r1, [pc, #0x2f4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x02F02: 4862         str      r0, [r1, #0x24]
+  0x02F04: bb48         ldr      r0, [pc, #0x2ec]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02F06: 4068         ldr      r0, [r0, #4]
+  0x02F08: 2021         movs     r1, #0x20
+  0x02F0A: 8843         bics     r0, r1
+  0x02F0C: b949         ldr      r1, [pc, #0x2e4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02F0E: 4860         str      r0, [r1, #4]
+  0x02F10: 0846         mov      r0, r1
+  0x02F12: 4068         ldr      r0, [r0, #4]
+  0x02F14: 1021         movs     r1, #0x10
+  0x02F16: 8843         bics     r0, r1
+  0x02F18: b649         ldr      r1, [pc, #0x2d8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02F1A: 4860         str      r0, [r1, #4]
+  0x02F1C: 0846         mov      r0, r1
+  0x02F1E: 4068         ldr      r0, [r0, #4]
+  0x02F20: 0421         movs     r1, #4
+  0x02F22: 8843         bics     r0, r1
+  0x02F24: b349         ldr      r1, [pc, #0x2cc]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02F26: 4860         str      r0, [r1, #4]
+  0x02F28: 0846         mov      r0, r1
+  0x02F2A: 4068         ldr      r0, [r0, #4]
+  0x02F2C: 0821         movs     r1, #8
+  0x02F2E: 8843         bics     r0, r1
+  0x02F30: b049         ldr      r1, [pc, #0x2c0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x02F32: 4860         str      r0, [r1, #4]
+  0x02F34: 0846         mov      r0, r1
+  0x02F36: 8068         ldr      r0, [r0, #8]
+  0x02F38: 0321         movs     r1, #3
+  0x02F3A: 8902         lsls     r1, r1, #0xa
+  0x02F3C: 8843         bics     r0, r1
+  0x02F3E: 0121         movs     r1, #1
+
+----- GPIO0-доступ (ldr@0x3018) func@0x300C -----
+  0x0300C: 10b5         push     {r4, lr}
+  0x0300E: 0120         movs     r0, #1
+  0x03010: 7749         ldr      r1, [pc, #0x1dc]  ; =0x40060000 <PERIPH>
+  0x03012: c861         str      r0, [r1, #0x1c]
+  0x03014: 0862         str      r0, [r1, #0x20]
+  0x03016: 0820         movs     r0, #8
+  0x03018: 7649         ldr      r1, [pc, #0x1d8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0301A: 8860         str      r0, [r1, #8]
+  0x0301C: 0020         movs     r0, #0
+  0x0301E: 7649         ldr      r1, [pc, #0x1d8]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03020: 8860         str      r0, [r1, #8]
+  0x03022: 7649         ldr      r1, [pc, #0x1d8]  ; =0x40048000 <GPIO2 DATA>
+  0x03024: 8860         str      r0, [r1, #8]
+  0x03026: 7649         ldr      r1, [pc, #0x1d8]  ; =0x4004A000 <GPIO3 DATA>
+  0x03028: 8860         str      r0, [r1, #8]
+  0x0302A: 7249         ldr      r1, [pc, #0x1c8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0302C: 4860         str      r0, [r1, #4]
+  0x0302E: 7249         ldr      r1, [pc, #0x1c8]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03030: 4860         str      r0, [r1, #4]
+  0x03032: 7249         ldr      r1, [pc, #0x1c8]  ; =0x40048000 <GPIO2 DATA>
+  0x03034: 4860         str      r0, [r1, #4]
+  0x03036: 7249         ldr      r1, [pc, #0x1c8]  ; =0x4004A000 <GPIO3 DATA>
+  0x03038: 4860         str      r0, [r1, #4]
+  0x0303A: 06f066fa     bl       #0x950a
+  0x0303E: 6f48         ldr      r0, [pc, #0x1bc]  ; =0x40048000 <GPIO2 DATA>
+  0x03040: 4068         ldr      r0, [r0, #4]
+  0x03042: 7049         ldr      r1, [pc, #0x1c0]  ; =0x0000FFFB
+  0x03044: 0843         orrs     r0, r1
+  0x03046: 6d49         ldr      r1, [pc, #0x1b4]  ; =0x40048000 <GPIO2 DATA>
+  0x03048: 4860         str      r0, [r1, #4]
+  0x0304A: 6d48         ldr      r0, [pc, #0x1b4]  ; =0x4004A000 <GPIO3 DATA>
+  0x0304C: 4068         ldr      r0, [r0, #4]
+  0x0304E: 0721         movs     r1, #7
+  0x03050: 4902         lsls     r1, r1, #9
+  0x03052: 0843         orrs     r0, r1
+  0x03054: 6a49         ldr      r1, [pc, #0x1a8]  ; =0x4004A000 <GPIO3 DATA>
+  0x03056: 4860         str      r0, [r1, #4]
+  0x03058: 6848         ldr      r0, [pc, #0x1a0]  ; =0x40048000 <GPIO2 DATA>
+  0x0305A: 806a         ldr      r0, [r0, #0x28]
+  0x0305C: 6949         ldr      r1, [pc, #0x1a4]  ; =0x0000FFFB
+  0x0305E: 0843         orrs     r0, r1
+  0x03060: 6649         ldr      r1, [pc, #0x198]  ; =0x40048000 <GPIO2 DATA>
+  0x03062: 8862         str      r0, [r1, #0x28]
+  0x03064: 6648         ldr      r0, [pc, #0x198]  ; =0x4004A000 <GPIO3 DATA>
+  0x03066: 806a         ldr      r0, [r0, #0x28]
+  0x03068: 0721         movs     r1, #7
+  0x0306A: 4902         lsls     r1, r1, #9
+  0x0306C: 0843         orrs     r0, r1
+  0x0306E: 6449         ldr      r1, [pc, #0x190]  ; =0x4004A000 <GPIO3 DATA>
+  0x03070: 8862         str      r0, [r1, #0x28]
+  0x03072: 0846         mov      r0, r1
+  0x03074: 4068         ldr      r0, [r0, #4]
+  0x03076: f821         movs     r1, #0xf8
+  0x03078: 8843         bics     r0, r1
+  0x0307A: 6149         ldr      r1, [pc, #0x184]  ; =0x4004A000 <GPIO3 DATA>
+  0x0307C: 4860         str      r0, [r1, #4]
+  0x0307E: 0846         mov      r0, r1
+  0x03080: 8068         ldr      r0, [r0, #8]
+  0x03082: 0321         movs     r1, #3
+  0x03084: 0904         lsls     r1, r1, #0x10
+  0x03086: 8843         bics     r0, r1
+  0x03088: 0121         movs     r1, #1
+  0x0308A: 4904         lsls     r1, r1, #0x11
+  0x0308C: 4018         adds     r0, r0, r1
+  0x0308E: 5c49         ldr      r1, [pc, #0x170]  ; =0x4004A000 <GPIO3 DATA>
+  0x03090: 8860         str      r0, [r1, #8]
+  0x03092: 0846         mov      r0, r1
+  0x03094: 8068         ldr      r0, [r0, #8]
+  0x03096: 0321         movs     r1, #3
+  0x03098: 8903         lsls     r1, r1, #0xe
+  0x0309A: 8843         bics     r0, r1
+  0x0309C: 0121         movs     r1, #1
+  0x0309E: c903         lsls     r1, r1, #0xf
+  0x030A0: 4018         adds     r0, r0, r1
+  0x030A2: 5749         ldr      r1, [pc, #0x15c]  ; =0x4004A000 <GPIO3 DATA>
+  0x030A4: 8860         str      r0, [r1, #8]
+  0x030A6: 0846         mov      r0, r1
+  0x030A8: 8068         ldr      r0, [r0, #8]
+  0x030AA: 0321         movs     r1, #3
+  0x030AC: 0903         lsls     r1, r1, #0xc
+  0x030AE: 8843         bics     r0, r1
+  0x030B0: 0121         movs     r1, #1
+  0x030B2: 4903         lsls     r1, r1, #0xd
+  0x030B4: 4018         adds     r0, r0, r1
+  0x030B6: 5249         ldr      r1, [pc, #0x148]  ; =0x4004A000 <GPIO3 DATA>
+  0x030B8: 8860         str      r0, [r1, #8]
+  0x030BA: 0846         mov      r0, r1
+  0x030BC: 8068         ldr      r0, [r0, #8]
+  0x030BE: 0321         movs     r1, #3
+  0x030C0: 8902         lsls     r1, r1, #0xa
+  0x030C2: 8843         bics     r0, r1
+  0x030C4: 0121         movs     r1, #1
+  0x030C6: c902         lsls     r1, r1, #0xb
+  0x030C8: 4018         adds     r0, r0, r1
+  0x030CA: 4d49         ldr      r1, [pc, #0x134]  ; =0x4004A000 <GPIO3 DATA>
+  0x030CC: 8860         str      r0, [r1, #8]
+  0x030CE: 0846         mov      r0, r1
+  0x030D0: 8068         ldr      r0, [r0, #8]
+  0x030D2: 0321         movs     r1, #3
+  0x030D4: 0902         lsls     r1, r1, #8
+  0x030D6: 8843         bics     r0, r1
+  0x030D8: ff30         adds     r0, #0xff
+  0x030DA: ff30         adds     r0, #0xff
+  0x030DC: 0230         adds     r0, #2
+  0x030DE: 4849         ldr      r1, [pc, #0x120]  ; =0x4004A000 <GPIO3 DATA>
+  0x030E0: 8860         str      r0, [r1, #8]
+  0x030E2: 0846         mov      r0, r1
+  0x030E4: 8068         ldr      r0, [r0, #8]
+  0x030E6: c021         movs     r1, #0xc0
+  0x030E8: 8843         bics     r0, r1
+  0x030EA: 8030         adds     r0, #0x80
+  0x030EC: 4449         ldr      r1, [pc, #0x110]  ; =0x4004A000 <GPIO3 DATA>
+  0x030EE: 8860         str      r0, [r1, #8]
+  0x030F0: 4048         ldr      r0, [pc, #0x100]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x030F2: 4068         ldr      r0, [r0, #4]
+  0x030F4: ff21         movs     r1, #0xff
+  0x030F6: 0902         lsls     r1, r1, #8
+  0x030F8: 0843         orrs     r0, r1
+  0x030FA: 3e49         ldr      r1, [pc, #0xf8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x030FC: 4860         str      r0, [r1, #4]
+  0x030FE: 3e48         ldr      r0, [pc, #0xf8]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03100: 4068         ldr      r0, [r0, #4]
+  0x03102: 4149         ldr      r1, [pc, #0x104]  ; =0x00001FFF
+  0x03104: 0843         orrs     r0, r1
+  0x03106: 3c49         ldr      r1, [pc, #0xf0]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03108: 4860         str      r0, [r1, #4]
+  0x0310A: 3a48         ldr      r0, [pc, #0xe8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0310C: 406a         ldr      r0, [r0, #0x24]
+  0x0310E: ff21         movs     r1, #0xff
+  0x03110: 0902         lsls     r1, r1, #8
+  0x03112: 0843         orrs     r0, r1
+  0x03114: 3749         ldr      r1, [pc, #0xdc]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03116: 4862         str      r0, [r1, #0x24]
+  0x03118: 3748         ldr      r0, [pc, #0xdc]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0311A: 406a         ldr      r0, [r0, #0x24]
+  0x0311C: 3a49         ldr      r1, [pc, #0xe8]  ; =0x00001FFF
+  0x0311E: 0843         orrs     r0, r1
+  0x03120: 3549         ldr      r1, [pc, #0xd4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03122: 4862         str      r0, [r1, #0x24]
+  0x03124: 3348         ldr      r0, [pc, #0xcc]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03126: 4068         ldr      r0, [r0, #4]
+  0x03128: 2021         movs     r1, #0x20
+  0x0312A: 8843         bics     r0, r1
+  0x0312C: 3149         ldr      r1, [pc, #0xc4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0312E: 4860         str      r0, [r1, #4]
+  0x03130: 0846         mov      r0, r1
+  0x03132: 4068         ldr      r0, [r0, #4]
+  0x03134: 1021         movs     r1, #0x10
+  0x03136: 8843         bics     r0, r1
+  0x03138: 2e49         ldr      r1, [pc, #0xb8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0313A: 4860         str      r0, [r1, #4]
+  0x0313C: 0846         mov      r0, r1
+  0x0313E: 4068         ldr      r0, [r0, #4]
+  0x03140: 0421         movs     r1, #4
+  0x03142: 8843         bics     r0, r1
+  0x03144: 2b49         ldr      r1, [pc, #0xac]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03146: 4860         str      r0, [r1, #4]
+  0x03148: 0846         mov      r0, r1
+  0x0314A: 4068         ldr      r0, [r0, #4]
+  0x0314C: 0821         movs     r1, #8
+  0x0314E: 8843         bics     r0, r1
+  0x03150: 2849         ldr      r1, [pc, #0xa0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03152: 4860         str      r0, [r1, #4]
+  0x03154: 0846         mov      r0, r1
+  0x03156: 8068         ldr      r0, [r0, #8]
+  0x03158: 0321         movs     r1, #3
+  0x0315A: 8902         lsls     r1, r1, #0xa
+
+----- GPIO0-доступ (ldr@0x3252) func@0x324A -----
+  0x0324A: 70b5         push     {r4, r5, r6, lr}
+  0x0324C: 0020         movs     r0, #0
+  0x0324E: e549         ldr      r1, [pc, #0x394]  ; =0x20000068 <SRAM>
+  0x03250: 0870         strb     r0, [r1]
+  0x03252: e248         ldr      r0, [pc, #0x388]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03254: 4068         ldr      r0, [r0, #4]
+  0x03256: ff21         movs     r1, #0xff
+  0x03258: 0902         lsls     r1, r1, #8
+  0x0325A: 0843         orrs     r0, r1
+  0x0325C: df49         ldr      r1, [pc, #0x37c]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0325E: 4860         str      r0, [r1, #4]
+  0x03260: df48         ldr      r0, [pc, #0x37c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03262: 4068         ldr      r0, [r0, #4]
+  0x03264: e049         ldr      r1, [pc, #0x380]  ; =0x00001FFF
+  0x03266: 0843         orrs     r0, r1
+  0x03268: dd49         ldr      r1, [pc, #0x374]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0326A: 4860         str      r0, [r1, #4]
+  0x0326C: db48         ldr      r0, [pc, #0x36c]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0326E: 406a         ldr      r0, [r0, #0x24]
+  0x03270: ff21         movs     r1, #0xff
+  0x03272: 0902         lsls     r1, r1, #8
+  0x03274: 0843         orrs     r0, r1
+  0x03276: d949         ldr      r1, [pc, #0x364]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03278: 4862         str      r0, [r1, #0x24]
+  0x0327A: d948         ldr      r0, [pc, #0x364]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0327C: 406a         ldr      r0, [r0, #0x24]
+  0x0327E: da49         ldr      r1, [pc, #0x368]  ; =0x00001FFF
+  0x03280: 0843         orrs     r0, r1
+  0x03282: d749         ldr      r1, [pc, #0x35c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03284: 4862         str      r0, [r1, #0x24]
+  0x03286: d948         ldr      r0, [pc, #0x364]  ; =0x40048000 <GPIO2 DATA>
+  0x03288: 4068         ldr      r0, [r0, #4]
+  0x0328A: d949         ldr      r1, [pc, #0x364]  ; =0x0000FFFB
+  0x0328C: 0843         orrs     r0, r1
+  0x0328E: d749         ldr      r1, [pc, #0x35c]  ; =0x40048000 <GPIO2 DATA>
+  0x03290: 4860         str      r0, [r1, #4]
+  0x03292: d848         ldr      r0, [pc, #0x360]  ; =0x4004A000 <GPIO3 DATA>
+  0x03294: 4068         ldr      r0, [r0, #4]
+  0x03296: 0721         movs     r1, #7
+  0x03298: 4902         lsls     r1, r1, #9
+  0x0329A: 0843         orrs     r0, r1
+  0x0329C: d549         ldr      r1, [pc, #0x354]  ; =0x4004A000 <GPIO3 DATA>
+  0x0329E: 4860         str      r0, [r1, #4]
+  0x032A0: d248         ldr      r0, [pc, #0x348]  ; =0x40048000 <GPIO2 DATA>
+  0x032A2: 806a         ldr      r0, [r0, #0x28]
+  0x032A4: d249         ldr      r1, [pc, #0x348]  ; =0x0000FFFB
+  0x032A6: 0843         orrs     r0, r1
+  0x032A8: d049         ldr      r1, [pc, #0x340]  ; =0x40048000 <GPIO2 DATA>
+  0x032AA: 8862         str      r0, [r1, #0x28]
+  0x032AC: d148         ldr      r0, [pc, #0x344]  ; =0x4004A000 <GPIO3 DATA>
+  0x032AE: 806a         ldr      r0, [r0, #0x28]
+  0x032B0: 0721         movs     r1, #7
+  0x032B2: 4902         lsls     r1, r1, #9
+  0x032B4: 0843         orrs     r0, r1
+  0x032B6: cf49         ldr      r1, [pc, #0x33c]  ; =0x4004A000 <GPIO3 DATA>
+  0x032B8: 8862         str      r0, [r1, #0x28]
+  0x032BA: 0120         movs     r0, #1
+  0x032BC: fcf7c2ff     bl       #0x244
+  0x032C0: 0024         movs     r4, #0
+  0x032C2: 4fe1         b        #0x3564
+  0x032C4: c548         ldr      r0, [pc, #0x314]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x032C6: 4068         ldr      r0, [r0, #4]
+  0x032C8: ff21         movs     r1, #0xff
+  0x032CA: 0902         lsls     r1, r1, #8
+  0x032CC: 0843         orrs     r0, r1
+  0x032CE: c349         ldr      r1, [pc, #0x30c]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x032D0: 4860         str      r0, [r1, #4]
+  0x032D2: c348         ldr      r0, [pc, #0x30c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x032D4: 4068         ldr      r0, [r0, #4]
+  0x032D6: c449         ldr      r1, [pc, #0x310]  ; =0x00001FFF
+  0x032D8: 0843         orrs     r0, r1
+  0x032DA: c149         ldr      r1, [pc, #0x304]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x032DC: 4860         str      r0, [r1, #4]
+  0x032DE: bf48         ldr      r0, [pc, #0x2fc]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x032E0: 806a         ldr      r0, [r0, #0x28]
+  0x032E2: ff21         movs     r1, #0xff
+  0x032E4: 0902         lsls     r1, r1, #8
+  0x032E6: 0843         orrs     r0, r1
+  0x032E8: bc49         ldr      r1, [pc, #0x2f0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x032EA: 8862         str      r0, [r1, #0x28]
+  0x032EC: bc48         ldr      r0, [pc, #0x2f0]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x032EE: 806a         ldr      r0, [r0, #0x28]
+  0x032F0: bd49         ldr      r1, [pc, #0x2f4]  ; =0x00001FFF
+  0x032F2: 0843         orrs     r0, r1
+  0x032F4: ba49         ldr      r1, [pc, #0x2e8]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x032F6: 8862         str      r0, [r1, #0x28]
+  0x032F8: be48         ldr      r0, [pc, #0x2f8]  ; =0x4004A000 <GPIO3 DATA>
+  0x032FA: 4068         ldr      r0, [r0, #4]
+  0x032FC: f821         movs     r1, #0xf8
+  0x032FE: 0843         orrs     r0, r1
+  0x03300: bc49         ldr      r1, [pc, #0x2f0]  ; =0x4004A000 <GPIO3 DATA>
+  0x03302: 4860         str      r0, [r1, #4]
+  0x03304: 0846         mov      r0, r1
+  0x03306: 806a         ldr      r0, [r0, #0x28]
+  0x03308: f821         movs     r1, #0xf8
+  0x0330A: 0843         orrs     r0, r1
+  0x0330C: b949         ldr      r1, [pc, #0x2e4]  ; =0x4004A000 <GPIO3 DATA>
+  0x0330E: 8862         str      r0, [r1, #0x28]
+  0x03310: 0120         movs     r0, #1
+  0x03312: fcf797ff     bl       #0x244
+  0x03316: 2300         movs     r3, r4
+  0x03318: 09f070fa     bl       #0xc7fc
+  0x0331C: 150c         lsrs     r5, r2, #0x10
+  0x0331E: 151e         subs     r5, r2, #0
+  0x03320: 2730         adds     r0, #0x27
+  0x03322: 3942         tst      r1, r7
+  0x03324: 4b54         strb     r3, [r1, r1]
+  0x03326: 5c64         str      r4, [r3, #0x44]
+  0x03328: 6c74         strb     r4, [r5, #0x11]
+  0x0332A: 7c84         strh     r4, [r7, #0x22]
+  0x0332C: 8c94         str      r4, [sp, #0x230]
+  0x0332E: 9da6         adr      r6, #0x274
+
+----- GPIO0-доступ (ldr@0x356A) func@0x356A -----
+  0x0356A: 1c48         ldr      r0, [pc, #0x70]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0356C: 4068         ldr      r0, [r0, #4]
+  0x0356E: ff21         movs     r1, #0xff
+  0x03570: 0902         lsls     r1, r1, #8
+  0x03572: 0843         orrs     r0, r1
+  0x03574: 1949         ldr      r1, [pc, #0x64]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03576: 4860         str      r0, [r1, #4]
+  0x03578: 1948         ldr      r0, [pc, #0x64]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0357A: 4068         ldr      r0, [r0, #4]
+  0x0357C: 1a49         ldr      r1, [pc, #0x68]  ; =0x00001FFF
+  0x0357E: 0843         orrs     r0, r1
+  0x03580: 1749         ldr      r1, [pc, #0x5c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03582: 4860         str      r0, [r1, #4]
+  0x03584: 1548         ldr      r0, [pc, #0x54]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03586: 406a         ldr      r0, [r0, #0x24]
+  0x03588: ff21         movs     r1, #0xff
+  0x0358A: 0902         lsls     r1, r1, #8
+  0x0358C: 0843         orrs     r0, r1
+  0x0358E: 1349         ldr      r1, [pc, #0x4c]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03590: 4862         str      r0, [r1, #0x24]
+  0x03592: 1348         ldr      r0, [pc, #0x4c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03594: 406a         ldr      r0, [r0, #0x24]
+  0x03596: 1449         ldr      r1, [pc, #0x50]  ; =0x00001FFF
+  0x03598: 0843         orrs     r0, r1
+  0x0359A: 1149         ldr      r1, [pc, #0x44]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0359C: 4862         str      r0, [r1, #0x24]
+  0x0359E: 0020         movs     r0, #0
+  0x035A0: 1b49         ldr      r1, [pc, #0x6c]  ; =0x40002000 <PERIPH>
+  0x035A2: 4860         str      r0, [r1, #4]
+  0x035A4: 0846         mov      r0, r1
+  0x035A6: 0068         ldr      r0, [r0]
+  0x035A8: 0221         movs     r1, #2
+  0x035AA: 8843         bics     r0, r1
+  0x035AC: 801c         adds     r0, r0, #2
+  0x035AE: 1849         ldr      r1, [pc, #0x60]  ; =0x40002000 <PERIPH>
+  0x035B0: 0860         str      r0, [r1]
+  0x035B2: 00bf         nop      
+  0x035B4: 1648         ldr      r0, [pc, #0x58]  ; =0x40002000 <PERIPH>
+  0x035B6: 0068         ldr      r0, [r0]
+  0x035B8: 8007         lsls     r0, r0, #0x1e
+  0x035BA: c00f         lsrs     r0, r0, #0x1f
+  0x035BC: 0028         cmp      r0, #0
+  0x035BE: f9d1         bne      #0x35b4
+  0x035C0: 401e         subs     r0, r0, #1
+  0x035C2: 1349         ldr      r1, [pc, #0x4c]  ; =0x40002000 <PERIPH>
+  0x035C4: 8031         adds     r1, #0x80
+  0x035C6: 8862         str      r0, [r1, #0x28]
+  0x035C8: 1248         ldr      r0, [pc, #0x48]  ; =0x00FFFF1F
+  0x035CA: c861         str      r0, [r1, #0x1c]
+  0x035CC: 0862         str      r0, [r1, #0x20]
+  0x035CE: 1048         ldr      r0, [pc, #0x40]  ; =0x40002000 <PERIPH>
+  0x035D0: 0068         ldr      r0, [r0]
+  0x035D2: 0121         movs     r1, #1
+  0x035D4: 0843         orrs     r0, r1
+  0x035D6: 0e49         ldr      r1, [pc, #0x38]  ; =0x40002000 <PERIPH>
+  0x035D8: 0860         str      r0, [r1]
+  0x035DA: 70bd         pop      {r4, r5, r6, pc}
+
+----- GPIO0-доступ (ldr@0x3574) func@0x3574 -----
+  0x03574: 1949         ldr      r1, [pc, #0x64]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03576: 4860         str      r0, [r1, #4]
+  0x03578: 1948         ldr      r0, [pc, #0x64]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0357A: 4068         ldr      r0, [r0, #4]
+  0x0357C: 1a49         ldr      r1, [pc, #0x68]  ; =0x00001FFF
+  0x0357E: 0843         orrs     r0, r1
+  0x03580: 1749         ldr      r1, [pc, #0x5c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03582: 4860         str      r0, [r1, #4]
+  0x03584: 1548         ldr      r0, [pc, #0x54]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03586: 406a         ldr      r0, [r0, #0x24]
+  0x03588: ff21         movs     r1, #0xff
+  0x0358A: 0902         lsls     r1, r1, #8
+  0x0358C: 0843         orrs     r0, r1
+  0x0358E: 1349         ldr      r1, [pc, #0x4c]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03590: 4862         str      r0, [r1, #0x24]
+  0x03592: 1348         ldr      r0, [pc, #0x4c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03594: 406a         ldr      r0, [r0, #0x24]
+  0x03596: 1449         ldr      r1, [pc, #0x50]  ; =0x00001FFF
+  0x03598: 0843         orrs     r0, r1
+  0x0359A: 1149         ldr      r1, [pc, #0x44]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0359C: 4862         str      r0, [r1, #0x24]
+  0x0359E: 0020         movs     r0, #0
+  0x035A0: 1b49         ldr      r1, [pc, #0x6c]  ; =0x40002000 <PERIPH>
+  0x035A2: 4860         str      r0, [r1, #4]
+  0x035A4: 0846         mov      r0, r1
+  0x035A6: 0068         ldr      r0, [r0]
+  0x035A8: 0221         movs     r1, #2
+  0x035AA: 8843         bics     r0, r1
+  0x035AC: 801c         adds     r0, r0, #2
+  0x035AE: 1849         ldr      r1, [pc, #0x60]  ; =0x40002000 <PERIPH>
+  0x035B0: 0860         str      r0, [r1]
+  0x035B2: 00bf         nop      
+  0x035B4: 1648         ldr      r0, [pc, #0x58]  ; =0x40002000 <PERIPH>
+  0x035B6: 0068         ldr      r0, [r0]
+  0x035B8: 8007         lsls     r0, r0, #0x1e
+  0x035BA: c00f         lsrs     r0, r0, #0x1f
+  0x035BC: 0028         cmp      r0, #0
+  0x035BE: f9d1         bne      #0x35b4
+  0x035C0: 401e         subs     r0, r0, #1
+  0x035C2: 1349         ldr      r1, [pc, #0x4c]  ; =0x40002000 <PERIPH>
+  0x035C4: 8031         adds     r1, #0x80
+  0x035C6: 8862         str      r0, [r1, #0x28]
+  0x035C8: 1248         ldr      r0, [pc, #0x48]  ; =0x00FFFF1F
+  0x035CA: c861         str      r0, [r1, #0x1c]
+  0x035CC: 0862         str      r0, [r1, #0x20]
+  0x035CE: 1048         ldr      r0, [pc, #0x40]  ; =0x40002000 <PERIPH>
+  0x035D0: 0068         ldr      r0, [r0]
+  0x035D2: 0121         movs     r1, #1
+  0x035D4: 0843         orrs     r0, r1
+  0x035D6: 0e49         ldr      r1, [pc, #0x38]  ; =0x40002000 <PERIPH>
+  0x035D8: 0860         str      r0, [r1]
+  0x035DA: 70bd         pop      {r4, r5, r6, pc}
+
+----- GPIO0-доступ (ldr@0x3584) func@0x3584 -----
+  0x03584: 1548         ldr      r0, [pc, #0x54]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03586: 406a         ldr      r0, [r0, #0x24]
+  0x03588: ff21         movs     r1, #0xff
+  0x0358A: 0902         lsls     r1, r1, #8
+  0x0358C: 0843         orrs     r0, r1
+  0x0358E: 1349         ldr      r1, [pc, #0x4c]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03590: 4862         str      r0, [r1, #0x24]
+  0x03592: 1348         ldr      r0, [pc, #0x4c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03594: 406a         ldr      r0, [r0, #0x24]
+  0x03596: 1449         ldr      r1, [pc, #0x50]  ; =0x00001FFF
+  0x03598: 0843         orrs     r0, r1
+  0x0359A: 1149         ldr      r1, [pc, #0x44]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0359C: 4862         str      r0, [r1, #0x24]
+  0x0359E: 0020         movs     r0, #0
+  0x035A0: 1b49         ldr      r1, [pc, #0x6c]  ; =0x40002000 <PERIPH>
+  0x035A2: 4860         str      r0, [r1, #4]
+  0x035A4: 0846         mov      r0, r1
+  0x035A6: 0068         ldr      r0, [r0]
+  0x035A8: 0221         movs     r1, #2
+  0x035AA: 8843         bics     r0, r1
+  0x035AC: 801c         adds     r0, r0, #2
+  0x035AE: 1849         ldr      r1, [pc, #0x60]  ; =0x40002000 <PERIPH>
+  0x035B0: 0860         str      r0, [r1]
+  0x035B2: 00bf         nop      
+  0x035B4: 1648         ldr      r0, [pc, #0x58]  ; =0x40002000 <PERIPH>
+  0x035B6: 0068         ldr      r0, [r0]
+  0x035B8: 8007         lsls     r0, r0, #0x1e
+  0x035BA: c00f         lsrs     r0, r0, #0x1f
+  0x035BC: 0028         cmp      r0, #0
+  0x035BE: f9d1         bne      #0x35b4
+  0x035C0: 401e         subs     r0, r0, #1
+  0x035C2: 1349         ldr      r1, [pc, #0x4c]  ; =0x40002000 <PERIPH>
+  0x035C4: 8031         adds     r1, #0x80
+  0x035C6: 8862         str      r0, [r1, #0x28]
+  0x035C8: 1248         ldr      r0, [pc, #0x48]  ; =0x00FFFF1F
+  0x035CA: c861         str      r0, [r1, #0x1c]
+  0x035CC: 0862         str      r0, [r1, #0x20]
+  0x035CE: 1048         ldr      r0, [pc, #0x40]  ; =0x40002000 <PERIPH>
+  0x035D0: 0068         ldr      r0, [r0]
+  0x035D2: 0121         movs     r1, #1
+  0x035D4: 0843         orrs     r0, r1
+  0x035D6: 0e49         ldr      r1, [pc, #0x38]  ; =0x40002000 <PERIPH>
+  0x035D8: 0860         str      r0, [r1]
+  0x035DA: 70bd         pop      {r4, r5, r6, pc}
+
+----- GPIO0-доступ (ldr@0x358E) func@0x358E -----
+  0x0358E: 1349         ldr      r1, [pc, #0x4c]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03590: 4862         str      r0, [r1, #0x24]
+  0x03592: 1348         ldr      r0, [pc, #0x4c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03594: 406a         ldr      r0, [r0, #0x24]
+  0x03596: 1449         ldr      r1, [pc, #0x50]  ; =0x00001FFF
+  0x03598: 0843         orrs     r0, r1
+  0x0359A: 1149         ldr      r1, [pc, #0x44]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0359C: 4862         str      r0, [r1, #0x24]
+  0x0359E: 0020         movs     r0, #0
+  0x035A0: 1b49         ldr      r1, [pc, #0x6c]  ; =0x40002000 <PERIPH>
+  0x035A2: 4860         str      r0, [r1, #4]
+  0x035A4: 0846         mov      r0, r1
+  0x035A6: 0068         ldr      r0, [r0]
+  0x035A8: 0221         movs     r1, #2
+  0x035AA: 8843         bics     r0, r1
+  0x035AC: 801c         adds     r0, r0, #2
+  0x035AE: 1849         ldr      r1, [pc, #0x60]  ; =0x40002000 <PERIPH>
+  0x035B0: 0860         str      r0, [r1]
+  0x035B2: 00bf         nop      
+  0x035B4: 1648         ldr      r0, [pc, #0x58]  ; =0x40002000 <PERIPH>
+  0x035B6: 0068         ldr      r0, [r0]
+  0x035B8: 8007         lsls     r0, r0, #0x1e
+  0x035BA: c00f         lsrs     r0, r0, #0x1f
+  0x035BC: 0028         cmp      r0, #0
+  0x035BE: f9d1         bne      #0x35b4
+  0x035C0: 401e         subs     r0, r0, #1
+  0x035C2: 1349         ldr      r1, [pc, #0x4c]  ; =0x40002000 <PERIPH>
+  0x035C4: 8031         adds     r1, #0x80
+  0x035C6: 8862         str      r0, [r1, #0x28]
+  0x035C8: 1248         ldr      r0, [pc, #0x48]  ; =0x00FFFF1F
+  0x035CA: c861         str      r0, [r1, #0x1c]
+  0x035CC: 0862         str      r0, [r1, #0x20]
+  0x035CE: 1048         ldr      r0, [pc, #0x40]  ; =0x40002000 <PERIPH>
+  0x035D0: 0068         ldr      r0, [r0]
+  0x035D2: 0121         movs     r1, #1
+  0x035D4: 0843         orrs     r0, r1
+  0x035D6: 0e49         ldr      r1, [pc, #0x38]  ; =0x40002000 <PERIPH>
+  0x035D8: 0860         str      r0, [r1]
+  0x035DA: 70bd         pop      {r4, r5, r6, pc}
+
+----- GPIO0-доступ (ldr@0x362A) func@0x362A -----
+  0x0362A: f84a         ldr      r2, [pc, #0x3e0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0362C: 926a         ldr      r2, [r2, #0x28]
+  0x0362E: 0123         movs     r3, #1
+  0x03630: 8b40         lsls     r3, r1
+  0x03632: 1a43         orrs     r2, r3
+  0x03634: f54b         ldr      r3, [pc, #0x3d4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03636: 9a62         str      r2, [r3, #0x28]
+  0x03638: 18e0         b        #0x366c
+  0x0363A: f54a         ldr      r2, [pc, #0x3d4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0363C: 926a         ldr      r2, [r2, #0x28]
+  0x0363E: 0123         movs     r3, #1
+  0x03640: 8b40         lsls     r3, r1
+  0x03642: 1a43         orrs     r2, r3
+  0x03644: f24b         ldr      r3, [pc, #0x3c8]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03646: 9a62         str      r2, [r3, #0x28]
+  0x03648: 10e0         b        #0x366c
+  0x0364A: f24a         ldr      r2, [pc, #0x3c8]  ; =0x40048000 <GPIO2 DATA>
+  0x0364C: 926a         ldr      r2, [r2, #0x28]
+  0x0364E: 0123         movs     r3, #1
+  0x03650: 8b40         lsls     r3, r1
+  0x03652: 1a43         orrs     r2, r3
+  0x03654: ef4b         ldr      r3, [pc, #0x3bc]  ; =0x40048000 <GPIO2 DATA>
+  0x03656: 9a62         str      r2, [r3, #0x28]
+  0x03658: 08e0         b        #0x366c
+  0x0365A: ef4a         ldr      r2, [pc, #0x3bc]  ; =0x4004A000 <GPIO3 DATA>
+  0x0365C: 926a         ldr      r2, [r2, #0x28]
+  0x0365E: 0123         movs     r3, #1
+  0x03660: 8b40         lsls     r3, r1
+  0x03662: 1a43         orrs     r2, r3
+  0x03664: ec4b         ldr      r3, [pc, #0x3b0]  ; =0x4004A000 <GPIO3 DATA>
+  0x03666: 9a62         str      r2, [r3, #0x28]
+  0x03668: 00e0         b        #0x366c
+  0x0366A: 00bf         nop      
+  0x0366C: 00bf         nop      
+  0x0366E: 7047         bx       lr
+
+----- GPIO0-доступ (ldr@0x3634) func@0x3634 -----
+  0x03634: f54b         ldr      r3, [pc, #0x3d4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03636: 9a62         str      r2, [r3, #0x28]
+  0x03638: 18e0         b        #0x366c
+  0x0363A: f54a         ldr      r2, [pc, #0x3d4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0363C: 926a         ldr      r2, [r2, #0x28]
+  0x0363E: 0123         movs     r3, #1
+  0x03640: 8b40         lsls     r3, r1
+  0x03642: 1a43         orrs     r2, r3
+  0x03644: f24b         ldr      r3, [pc, #0x3c8]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03646: 9a62         str      r2, [r3, #0x28]
+  0x03648: 10e0         b        #0x366c
+  0x0364A: f24a         ldr      r2, [pc, #0x3c8]  ; =0x40048000 <GPIO2 DATA>
+  0x0364C: 926a         ldr      r2, [r2, #0x28]
+  0x0364E: 0123         movs     r3, #1
+  0x03650: 8b40         lsls     r3, r1
+  0x03652: 1a43         orrs     r2, r3
+  0x03654: ef4b         ldr      r3, [pc, #0x3bc]  ; =0x40048000 <GPIO2 DATA>
+  0x03656: 9a62         str      r2, [r3, #0x28]
+  0x03658: 08e0         b        #0x366c
+  0x0365A: ef4a         ldr      r2, [pc, #0x3bc]  ; =0x4004A000 <GPIO3 DATA>
+  0x0365C: 926a         ldr      r2, [r2, #0x28]
+  0x0365E: 0123         movs     r3, #1
+  0x03660: 8b40         lsls     r3, r1
+  0x03662: 1a43         orrs     r2, r3
+  0x03664: ec4b         ldr      r3, [pc, #0x3b0]  ; =0x4004A000 <GPIO3 DATA>
+  0x03666: 9a62         str      r2, [r3, #0x28]
+  0x03668: 00e0         b        #0x366c
+  0x0366A: 00bf         nop      
+  0x0366C: 00bf         nop      
+  0x0366E: 7047         bx       lr
+
+----- GPIO0-доступ (ldr@0x3688) func@0x3670 -----
+  0x03670: 30b5         push     {r4, r5, lr}
+  0x03672: 0346         mov      r3, r0
+  0x03674: 0020         movs     r0, #0
+  0x03676: 002b         cmp      r3, #0
+  0x03678: 06d0         beq      #0x3688
+  0x0367A: 012b         cmp      r3, #1
+  0x0367C: 12d0         beq      #0x36a4
+  0x0367E: 022b         cmp      r3, #2
+  0x03680: 1ed0         beq      #0x36c0
+  0x03682: 032b         cmp      r3, #3
+  0x03684: 38d1         bne      #0x36f8
+  0x03686: 29e0         b        #0x36dc
+  0x03688: e04c         ldr      r4, [pc, #0x380]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0368A: 6068         ldr      r0, [r4, #4]
+  0x0368C: 0124         movs     r4, #1
+  0x0368E: 8c40         lsls     r4, r1
+  0x03690: 0546         mov      r5, r0
+  0x03692: a543         bics     r5, r4
+  0x03694: 2846         mov      r0, r5
+  0x03696: 1446         mov      r4, r2
+  0x03698: 8c40         lsls     r4, r1
+  0x0369A: 2043         orrs     r0, r4
+  0x0369C: db4c         ldr      r4, [pc, #0x36c]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0369E: 6060         str      r0, [r4, #4]
+  0x036A0: 6068         ldr      r0, [r4, #4]
+  0x036A2: 2ae0         b        #0x36fa
+  0x036A4: da4c         ldr      r4, [pc, #0x368]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x036A6: 6068         ldr      r0, [r4, #4]
+  0x036A8: 0124         movs     r4, #1
+  0x036AA: 8c40         lsls     r4, r1
+  0x036AC: 0546         mov      r5, r0
+  0x036AE: a543         bics     r5, r4
+  0x036B0: 2846         mov      r0, r5
+  0x036B2: 1446         mov      r4, r2
+  0x036B4: 8c40         lsls     r4, r1
+  0x036B6: 2043         orrs     r0, r4
+  0x036B8: d54c         ldr      r4, [pc, #0x354]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x036BA: 6060         str      r0, [r4, #4]
+  0x036BC: 6068         ldr      r0, [r4, #4]
+  0x036BE: 1ce0         b        #0x36fa
+  0x036C0: d44c         ldr      r4, [pc, #0x350]  ; =0x40048000 <GPIO2 DATA>
+  0x036C2: 6068         ldr      r0, [r4, #4]
+  0x036C4: 0124         movs     r4, #1
+  0x036C6: 8c40         lsls     r4, r1
+  0x036C8: 0546         mov      r5, r0
+  0x036CA: a543         bics     r5, r4
+  0x036CC: 2846         mov      r0, r5
+  0x036CE: 1446         mov      r4, r2
+  0x036D0: 8c40         lsls     r4, r1
+  0x036D2: 2043         orrs     r0, r4
+  0x036D4: cf4c         ldr      r4, [pc, #0x33c]  ; =0x40048000 <GPIO2 DATA>
+  0x036D6: 6060         str      r0, [r4, #4]
+  0x036D8: 6068         ldr      r0, [r4, #4]
+  0x036DA: 0ee0         b        #0x36fa
+  0x036DC: ce4c         ldr      r4, [pc, #0x338]  ; =0x4004A000 <GPIO3 DATA>
+  0x036DE: 6068         ldr      r0, [r4, #4]
+  0x036E0: 0124         movs     r4, #1
+  0x036E2: 8c40         lsls     r4, r1
+  0x036E4: 0546         mov      r5, r0
+  0x036E6: a543         bics     r5, r4
+  0x036E8: 2846         mov      r0, r5
+  0x036EA: 1446         mov      r4, r2
+  0x036EC: 8c40         lsls     r4, r1
+  0x036EE: 2043         orrs     r0, r4
+  0x036F0: c94c         ldr      r4, [pc, #0x324]  ; =0x4004A000 <GPIO3 DATA>
+  0x036F2: 6060         str      r0, [r4, #4]
+  0x036F4: 6068         ldr      r0, [r4, #4]
+  0x036F6: 00e0         b        #0x36fa
+  0x036F8: 00bf         nop      
+  0x036FA: 00bf         nop      
+  0x036FC: 30bd         pop      {r4, r5, pc}
+
+----- GPIO0-доступ (ldr@0x371A) func@0x36FE -----
+  0x036FE: 70b5         push     {r4, r5, r6, lr}
+  0x03700: 0646         mov      r6, r0
+  0x03702: 0c46         mov      r4, r1
+  0x03704: 1546         mov      r5, r2
+  0x03706: 002e         cmp      r6, #0
+  0x03708: 06d0         beq      #0x3718
+  0x0370A: 012e         cmp      r6, #1
+  0x0370C: 1cd0         beq      #0x3748
+  0x0370E: 022e         cmp      r6, #2
+  0x03710: 32d0         beq      #0x3778
+  0x03712: 032e         cmp      r6, #3
+  0x03714: 71d1         bne      #0x37fa
+  0x03716: 47e0         b        #0x37a8
+  0x03718: c048         ldr      r0, [pc, #0x300]  ; =0x0000FFFF
+  0x0371A: bc49         ldr      r1, [pc, #0x2f0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0371C: 0862         str      r0, [r1, #0x20]
+  0x0371E: 0846         mov      r0, r1
+  0x03720: 8069         ldr      r0, [r0, #0x18]
+  0x03722: 0121         movs     r1, #1
+  0x03724: a140         lsls     r1, r4
+  0x03726: 8843         bics     r0, r1
+  0x03728: b849         ldr      r1, [pc, #0x2e0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0372A: 8861         str      r0, [r1, #0x18]
+  0x0372C: 0846         mov      r0, r1
+  0x0372E: 8069         ldr      r0, [r0, #0x18]
+  0x03730: 2946         mov      r1, r5
+  0x03732: a140         lsls     r1, r4
+  0x03734: 0843         orrs     r0, r1
+  0x03736: b549         ldr      r1, [pc, #0x2d4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03738: 8861         str      r0, [r1, #0x18]
+  0x0373A: 1f20         movs     r0, #0x1f
+  0x0373C: 00f0a2fc     bl       #0x4084
+  0x03740: 1f20         movs     r0, #0x1f
+  0x03742: 00f098fc     bl       #0x4076
+  0x03746: 59e0         b        #0x37fc
+  0x03748: b448         ldr      r0, [pc, #0x2d0]  ; =0x0000FFFF
+  0x0374A: b149         ldr      r1, [pc, #0x2c4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0374C: 0862         str      r0, [r1, #0x20]
+  0x0374E: 0846         mov      r0, r1
+  0x03750: 8069         ldr      r0, [r0, #0x18]
+  0x03752: 0121         movs     r1, #1
+  0x03754: a140         lsls     r1, r4
+  0x03756: 8843         bics     r0, r1
+  0x03758: ad49         ldr      r1, [pc, #0x2b4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0375A: 8861         str      r0, [r1, #0x18]
+  0x0375C: 0846         mov      r0, r1
+  0x0375E: 8069         ldr      r0, [r0, #0x18]
+  0x03760: 2946         mov      r1, r5
+  0x03762: a140         lsls     r1, r4
+  0x03764: 0843         orrs     r0, r1
+  0x03766: aa49         ldr      r1, [pc, #0x2a8]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03768: 8861         str      r0, [r1, #0x18]
+  0x0376A: 1e20         movs     r0, #0x1e
+  0x0376C: 00f08afc     bl       #0x4084
+  0x03770: 1e20         movs     r0, #0x1e
+  0x03772: 00f080fc     bl       #0x4076
+  0x03776: 41e0         b        #0x37fc
+  0x03778: a848         ldr      r0, [pc, #0x2a0]  ; =0x0000FFFF
+  0x0377A: a649         ldr      r1, [pc, #0x298]  ; =0x40048000 <GPIO2 DATA>
+  0x0377C: 0862         str      r0, [r1, #0x20]
+  0x0377E: 0846         mov      r0, r1
+  0x03780: 8069         ldr      r0, [r0, #0x18]
+  0x03782: 0121         movs     r1, #1
+  0x03784: a140         lsls     r1, r4
+  0x03786: 8843         bics     r0, r1
+  0x03788: a249         ldr      r1, [pc, #0x288]  ; =0x40048000 <GPIO2 DATA>
+  0x0378A: 8861         str      r0, [r1, #0x18]
+  0x0378C: 0846         mov      r0, r1
+  0x0378E: 8069         ldr      r0, [r0, #0x18]
+  0x03790: 2946         mov      r1, r5
+  0x03792: a140         lsls     r1, r4
+  0x03794: 0843         orrs     r0, r1
+  0x03796: 9f49         ldr      r1, [pc, #0x27c]  ; =0x40048000 <GPIO2 DATA>
+  0x03798: 8861         str      r0, [r1, #0x18]
+  0x0379A: 1d20         movs     r0, #0x1d
+  0x0379C: 00f072fc     bl       #0x4084
+  0x037A0: 1d20         movs     r0, #0x1d
+  0x037A2: 00f068fc     bl       #0x4076
+  0x037A6: 29e0         b        #0x37fc
+  0x037A8: 062c         cmp      r4, #6
+  0x037AA: 01d0         beq      #0x37b0
+  0x037AC: 072c         cmp      r4, #7
+  0x037AE: 04d1         bne      #0x37ba
+  0x037B0: 9b48         ldr      r0, [pc, #0x26c]  ; =0x40060000 <PERIPH>
+  0x037B2: 006a         ldr      r0, [r0, #0x20]
+  0x037B4: 0128         cmp      r0, #1
+  0x037B6: 00d0         beq      #0x37ba
+  0x037B8: 70bd         pop      {r4, r5, r6, pc}
+
+----- GPIO0-доступ (ldr@0x3868) func@0x384E -----
+  0x0384E: 30b5         push     {r4, r5, lr}
+  0x03850: 0346         mov      r3, r0
+  0x03852: 0020         movs     r0, #0
+  0x03854: 4800         lsls     r0, r1, #1
+  0x03856: 002b         cmp      r3, #0
+  0x03858: 06d0         beq      #0x3868
+  0x0385A: 012b         cmp      r3, #1
+  0x0385C: 13d0         beq      #0x3886
+  0x0385E: 022b         cmp      r3, #2
+  0x03860: 20d0         beq      #0x38a4
+  0x03862: 032b         cmp      r3, #3
+  0x03864: 3bd1         bne      #0x38de
+  0x03866: 2ce0         b        #0x38c2
+  0x03868: 684c         ldr      r4, [pc, #0x1a0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0386A: a468         ldr      r4, [r4, #8]
+  0x0386C: 0325         movs     r5, #3
+  0x0386E: 8540         lsls     r5, r0
+  0x03870: ac43         bics     r4, r5
+  0x03872: 664d         ldr      r5, [pc, #0x198]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03874: ac60         str      r4, [r5, #8]
+  0x03876: 2c46         mov      r4, r5
+  0x03878: a468         ldr      r4, [r4, #8]
+  0x0387A: 1546         mov      r5, r2
+  0x0387C: 8540         lsls     r5, r0
+  0x0387E: 2c43         orrs     r4, r5
+  0x03880: 624d         ldr      r5, [pc, #0x188]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03882: ac60         str      r4, [r5, #8]
+  0x03884: 2ce0         b        #0x38e0
+  0x03886: 624c         ldr      r4, [pc, #0x188]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03888: a468         ldr      r4, [r4, #8]
+  0x0388A: 0325         movs     r5, #3
+  0x0388C: 8540         lsls     r5, r0
+  0x0388E: ac43         bics     r4, r5
+  0x03890: 5f4d         ldr      r5, [pc, #0x17c]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x03892: ac60         str      r4, [r5, #8]
+  0x03894: 2c46         mov      r4, r5
+  0x03896: a468         ldr      r4, [r4, #8]
+  0x03898: 1546         mov      r5, r2
+  0x0389A: 8540         lsls     r5, r0
+  0x0389C: 2c43         orrs     r4, r5
+  0x0389E: 5c4d         ldr      r5, [pc, #0x170]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x038A0: ac60         str      r4, [r5, #8]
+  0x038A2: 1de0         b        #0x38e0
+  0x038A4: 5b4c         ldr      r4, [pc, #0x16c]  ; =0x40048000 <GPIO2 DATA>
+  0x038A6: a468         ldr      r4, [r4, #8]
+  0x038A8: 0325         movs     r5, #3
+  0x038AA: 8540         lsls     r5, r0
+  0x038AC: ac43         bics     r4, r5
+  0x038AE: 594d         ldr      r5, [pc, #0x164]  ; =0x40048000 <GPIO2 DATA>
+  0x038B0: ac60         str      r4, [r5, #8]
+  0x038B2: 2c46         mov      r4, r5
+  0x038B4: a468         ldr      r4, [r4, #8]
+  0x038B6: 1546         mov      r5, r2
+  0x038B8: 8540         lsls     r5, r0
+  0x038BA: 2c43         orrs     r4, r5
+  0x038BC: 554d         ldr      r5, [pc, #0x154]  ; =0x40048000 <GPIO2 DATA>
+  0x038BE: ac60         str      r4, [r5, #8]
+  0x038C0: 0ee0         b        #0x38e0
+  0x038C2: 554c         ldr      r4, [pc, #0x154]  ; =0x4004A000 <GPIO3 DATA>
+  0x038C4: a568         ldr      r5, [r4, #8]
+  0x038C6: 0324         movs     r4, #3
+  0x038C8: 8440         lsls     r4, r0
+  0x038CA: a543         bics     r5, r4
+  0x038CC: 524c         ldr      r4, [pc, #0x148]  ; =0x4004A000 <GPIO3 DATA>
+  0x038CE: a560         str      r5, [r4, #8]
+  0x038D0: a468         ldr      r4, [r4, #8]
+  0x038D2: 1546         mov      r5, r2
+  0x038D4: 8540         lsls     r5, r0
+  0x038D6: 2c43         orrs     r4, r5
+  0x038D8: 4f4d         ldr      r5, [pc, #0x13c]  ; =0x4004A000 <GPIO3 DATA>
+  0x038DA: ac60         str      r4, [r5, #8]
+  0x038DC: 00e0         b        #0x38e0
+  0x038DE: 00bf         nop      
+  0x038E0: 00bf         nop      
+  0x038E2: 30bd         pop      {r4, r5, pc}
+
+----- GPIO0-доступ (ldr@0x39CA) func@0x38E4 -----
+  0x038E4: 10b5         push     {r4, lr}
+  0x038E6: 0022         movs     r2, #0
+  0x038E8: 1146         mov      r1, r2
+  0x038EA: 0220         movs     r0, #2
+  0x038EC: fff7c0fe     bl       #0x3670
+  0x038F0: 0023         movs     r3, #0
+  0x038F2: 1a46         mov      r2, r3
+  0x038F4: 1946         mov      r1, r3
+  0x038F6: 1846         mov      r0, r3
+  0x038F8: fff783ff     bl       #0x3802
+  0x038FC: 0122         movs     r2, #1
+  0x038FE: 0021         movs     r1, #0
+  0x03900: 0220         movs     r0, #2
+  0x03902: fff7fcfe     bl       #0x36fe
+  0x03906: 0022         movs     r2, #0
+  0x03908: 0121         movs     r1, #1
+  0x0390A: 0220         movs     r0, #2
+  0x0390C: fff7b0fe     bl       #0x3670
+  0x03910: 0022         movs     r2, #0
+  0x03912: 0121         movs     r1, #1
+  0x03914: 0220         movs     r0, #2
+  0x03916: fff79aff     bl       #0x384e
+  0x0391A: 0123         movs     r3, #1
+  0x0391C: 0022         movs     r2, #0
+  0x0391E: 1146         mov      r1, r2
+  0x03920: 1846         mov      r0, r3
+  0x03922: fff76eff     bl       #0x3802
+  0x03926: 0122         movs     r2, #1
+  0x03928: 1146         mov      r1, r2
+  0x0392A: 0220         movs     r0, #2
+  0x0392C: fff7e7fe     bl       #0x36fe
+  0x03930: 0022         movs     r2, #0
+  0x03932: 0221         movs     r1, #2
+  0x03934: 0846         mov      r0, r1
+  0x03936: fff79bfe     bl       #0x3670
+  0x0393A: 0022         movs     r2, #0
+  0x0393C: 0221         movs     r1, #2
+  0x0393E: 0846         mov      r0, r1
+  0x03940: fff785ff     bl       #0x384e
+  0x03944: 0023         movs     r3, #0
+  0x03946: 0122         movs     r2, #1
+  0x03948: 1946         mov      r1, r3
+  0x0394A: 0220         movs     r0, #2
+  0x0394C: fff759ff     bl       #0x3802
+  0x03950: 0122         movs     r2, #1
+  0x03952: 0221         movs     r1, #2
+  0x03954: 0846         mov      r0, r1
+  0x03956: fff7d2fe     bl       #0x36fe
+  0x0395A: 0022         movs     r2, #0
+  0x0395C: 0321         movs     r1, #3
+  0x0395E: 0220         movs     r0, #2
+  0x03960: fff786fe     bl       #0x3670
+  0x03964: 0023         movs     r3, #0
+  0x03966: 1a46         mov      r2, r3
+  0x03968: 0121         movs     r1, #1
+  0x0396A: 0320         movs     r0, #3
+  0x0396C: fff749ff     bl       #0x3802
+  0x03970: 0122         movs     r2, #1
+  0x03972: 0321         movs     r1, #3
+  0x03974: 0220         movs     r0, #2
+  0x03976: fff7c2fe     bl       #0x36fe
+  0x0397A: 0022         movs     r2, #0
+  0x0397C: 0421         movs     r1, #4
+  0x0397E: 0220         movs     r0, #2
+  0x03980: fff776fe     bl       #0x3670
+  0x03984: 0022         movs     r2, #0
+  0x03986: 0421         movs     r1, #4
+  0x03988: 0220         movs     r0, #2
+  0x0398A: fff760ff     bl       #0x384e
+  0x0398E: 0123         movs     r3, #1
+  0x03990: 0022         movs     r2, #0
+  0x03992: 1946         mov      r1, r3
+  0x03994: 0420         movs     r0, #4
+  0x03996: fff734ff     bl       #0x3802
+  0x0399A: 0122         movs     r2, #1
+  0x0399C: 0421         movs     r1, #4
+  0x0399E: 0220         movs     r0, #2
+  0x039A0: fff7adfe     bl       #0x36fe
+  0x039A4: 0122         movs     r2, #1
+  0x039A6: 0521         movs     r1, #5
+  0x039A8: 0220         movs     r0, #2
+  0x039AA: fff761fe     bl       #0x3670
+  0x039AE: 0521         movs     r1, #5
+  0x039B0: 0220         movs     r0, #2
+  0x039B2: fff731fe     bl       #0x3618
+  0x039B6: 10bd         pop      {r4, pc}
+
+----- GPIO0-доступ (ldr@0x3A30) func@0x3A2A -----
+  0x03A2A: 70b5         push     {r4, r5, r6, lr}
+  0x03A2C: 0446         mov      r4, r0
+  0x03A2E: 0020         movs     r0, #0
+  0x03A30: f84d         ldr      r5, [pc, #0x3e0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03A32: e868         ldr      r0, [r5, #0xc]
+  0x03A34: 0125         movs     r5, #1
+  0x03A36: a540         lsls     r5, r4
+  0x03A38: 0646         mov      r6, r0
+  0x03A3A: ae43         bics     r6, r5
+  0x03A3C: 3046         mov      r0, r6
+  0x03A3E: 0d46         mov      r5, r1
+  0x03A40: a540         lsls     r5, r4
+  0x03A42: 2843         orrs     r0, r5
+  0x03A44: f34d         ldr      r5, [pc, #0x3cc]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03A46: e860         str      r0, [r5, #0xc]
+  0x03A48: 2869         ldr      r0, [r5, #0x10]
+  0x03A4A: 0125         movs     r5, #1
+  0x03A4C: a540         lsls     r5, r4
+  0x03A4E: 0646         mov      r6, r0
+  0x03A50: ae43         bics     r6, r5
+  0x03A52: 3046         mov      r0, r6
+  0x03A54: 1546         mov      r5, r2
+  0x03A56: a540         lsls     r5, r4
+  0x03A58: 2843         orrs     r0, r5
+  0x03A5A: ee4d         ldr      r5, [pc, #0x3b8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03A5C: 2861         str      r0, [r5, #0x10]
+  0x03A5E: 6869         ldr      r0, [r5, #0x14]
+  0x03A60: 0125         movs     r5, #1
+  0x03A62: a540         lsls     r5, r4
+  0x03A64: 0646         mov      r6, r0
+  0x03A66: ae43         bics     r6, r5
+  0x03A68: 3046         mov      r0, r6
+  0x03A6A: 1d46         mov      r5, r3
+  0x03A6C: a540         lsls     r5, r4
+  0x03A6E: 2843         orrs     r0, r5
+  0x03A70: e84d         ldr      r5, [pc, #0x3a0]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x03A72: 6861         str      r0, [r5, #0x14]
+  0x03A74: 70bd         pop      {r4, r5, r6, pc}
+
+----- GPIO0-доступ (ldr@0x3B24) func@0x3AC2 -----
+  0x03AC2: 70b5         push     {r4, r5, r6, lr}
+  0x03AC4: 0446         mov      r4, r0
+  0x03AC6: 0020         movs     r0, #0
+  0x03AC8: d44d         ldr      r5, [pc, #0x350]  ; =0x4004A000 <GPIO3 DATA>
+  0x03ACA: e868         ldr      r0, [r5, #0xc]
+  0x03ACC: 0125         movs     r5, #1
+  0x03ACE: a540         lsls     r5, r4
+  0x03AD0: 0646         mov      r6, r0
+  0x03AD2: ae43         bics     r6, r5
+  0x03AD4: 3046         mov      r0, r6
+  0x03AD6: 0d46         mov      r5, r1
+  0x03AD8: a540         lsls     r5, r4
+  0x03ADA: 2843         orrs     r0, r5
+  0x03ADC: cf4d         ldr      r5, [pc, #0x33c]  ; =0x4004A000 <GPIO3 DATA>
+  0x03ADE: e860         str      r0, [r5, #0xc]
+  0x03AE0: 2869         ldr      r0, [r5, #0x10]
+  0x03AE2: 0125         movs     r5, #1
+  0x03AE4: a540         lsls     r5, r4
+  0x03AE6: 0646         mov      r6, r0
+  0x03AE8: ae43         bics     r6, r5
+  0x03AEA: 3046         mov      r0, r6
+  0x03AEC: 1546         mov      r5, r2
+  0x03AEE: a540         lsls     r5, r4
+  0x03AF0: 2843         orrs     r0, r5
+  0x03AF2: ca4d         ldr      r5, [pc, #0x328]  ; =0x4004A000 <GPIO3 DATA>
+  0x03AF4: 2861         str      r0, [r5, #0x10]
+  0x03AF6: 6869         ldr      r0, [r5, #0x14]
+  0x03AF8: 0125         movs     r5, #1
+  0x03AFA: a540         lsls     r5, r4
+  0x03AFC: 0646         mov      r6, r0
+  0x03AFE: ae43         bics     r6, r5
+  0x03B00: 3046         mov      r0, r6
+  0x03B02: 1d46         mov      r5, r3
+  0x03B04: a540         lsls     r5, r4
+  0x03B06: 2843         orrs     r0, r5
+  0x03B08: c44d         ldr      r5, [pc, #0x310]  ; =0x4004A000 <GPIO3 DATA>
+  0x03B0A: 6861         str      r0, [r5, #0x14]
+  0x03B0C: 70bd         pop      {r4, r5, r6, pc}
+
+----- GPIO0-доступ (ldr@0x5430) func@0x5414 -----
+  0x05414: 10b5         push     {r4, lr}
+  0x05416: 6748         ldr      r0, [pc, #0x19c]  ; =0x20000008 <SRAM>
+  0x05418: 0068         ldr      r0, [r0]
+  0x0541A: 8002         lsls     r0, r0, #0xa
+  0x0541C: c00f         lsrs     r0, r0, #0x1f
+  0x0541E: 0028         cmp      r0, #0
+  0x05420: 7ed0         beq      #0x5520
+  0x05422: 6448         ldr      r0, [pc, #0x190]  ; =0x20000008 <SRAM>
+  0x05424: 0068         ldr      r0, [r0]
+  0x05426: 0121         movs     r1, #1
+  0x05428: 4905         lsls     r1, r1, #0x15
+  0x0542A: 8843         bics     r0, r1
+  0x0542C: 6149         ldr      r1, [pc, #0x184]  ; =0x20000008 <SRAM>
+  0x0542E: 0860         str      r0, [r1]
+  0x05430: 6448         ldr      r0, [pc, #0x190]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x05432: 4068         ldr      r0, [r0, #4]
+  0x05434: 8021         movs     r1, #0x80
+  0x05436: 8843         bics     r0, r1
+  0x05438: 8030         adds     r0, #0x80
+  0x0543A: 6249         ldr      r1, [pc, #0x188]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0543C: 4860         str      r0, [r1, #4]
+  0x0543E: 0846         mov      r0, r1
+  0x05440: 0068         ldr      r0, [r0]
+  0x05442: 8021         movs     r1, #0x80
+  0x05444: 8843         bics     r0, r1
+  0x05446: 8030         adds     r0, #0x80
+  0x05448: 5e49         ldr      r1, [pc, #0x178]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0544A: 0860         str      r0, [r1]
+  0x0544C: 0846         mov      r0, r1
+  0x0544E: 0068         ldr      r0, [r0]
+  0x05450: 4006         lsls     r0, r0, #0x19
+  0x05452: c00f         lsrs     r0, r0, #0x1f
+  0x05454: 0028         cmp      r0, #0
+  0x05456: 15d0         beq      #0x5484
+  0x05458: 0020         movs     r0, #0
+  0x0545A: 5b49         ldr      r1, [pc, #0x16c]  ; =0x20000031 <SRAM>
+  0x0545C: 0870         strb     r0, [r1]
+  0x0545E: 5b48         ldr      r0, [pc, #0x16c]  ; =0x20000030 <SRAM>
+  0x05460: 0078         ldrb     r0, [r0]
+  0x05462: 0f28         cmp      r0, #0xf
+  0x05464: 08dd         ble      #0x5478
+  0x05466: 5348         ldr      r0, [pc, #0x14c]  ; =0x20000008 <SRAM>
+  0x05468: 0068         ldr      r0, [r0]
+  0x0546A: 0121         movs     r1, #1
+  0x0546C: c905         lsls     r1, r1, #0x17
+  0x0546E: 8843         bics     r0, r1
+  0x05470: 4018         adds     r0, r0, r1
+  0x05472: 5049         ldr      r1, [pc, #0x140]  ; =0x20000008 <SRAM>
+  0x05474: 0860         str      r0, [r1]
+  0x05476: 19e0         b        #0x54ac
+  0x05478: 5448         ldr      r0, [pc, #0x150]  ; =0x20000030 <SRAM>
+  0x0547A: 0078         ldrb     r0, [r0]
+  0x0547C: 401c         adds     r0, r0, #1
+  0x0547E: 5349         ldr      r1, [pc, #0x14c]  ; =0x20000030 <SRAM>
+  0x05480: 0870         strb     r0, [r1]
+  0x05482: 13e0         b        #0x54ac
+  0x05484: 0020         movs     r0, #0
+  0x05486: 5149         ldr      r1, [pc, #0x144]  ; =0x20000030 <SRAM>
+  0x05488: 0870         strb     r0, [r1]
+  0x0548A: 4f48         ldr      r0, [pc, #0x13c]  ; =0x20000031 <SRAM>
+  0x0548C: 0078         ldrb     r0, [r0]
+  0x0548E: 0f28         cmp      r0, #0xf
+  0x05490: 07dd         ble      #0x54a2
+  0x05492: 4848         ldr      r0, [pc, #0x120]  ; =0x20000008 <SRAM>
+  0x05494: 0068         ldr      r0, [r0]
+  0x05496: 0121         movs     r1, #1
+  0x05498: c905         lsls     r1, r1, #0x17
+  0x0549A: 8843         bics     r0, r1
+  0x0549C: 4549         ldr      r1, [pc, #0x114]  ; =0x20000008 <SRAM>
+  0x0549E: 0860         str      r0, [r1]
+  0x054A0: 04e0         b        #0x54ac
+  0x054A2: 4948         ldr      r0, [pc, #0x124]  ; =0x20000031 <SRAM>
+  0x054A4: 0078         ldrb     r0, [r0]
+  0x054A6: 401c         adds     r0, r0, #1
+  0x054A8: 4749         ldr      r1, [pc, #0x11c]  ; =0x20000031 <SRAM>
+  0x054AA: 0870         strb     r0, [r1]
+  0x054AC: 4848         ldr      r0, [pc, #0x120]  ; =0x2000002E <SRAM>
+  0x054AE: 0078         ldrb     r0, [r0]
+  0x054B0: 0f28         cmp      r0, #0xf
+  0x054B2: 03da         bge      #0x54bc
+  0x054B4: 4748         ldr      r0, [pc, #0x11c]  ; =0x2000002F <SRAM>
+  0x054B6: 0078         ldrb     r0, [r0]
+  0x054B8: 0f28         cmp      r0, #0xf
+  0x054BA: 65db         blt      #0x5588
+  0x054BC: 4348         ldr      r0, [pc, #0x10c]  ; =0x20000030 <SRAM>
+  0x054BE: 0078         ldrb     r0, [r0]
+  0x054C0: 0f28         cmp      r0, #0xf
+  0x054C2: 03da         bge      #0x54cc
+  0x054C4: 4048         ldr      r0, [pc, #0x100]  ; =0x20000031 <SRAM>
+  0x054C6: 0078         ldrb     r0, [r0]
+  0x054C8: 0f28         cmp      r0, #0xf
+  0x054CA: f6db         blt      #0x54ba
+  0x054CC: 3948         ldr      r0, [pc, #0xe4]  ; =0x20000008 <SRAM>
+  0x054CE: 0068         ldr      r0, [r0]
+  0x054D0: 4002         lsls     r0, r0, #9
+  0x054D2: c00f         lsrs     r0, r0, #0x1f
+  0x054D4: 0028         cmp      r0, #0
+  0x054D6: 10d0         beq      #0x54fa
+  0x054D8: 3648         ldr      r0, [pc, #0xd8]  ; =0x20000008 <SRAM>
+  0x054DA: 0068         ldr      r0, [r0]
+  0x054DC: 0002         lsls     r0, r0, #8
+  0x054DE: c00f         lsrs     r0, r0, #0x1f
+  0x054E0: 0028         cmp      r0, #0
+  0x054E2: 0ad0         beq      #0x54fa
+  0x054E4: 2a48         ldr      r0, [pc, #0xa8]  ; =0x2000010C <SRAM>
+  0x054E6: 407d         ldrb     r0, [r0, #0x15]
+  0x054E8: 0028         cmp      r0, #0
+  0x054EA: 02d0         beq      #0x54f2
+  0x054EC: 0020         movs     r0, #0
+  0x054EE: 3a49         ldr      r1, [pc, #0xe8]  ; =0x20000078 <SRAM>
+  0x054F0: 0880         strh     r0, [r1]
+  0x054F2: 0020         movs     r0, #0
+  0x054F4: 2649         ldr      r1, [pc, #0x98]  ; =0x2000010C <SRAM>
+  0x054F6: 4875         strb     r0, [r1, #0x15]
+  0x054F8: 2ee0         b        #0x5558
+  0x054FA: 2e48         ldr      r0, [pc, #0xb8]  ; =0x20000008 <SRAM>
+  0x054FC: 0068         ldr      r0, [r0]
+  0x054FE: 4002         lsls     r0, r0, #9
+  0x05500: c00f         lsrs     r0, r0, #0x1f
+  0x05502: 0028         cmp      r0, #0
+  0x05504: 12d1         bne      #0x552c
+  0x05506: 2b48         ldr      r0, [pc, #0xac]  ; =0x20000008 <SRAM>
+  0x05508: 0068         ldr      r0, [r0]
+  0x0550A: 0002         lsls     r0, r0, #8
+  0x0550C: c00f         lsrs     r0, r0, #0x1f
+  0x0550E: 0028         cmp      r0, #0
+  0x05510: 0cd0         beq      #0x552c
+  0x05512: 1f48         ldr      r0, [pc, #0x7c]  ; =0x2000010C <SRAM>
+  0x05514: 407d         ldrb     r0, [r0, #0x15]
+  0x05516: 0128         cmp      r0, #1
+  0x05518: 04d0         beq      #0x5524
+  0x0551A: 0020         movs     r0, #0
+  0x0551C: 2e49         ldr      r1, [pc, #0xb8]  ; =0x20000078 <SRAM>
+  0x0551E: 00e0         b        #0x5522
+  0x05520: 87e0         b        #0x5632
+  0x05522: 0880         strh     r0, [r1]
+  0x05524: 0120         movs     r0, #1
+  0x05526: 1a49         ldr      r1, [pc, #0x68]  ; =0x2000010C <SRAM>
+  0x05528: 4875         strb     r0, [r1, #0x15]
+  0x0552A: 15e0         b        #0x5558
+  0x0552C: 2148         ldr      r0, [pc, #0x84]  ; =0x20000008 <SRAM>
+  0x0552E: 0068         ldr      r0, [r0]
+  0x05530: 4002         lsls     r0, r0, #9
+  0x05532: c00f         lsrs     r0, r0, #0x1f
+  0x05534: 0028         cmp      r0, #0
+  0x05536: 0fd1         bne      #0x5558
+  0x05538: 1e48         ldr      r0, [pc, #0x78]  ; =0x20000008 <SRAM>
+  0x0553A: 0068         ldr      r0, [r0]
+  0x0553C: 0002         lsls     r0, r0, #8
+  0x0553E: c00f         lsrs     r0, r0, #0x1f
+  0x05540: 0028         cmp      r0, #0
+  0x05542: 09d1         bne      #0x5558
+  0x05544: 1248         ldr      r0, [pc, #0x48]  ; =0x2000010C <SRAM>
+  0x05546: 407d         ldrb     r0, [r0, #0x15]
+  0x05548: 0228         cmp      r0, #2
+  0x0554A: 02d0         beq      #0x5552
+  0x0554C: 0020         movs     r0, #0
+  0x0554E: 2249         ldr      r1, [pc, #0x88]  ; =0x20000078 <SRAM>
+  0x05550: 0880         strh     r0, [r1]
+  0x05552: 0220         movs     r0, #2
+  0x05554: 0e49         ldr      r1, [pc, #0x38]  ; =0x2000010C <SRAM>
+  0x05556: 4875         strb     r0, [r1, #0x15]
+  0x05558: 1f48         ldr      r0, [pc, #0x7c]  ; =0x20000078 <SRAM>
+  0x0555A: 0088         ldrh     r0, [r0]
+  0x0555C: 3228         cmp      r0, #0x32
+  0x0555E: 00da         bge      #0x5562
+  0x05560: 10bd         pop      {r4, pc}
+
+----- GPIO0-доступ (ldr@0x9558) func@0x952A -----
+  0x0952A: 10b5         push     {r4, lr}
+  0x0952C: bc48         ldr      r0, [pc, #0x2f0]  ; =0x40002080 <PERIPH>
+  0x0952E: 8038         subs     r0, #0x80
+  0x09530: c069         ldr      r0, [r0, #0x1c]
+  0x09532: c004         lsls     r0, r0, #0x13
+  0x09534: c00f         lsrs     r0, r0, #0x1f
+  0x09536: 0028         cmp      r0, #0
+  0x09538: 6fd0         beq      #0x961a
+  0x0953A: b948         ldr      r0, [pc, #0x2e4]  ; =0x40002080 <PERIPH>
+  0x0953C: 406a         ldr      r0, [r0, #0x24]
+  0x0953E: 0121         movs     r1, #1
+  0x09540: 0906         lsls     r1, r1, #0x18
+  0x09542: 0840         ands     r0, r1
+  0x09544: 0028         cmp      r0, #0
+  0x09546: 69d0         beq      #0x961c
+  0x09548: 0846         mov      r0, r1
+  0x0954A: b549         ldr      r1, [pc, #0x2d4]  ; =0x40002080 <PERIPH>
+  0x0954C: 8862         str      r0, [r1, #0x28]
+  0x0954E: 0020         movs     r0, #0
+  0x09550: b849         ldr      r1, [pc, #0x2e0]  ; =0x20000068 <SRAM>
+  0x09552: 0870         strb     r0, [r1]
+  0x09554: b249         ldr      r1, [pc, #0x2c8]  ; =0x40002080 <PERIPH>
+  0x09556: 0862         str      r0, [r1, #0x20]
+  0x09558: b748         ldr      r0, [pc, #0x2dc]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0955A: 4068         ldr      r0, [r0, #4]
+  0x0955C: ff21         movs     r1, #0xff
+  0x0955E: 0902         lsls     r1, r1, #8
+  0x09560: 0843         orrs     r0, r1
+  0x09562: b549         ldr      r1, [pc, #0x2d4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x09564: 4860         str      r0, [r1, #4]
+  0x09566: b548         ldr      r0, [pc, #0x2d4]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x09568: 4068         ldr      r0, [r0, #4]
+  0x0956A: b549         ldr      r1, [pc, #0x2d4]  ; =0x00001FFF
+  0x0956C: 0843         orrs     r0, r1
+  0x0956E: b349         ldr      r1, [pc, #0x2cc]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x09570: 4860         str      r0, [r1, #4]
+  0x09572: b148         ldr      r0, [pc, #0x2c4]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x09574: 406a         ldr      r0, [r0, #0x24]
+  0x09576: ff21         movs     r1, #0xff
+  0x09578: 0902         lsls     r1, r1, #8
+  0x0957A: 0843         orrs     r0, r1
+  0x0957C: ae49         ldr      r1, [pc, #0x2b8]  ; =0x40044000 <GPIO0 (P0.x — BT-линии) DATA>
+  0x0957E: 4862         str      r0, [r1, #0x24]
+  0x09580: ae48         ldr      r0, [pc, #0x2b8]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x09582: 406a         ldr      r0, [r0, #0x24]
+  0x09584: ae49         ldr      r1, [pc, #0x2b8]  ; =0x00001FFF
+  0x09586: 0843         orrs     r0, r1
+  0x09588: ac49         ldr      r1, [pc, #0x2b0]  ; =0x40046000 <GPIO1 (матрица) DATA>
+  0x0958A: 4862         str      r0, [r1, #0x24]
+  0x0958C: a648         ldr      r0, [pc, #0x298]  ; =0x40048000 <GPIO2 DATA>
+  0x0958E: 4068         ldr      r0, [r0, #4]
+  0x09590: a649         ldr      r1, [pc, #0x298]  ; =0x0000FFFB
+  0x09592: 0843         orrs     r0, r1
+  0x09594: a449         ldr      r1, [pc, #0x290]  ; =0x40048000 <GPIO2 DATA>
+  0x09596: 4860         str      r0, [r1, #4]
+  0x09598: a548         ldr      r0, [pc, #0x294]  ; =0x4004A000 <GPIO3 DATA>
+  0x0959A: 4068         ldr      r0, [r0, #4]
+  0x0959C: 0721         movs     r1, #7
+  0x0959E: 4902         lsls     r1, r1, #9
+  0x095A0: 0843         orrs     r0, r1
+  0x095A2: a349         ldr      r1, [pc, #0x28c]  ; =0x4004A000 <GPIO3 DATA>
+  0x095A4: 4860         str      r0, [r1, #4]
+  0x095A6: a048         ldr      r0, [pc, #0x280]  ; =0x40048000 <GPIO2 DATA>
+  0x095A8: 806a         ldr      r0, [r0, #0x28]
+  0x095AA: a049         ldr      r1, [pc, #0x280]  ; =0x0000FFFB
+  0x095AC: 0843         orrs     r0, r1
+  0x095AE: 9e49         ldr      r1, [pc, #0x278]  ; =0x40048000 <GPIO2 DATA>
+  0x095B0: 8862         str      r0, [r1, #0x28]
+  0x095B2: 9f48         ldr      r0, [pc, #0x27c]  ; =0x4004A000 <GPIO3 DATA>
+  0x095B4: 806a         ldr      r0, [r0, #0x28]
+  0x095B6: 0721         movs     r1, #7
+  0x095B8: 4902         lsls     r1, r1, #9
+  0x095BA: 0843         orrs     r0, r1
+  0x095BC: 9c49         ldr      r1, [pc, #0x270]  ; =0x4004A000 <GPIO3 DATA>
+  0x095BE: 8862         str      r0, [r1, #0x28]
+  0x095C0: a048         ldr      r0, [pc, #0x280]  ; =0x20000018 <SRAM>
+  0x095C2: 0078         ldrb     r0, [r0]
+  0x095C4: 401c         adds     r0, r0, #1
+  0x095C6: 9f49         ldr      r1, [pc, #0x27c]  ; =0x20000018 <SRAM>
+  0x095C8: 0870         strb     r0, [r1]
+  0x095CA: 0846         mov      r0, r1
+  0x095CC: 0078         ldrb     r0, [r0]
+  0x095CE: 0300         movs     r3, r0
+  0x095D0: 03f014f9     bl       #0xc7fc
+  0x095D4: 120a         lsrs     r2, r2, #8
+  0x095D6: 0c0f         lsrs     r4, r1, #0x1c
+  0x095D8: 1215         asrs     r2, r2, #0x14
+  0x095DA: 181b         subs     r0, r3, r4
+  0x095DC: 1d20         movs     r0, #0x1d
+  0x095DE: 2528         cmp      r0, #0x25
+  0x095E0: 2b2e         cmp      r6, #0x2b
+  0x095E2: 3033         adds     r3, #0x30
+  0x095E4: 3639         subs     r1, #0x36
+  0x095E6: 3c3f         subs     r7, #0x3c
+  0x095E8: 974c         ldr      r4, [pc, #0x25c]  ; =0x200002CA <SRAM>
+  0x095EA: 52e0         b        #0x9692
+  0x095EC: 964c         ldr      r4, [pc, #0x258]  ; =0x200002CA <SRAM>
+  0x095EE: 1534         adds     r4, #0x15
+  0x095F0: 4fe0         b        #0x9692
+  0x095F2: 954c         ldr      r4, [pc, #0x254]  ; =0x200002CA <SRAM>
+  0x095F4: 2a34         adds     r4, #0x2a
+  0x095F6: 4ce0         b        #0x9692
+  0x095F8: 934c         ldr      r4, [pc, #0x24c]  ; =0x200002CA <SRAM>
+  0x095FA: 3f34         adds     r4, #0x3f
+  0x095FC: 49e0         b        #0x9692
+  0x095FE: 924c         ldr      r4, [pc, #0x248]  ; =0x200002CA <SRAM>
+  0x09600: 5434         adds     r4, #0x54
+  0x09602: 46e0         b        #0x9692
+  0x09604: 904c         ldr      r4, [pc, #0x240]  ; =0x200002CA <SRAM>
+  0x09606: 6934         adds     r4, #0x69
+  0x09608: 43e0         b        #0x9692
+  0x0960A: 904c         ldr      r4, [pc, #0x240]  ; =0x20000348 <SRAM>
+  0x0960C: 41e0         b        #0x9692
+  0x0960E: 8f4c         ldr      r4, [pc, #0x23c]  ; =0x20000348 <SRAM>
+  0x09610: 1534         adds     r4, #0x15
+  0x09612: 3ee0         b        #0x9692
+  0x09614: 8d4c         ldr      r4, [pc, #0x234]  ; =0x20000348 <SRAM>
+  0x09616: 2a34         adds     r4, #0x2a
+  0x09618: 3be0         b        #0x9692
+  0x0961A: f6e0         b        #0x980a
+  0x0961C: 3ae0         b        #0x9694
+  0x0961E: 8b4c         ldr      r4, [pc, #0x22c]  ; =0x20000348 <SRAM>
+  0x09620: 3f34         adds     r4, #0x3f
+  0x09622: 36e0         b        #0x9692
+  0x09624: 894c         ldr      r4, [pc, #0x224]  ; =0x20000348 <SRAM>
+  0x09626: 5434         adds     r4, #0x54
+  0x09628: 33e0         b        #0x9692
+  0x0962A: 884c         ldr      r4, [pc, #0x220]  ; =0x20000348 <SRAM>
+  0x0962C: 6934         adds     r4, #0x69
+  0x0962E: 30e0         b        #0x9692
+  0x09630: 874c         ldr      r4, [pc, #0x21c]  ; =0x200003C6 <SRAM>
+  0x09632: 2ee0         b        #0x9692
+  0x09634: 864c         ldr      r4, [pc, #0x218]  ; =0x200003C6 <SRAM>
+  0x09636: 1534         adds     r4, #0x15
+  0x09638: 2be0         b        #0x9692
+  0x0963A: 854c         ldr      r4, [pc, #0x214]  ; =0x200003C6 <SRAM>
+  0x0963C: 2a34         adds     r4, #0x2a
+  0x0963E: 28e0         b        #0x9692
+  0x09640: 834c         ldr      r4, [pc, #0x20c]  ; =0x200003C6 <SRAM>
+  0x09642: 3f34         adds     r4, #0x3f
+  0x09644: 25e0         b        #0x9692
+  0x09646: 824c         ldr      r4, [pc, #0x208]  ; =0x200003C6 <SRAM>
+  0x09648: 5434         adds     r4, #0x54
+  0x0964A: 22e0         b        #0x9692
+  0x0964C: 804c         ldr      r4, [pc, #0x200]  ; =0x200003C6 <SRAM>
+  0x0964E: 6934         adds     r4, #0x69
+  0x09650: 1fe0         b        #0x9692
+  0x09652: ff20         movs     r0, #0xff
+  0x09654: 7b49         ldr      r1, [pc, #0x1ec]  ; =0x20000018 <SRAM>
+  0x09656: 0870         strb     r0, [r1]
+  0x09658: 7e48         ldr      r0, [pc, #0x1f8]  ; =0x20000000 <SRAM>
+  0x0965A: 0068         ldr      r0, [r0]
+  0x0965C: 4008         lsrs     r0, r0, #1
+  0x0965E: 4000         lsls     r0, r0, #1
+  0x09660: 401c         adds     r0, r0, #1
+  0x09662: 7c49         ldr      r1, [pc, #0x1f0]  ; =0x20000000 <SRAM>
+  0x09664: 0860         str      r0, [r1]
+  0x09666: 0120         movs     r0, #1
+  0x09668: 7b49         ldr      r1, [pc, #0x1ec]  ; =0x20000017 <SRAM>
+  0x0966A: 0870         strb     r0, [r1]
+  0x0966C: 0020         movs     r0, #0
+  0x0966E: 6c49         ldr      r1, [pc, #0x1b0]  ; =0x40002080 <PERIPH>
+  0x09670: 8039         subs     r1, #0x80
+  0x09672: 4860         str      r0, [r1, #4]
+  0x09674: 401e         subs     r0, r0, #1
+  0x09676: 6a49         ldr      r1, [pc, #0x1a8]  ; =0x40002080 <PERIPH>
+  0x09678: 8862         str      r0, [r1, #0x28]
