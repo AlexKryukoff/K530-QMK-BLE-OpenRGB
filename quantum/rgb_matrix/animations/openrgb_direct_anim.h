@@ -7,6 +7,11 @@ bool OPENRGB_DIRECT(effect_params_t* params) {
 
 #        ifndef OPENRGB_DIRECT_MODE_UNBUFFERED
     for (uint8_t i = led_min; i < led_max; i++) {
+        // K530: LED 61/62 — статусные индикаторы у тумблера (host-линк/батарея).
+        // Их красит ТОЛЬКО rgb_matrix_indicators_advanced_user в keymap.c.
+        // Пропускаем их здесь, чтобы direct-эффект не перебивал индикатор каждый
+        // кадр (иначе асинхронный PWM-скан ловит промежуточный кадр -> мерцание).
+        if (i == 61 || i == 62) continue;
 #            ifdef OPENRGB_DIRECT_MODE_USE_UNIVERSAL_BRIGHTNESS
         float brightness = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
         rgb_matrix_set_color(i, brightness * g_openrgb_direct_mode_colors[i].r, brightness * g_openrgb_direct_mode_colors[i].g, brightness * g_openrgb_direct_mode_colors[i].b);
