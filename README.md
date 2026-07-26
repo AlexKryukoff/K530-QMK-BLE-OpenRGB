@@ -46,7 +46,7 @@ Redragon_K530_Keyboard/  — материалы реверс-инжинирин�
                            официальные PDF-даташиты (PAR2801-Q32P, PAJ2801UA-40, VS11K09A-1, SN32F245),
                            протокол-документы (Electronic_Dual_Mode_..., ITON_Bluetooth_USB),
                            официальные прошивки, Firmware Update Tool, вспомогательные Python-скрипты анализа
-
+Наработки/                - от ИИ модели
 Остальное дерево (quantum/, platforms/, lib/chibios-contrib/ и т.д.) — обычное дерево QMK/SonixQMK, нужное для сборки.
 ```
 
