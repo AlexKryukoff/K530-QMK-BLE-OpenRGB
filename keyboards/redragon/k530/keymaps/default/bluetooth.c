@@ -94,7 +94,10 @@ static void k530_bt_debug_print_frame(const char *label, const uint8_t *frame, u
 // Вынесены в начало файла, т.к. используются и в SPI0-буферах (раздел 3),
 // и в сборке кадра (раздел 4).
 // ============================================================================
-#define K530_FRAME_LEN 21u
+#define K530_FRAME_LEN 39u
+// RX-сообщение от BT-модуля = ровно 33 байта: 32 суммируемых + 1 байт чек-суммы
+// (терминатор на смещении +32). Подтверждено логами: 25/25, 0 исключений.
+#define K530_RX_FRAME_LEN 64u
 #define K530_CMD_KEYBOARD_6KEY 0xA1u
 
 // TODO(ОТКРЫТЫЙ ВОПРОС, не блокирует остальную работу): команда "войти в
@@ -407,7 +410,7 @@ static bool k530_poll_host_slot(void) {
 #define SPI0_REG_CLKDIV (*(volatile uint32_t *)(K530_SPI0_BASE + 0x08))    // это CLKDIV, не CTRL1 (имя было перепутано)
 // (offset+0x0C не встретился ни в одной из разобранных SPI0-функций —
 //  раньше здесь ошибочно предполагался регистр CTRL1B, но по факту он
-//  не используется ни в FUN_99B8, ни где-либо ещё в проверенном коде)
+//  не используется ни в FUN_99B8, ни где-ли��������о ещё в проверенном коде)
 
 #define K530_CLKGATE_REG (*(volatile uint32_t *)0x4005E000u)
 #define K530_NVIC_ISER0  (*(volatile uint32_t *)0xE000E100u)  // Set Enable
@@ -502,7 +505,7 @@ static void k530_spi0_disable(void) {
 // Перенесено дословно из прошивки.
 static void k530_spi0_pins_to_alt_function(void) {
     // Сначала MODE=0 для этих пинов (значение бита при альтернативной
-    // функции в оригинале — "отдать управление CFG", не входное состояние
+    // функции в оригинале — "отдать упр��вление CFG", не входное состояние
     // в привычном смысле "plain GPIO input"):
     GPIO_REG_MODE(K530_GPIO0_BASE) &= ~(1u << 2);
     GPIO_REG_MODE(K530_GPIO0_BASE) &= ~(1u << 3);
@@ -568,28 +571,18 @@ static volatile uint8_t k530_tx_frame[K530_FRAME_LEN];
 // граница конца кадра, а не просто наше предположение. Метод устойчив к
 // ЛЮБОМУ количеству и содержимому холостых байт между кадрами, поскольку
 // не полагается на то, "когда мы сами были готовы начать слушать".
-static uint8_t  k530_sync_ring[K530_FRAME_LEN]; // последние 21 принятых байта, по кругу
+static uint8_t  k530_sync_ring[K530_RX_FRAME_LEN]; // последние 33 принятых байта, по кругу (RX-кадр)
 static uint8_t  k530_sync_ring_pos = 0;          // куда положить СЛЕДУЮЩИЙ байт
-static uint16_t k530_sync_ring_sum = 0;           // сумма ВСЕХ 21 байт в кольце сейчас
 
-// Ответная часть (что мы шлём в SPI0_REG_DATA) сохранена по структуре из
-// старой версии (диспетчер по k530_txn_cmd: 0x20=loopback, 0xA2=эхо
-// TXBUF, иначе 0) — эта логика не была под подозрением, менялось только
-// то, КОГДА мы считаем текущий байт "командой" нового кадра.
-static volatile uint8_t k530_resp_count       = 0;  // счётчик байт ответа с начала текущего кадра
-static volatile uint8_t k530_txn_cmd          = 0;  // команда текущего кадра (валиден только когда !k530_expect_cmd_next)
-static volatile bool    k530_expect_cmd_next  = true; // следующий байт — команда НОВОГО кадра
-                                                          // (изначально true: до первой найденной
-                                                          // по чек-сумме границы честно не знаем,
-                                                          // где начало, поэтому отвечаем нулями,
-                                                          // пока не найдём первую границу)
+// Состояние RX/TX-автомата объявлено ниже, рядом с k530_spi0_isr()
+// (аналоги RAM-переменных 0x200000B3/B4/B5/C8/C9 стоко��ой прошивки).
 
 static void k530_spi0_load_tx_buffer(const uint8_t *frame, uint8_t len) {
     // Просто копируем в volatile-буфер, который читает ISR. Критическая
     // секция не показана явно — на реальном ChibiOS оберните это
     // chSysLock()/chSysUnlock() или аналогом отключения SPI0_IRQn на время
     // копирования, чтобы избежать гонки, если импульс P0.1 может прийти
-    // "слишком быстро" относительно этой записи (маловероятно по таймингам,
+    // "слишком быстр��" относительно этой записи (маловероятно по таймингам,
     // но не проверено).
     if (len > K530_FRAME_LEN) len = K530_FRAME_LEN;
     memcpy((void *)k530_tx_frame, frame, len);
@@ -619,11 +612,11 @@ static void k530_spi0_load_tx_buffer(const uint8_t *frame, uint8_t len) {
 //          Если НЕ растёт — проблема на уровне физики/настройки периферии
 //          (пины P0.2-P0.5 не переключились в альтернативную функцию,
 //          NVIC IRQ6 не разрешён, тактирование SPI0 не включено, или сам
-//          тумблер BT on/off не читается верно, см. k530_bt_enabled_stable)
+//          тум��ле�� BT on/off не ��итается верно, см. k530_bt_enabled_stable)
 //          — смысла проверять что-либо дальше нет, пока это не растёт.
 //   Шаг 2. Если растёт — смотрите last_txn_cmd (первый байт транзакции).
 //          Ожидаем увидеть 0xA2 (см. отчёт, раунд 9-10) — если приходит
-//          что-то другое или "мусор" — протокол/тайминги SPI отличаются
+//          что-то другое или "мусор" — п��от��к��л/тайминги SPI отличаются
 //          от предположенных, нужно разбираться отдельно.
 //   Шаг 3. Смотрите last_rx_frame (21 байт) и last_checksum_ok — сверяйте
 //          с ожидаемой структурой кадра (см. раздел 4).
@@ -634,7 +627,8 @@ static void k530_spi0_load_tx_buffer(const uint8_t *frame, uint8_t len) {
 typedef struct {
     volatile uint32_t irq_count;         // Шаг 1: растёт ли вообще при входе в ISR
     volatile uint8_t  last_txn_cmd;       // Шаг 2: первый байт последней транзакции
-    volatile uint8_t  last_rx_frame[K530_FRAME_LEN]; // Шаг 3: снимок последнего принятого кадра
+    volatile uint8_t  last_rx_frame[K530_RX_FRAME_LEN]; // Шаг 3: снимок последнего принятого кадра
+    volatile uint8_t  last_rx_frame_len;                // фактическая длина кадра (переменная)
     volatile bool      last_checksum_ok;   // Шаг 3: результат проверки чек-суммы
     volatile bool      frame_ready;         // флаг "есть новые данные для печати" — ISR
                                               // выставляет, bluetooth_task() читает и сбрасывает
@@ -718,7 +712,7 @@ static void k530_debug_task_print(void) {
                     (unsigned long)current);
         }
         // Состояние тумблеров печатаем тем же тактом, что и счётчик —
-        // достаточно редко, чтобы не мешать, но регулярно, чтобы сразу
+        // достаточн���� редко, чтобы ��е мешать, но ре��улярно, чтобы сразу
         // увидеть, совпадает ли программное чтение с реальным положением.
         dprintf("[K530_BT] BT toggle = %s, host_slot = %d\n",
                 k530_bt_enabled_stable ? "ON" : "OFF",
@@ -736,7 +730,7 @@ static void k530_debug_task_print(void) {
                 k530_debug.last_txn_cmd);
         dprintf("[K530_BT] RX frame checksum: %s\n",
                 k530_debug.last_checksum_ok ? "OK" : "MISMATCH");
-        k530_bt_debug_print_frame("RX frame bytes", (const uint8_t *)k530_debug.last_rx_frame, K530_FRAME_LEN);
+        k530_bt_debug_print_frame("RX frame bytes", (const uint8_t *)k530_debug.last_rx_frame, k530_debug.last_rx_frame_len);
     }
 
     // --- Диагностика тайминга disable()+reinit() (в тиках SysTick) ---
@@ -777,127 +771,162 @@ static void k530_debug_task_print(void) {
 // SPI0 ISR — дословный перенос машины состояний FUN_00009B2E.
 // ПОДКЛЮЧИТЬ как обработчик SPI0_IRQn (см. TODO в разделе про NVIC ниже).
 // ----------------------------------------------------------------------
-// Кладёт байт b в кольцо, обновляет скользящую сумму, возвращает true,
-// если b оказался ПОДТВЕРЖДЁННЫМ чек-суммой концом 21-байтного кадра
-// (то есть сумма ОСТАЛЬНЫХ 20 байт в текущем окне, по модулю 256, равна b).
-static inline bool k530_sync_ring_push_and_check(uint8_t b) {
-    uint8_t evicted = k530_sync_ring[k530_sync_ring_pos];
-    k530_sync_ring_sum = (uint16_t)(k530_sync_ring_sum - evicted + b);
-    k530_sync_ring[k530_sync_ring_pos] = b;
-    k530_sync_ring_pos = (uint8_t)((k530_sync_ring_pos + 1u) % K530_FRAME_LEN);
+// ----------------------------------------------------------------------
+// RX/TX-АВТОМАТ SPI0 — ДОСЛОВНЫЙ ПЕРЕНОС FUN_00009B2E (стоковая прошивка).
+// ----------------------------------------------------------------------
+// Кадр СТРОГО фиксированный — 21 байт. Байт[0] = команда, чек-сумма в
+// байте[20] = (сумма байт[0..19]) & 0xFF. Никакой "переменной длины по
+// терминатору": длинные кадры 33/39 байт в прежних логах — артефакт потери
+// байт из-за dprintf ВНУТРИ прерывания, а не реальная структура шины.
+//
+// Полнодуплекс: на КАЖДЫЙ принятый байт пишем ровно один байт ответа в DATA,
+// реактивно, без единого busy-wait. SN32 здесь SPI SLAVE — он не может
+// "протолкнуть" кадр сам, только отдавать байты под клок мастера. Активная
+// отправка в цикле = вечное ожидание клока = зависание (это и было в логах).
+//
+// Три ��ежима ответа по команде (байт[0]), как в стоке:
+//   0x20 -> loopback: ответ = принятый байт с задержкой 2 (первые 2 = 0xBB)
+//   0xA2 -> стрим ��ашего TX-кадра (k530_tx_frame) байт за байтом
+//   иначе -> 0x00
+// На 21-м байте: проверка чек-суммы + disable()+reinit() (как сток).
+// ----------------------------------------------------------------------
 
-    uint8_t sum_of_other_20 = (uint8_t)(k530_sync_ring_sum - b);
-    return (sum_of_other_20 == b);
-}
+#define K530_CMD_TXPOLL   0xA2u  // мастер опрашивает -> отдаём 21-байтный кадр клавиатуры
+#define K530_CMD_STATUS   0xA7u  // статус-кадр от модуля (разбираем терминатором)
+#define K530_CMD_LOOPBACK 0x20u  // петлевой тест
 
-// Извлекает 21 байт из кольца в правильном хронологическом порядке
-// (самый старый первым, самый новый = b из push_and_check — последним)
-// в линейный буфер out[K530_FRAME_LEN]. Вызывать СРАЗУ после того, как
-// push_and_check() вернула true для этого же байта — иначе следующий
-// push сдвинет кольцо и результат будет неверным.
-static inline void k530_sync_ring_extract(uint8_t *out) {
-    for (uint8_t i = 0; i < K530_FRAME_LEN; i++) {
-        out[i] = k530_sync_ring[(k530_sync_ring_pos + i) % K530_FRAME_LEN];
+// --- Состояние автомата ---
+// TX: позиция выдвига нашего 21-байтного кадра клавиатуры (A1 .. чек-сумма).
+static uint8_t       k530_tx_idx    = 0;
+static uint8_t       k530_cmd       = 0;           // команда текущей транзакции
+static volatile bool k530_isr_busy  = false;       // guard реентранси (0x200000C9)
+// RX: разбор входящего статус-кадра 0xA7. Длина ПЕРЕМЕННАЯ, кадр завершается
+// байтом-терминатором, равным (бегущая сумма всех предыдущих байт кадра)&0xFF.
+// Подтверждено достоверным сырым потоком: A7 00 00 00 02 FF 00 64 ..нули.. 0C,
+// где 0C = (A7+02+FF+64)&0xFF. Именно поэтому фиксированные 21 байт дрейфовали
+// (cmd_byte=0x00, checksum MISMATCH) — на шине кадры CS-ограничены, длиной 26/38.
+static uint8_t       k530_rx_buf[K530_RX_FRAME_LEN];
+static uint8_t       k530_rx_len    = 0;
+static uint16_t      k530_rx_sum    = 0;
+static bool          k530_rx_active = false;
+
+// Чистое ядро автомата (тестируется на хосте без железа): принимает один
+// байт rx, возвращает байт-ответ для выдвига в DATA. По завершении входящего
+// статус-кадра ставит *complete=true, копирует кадр в out_frame (если не NULL),
+// его длину в *out_len и *csok (терминатор совпал с суммой).
+static uint8_t k530_rx_tx_step(uint8_t rx, const uint8_t *tx_frame,
+                               uint8_t *out_frame, uint8_t *out_len,
+                               bool *complete, bool *csok) {
+    if (complete) *complete = false;
+
+    // === Начало транзакции: команда опроса TX (0xA2) ===
+    // На шине КАЖДАЯ транзакция начинается с 0xA2 (пер��од A2->A2 = 26/38 байт).
+    // Сбрасываем позицию выдвига кадра клавиатуры -> самосинхронизация: даже
+    // при потере байта следующий 0xA2 восстановит выравнивание. Раньше
+    // фиксированный счётчик на 21 байт дрейфовал -> мастер читал мусор.
+    if (rx == K530_CMD_TXPOLL) {
+        k530_cmd       = K530_CMD_TXPOLL;
+        k530_tx_idx    = 0;
+        k530_rx_active = false;   // статус-кадр 0xA7 придёт следующим байтом
+        // Пайплайн SPI-slave: загруженный сейчас байт мастер прочитает на
+        // следующем такте. Отдаём первый байт кадра клавиатуры.
+        return tx_frame[k530_tx_idx++];
     }
+
+    // === Разбор входящего статус-кадра 0xA7 (переменная длина) ===
+    if (rx == K530_CMD_STATUS && !k530_rx_active) {
+        k530_rx_active = true;
+        k530_rx_len    = 0;
+        k530_rx_sum    = 0;
+        if (k530_cmd != K530_CMD_TXPOLL) k530_cmd = K530_CMD_STATUS;
+    }
+    if (k530_rx_active) {
+        if (k530_rx_len < K530_RX_FRAME_LEN) k530_rx_buf[k530_rx_len++] = rx;
+        if (k530_rx_len >= 2u && rx == (uint8_t)(k530_rx_sum & 0xFFu)) {
+            // Т��рмин��тор совпал с бегущей ��умм��й -> ��адр собран.
+            k530_rx_active = false;
+            if (out_frame) memcpy(out_frame, k530_rx_buf, k530_rx_len);
+            if (out_len)   *out_len  = k530_rx_len;
+            if (csok)      *csok     = true;
+            if (complete)  *complete = true;
+        } else {
+            k530_rx_sum = (uint16_t)(k530_rx_sum + rx);
+        }
+    }
+
+    // === Ответ мастеру ===
+    uint8_t resp;
+    if (k530_cmd == K530_CMD_TXPOLL) {
+        // Продолжаем выдвигать 21-байтный кадр клавиатуры; после конца — нули.
+        resp = (k530_tx_idx < K530_FRAME_LEN) ? tx_frame[k530_tx_idx] : 0u;
+        k530_tx_idx++;
+    } else if (k530_cmd == K530_CMD_LOOPBACK) {
+        resp = rx;   // эхо (loopback)
+    } else {
+        resp = 0u;
+    }
+    return resp;
 }
 
 void k530_spi0_isr(void) {
-    // Шаг 1 bring-up: считаем КАЖДЫЙ вход в обработчик, независимо от того,
-    // наш это бит прерывания или нет — если этот счётчик не растёт вообще
-    // на реальном железе, дальше проверять нечего (см. раздел 5Б выше).
     k530_debug.irq_count++;
 #ifdef K530_BT_DEBUG
-    k530_debug_led_toggle(); // дешёвая операция, безопасно вызывать прямо в ISR
+    k530_debug_led_toggle();
 #endif
 
     if ((SPI0_REG_RIS & SPI0_RIS_RX_BIT) == 0) {
-        return; // прерывание не по нашему биту — ничего не делаем
+        return; // не наш бит прерывания
     }
+
+    // Guard реентранси (стоковый флаг 0x200000C9): если уже внутри — только
+    // подтверждаем прерывание и выходим, автомат не трогаем.
+    if (k530_isr_busy) {
+        SPI0_REG_IC = (SPI0_REG_IC & ~SPI0_RIS_RX_BIT) + SPI0_RIS_RX_BIT;
+        return;
+    }
+    k530_isr_busy = true;
 
     uint8_t byte_in = (uint8_t)SPI0_REG_DATA;
-    k530_raw_log_push(byte_in); // сырой лог — БЕЗ интерпретации, сразу как пришёл
 
-    // --- Непрерывное обнаружение границы кадра по чек-сумме (см. пояснение
-    // у объявления k530_sync_ring выше) — проверяется НА КАЖДОМ байте,
-    // независимо от текущего состояния "ожидаем команду / принимаем кадр".
-    bool boundary_found = k530_sync_ring_push_and_check(byte_in);
+    // Сырое кольцо и raw-лог — ТОЛЬКО для отладки в bluetooth_task().
+    k530_sync_ring[k530_sync_ring_pos] = byte_in;
+    k530_sync_ring_pos = (uint8_t)((k530_sync_ring_pos + 1u) % K530_RX_FRAME_LEN);
+    k530_raw_log_push(byte_in);
 
-    // --- Ответ (что мы шлём назад через SPI0_REG_DATA на ЭТОТ ЖЕ байт) ---
-    if (k530_expect_cmd_next) {
-        // Этот байт — команда НОВОГО кадра (либо самый первый в жизни ISR,
-        // либо байт СРАЗУ ПОСЛЕ подтверждённой чек-суммой границы —
-        // см. обработку boundary_found ниже, которая ставит этот флаг).
-        k530_txn_cmd         = byte_in;
-        k530_debug.last_txn_cmd = byte_in; // Шаг 2 bring-up: снимок команды
-        k530_expect_cmd_next  = false;
-        k530_resp_count        = 1;
-        // Немедленно отвечаем TXBUF[0] — как и в старой версии, byte0
-        // ответа не зависит от значения команды.
-        SPI0_REG_DATA = k530_tx_frame[0];
-    } else if (k530_txn_cmd == 0x20) {
-        // Loopback/sync-режим — эхо RX с задержкой 2 байта. Логика не
-        // менялась с прошлой версии, только источник данных (кольцо
-        // вместо линейного k530_rx_buf) — используем сам k530_sync_ring
-        // напрямую, т.к. это ровно последние принятые байты.
-        if (k530_resp_count >= 2) {
-            uint8_t back2_pos = (uint8_t)((k530_sync_ring_pos + K530_FRAME_LEN - 2) % K530_FRAME_LEN);
-            SPI0_REG_DATA = k530_sync_ring[back2_pos];
-        } else {
-            SPI0_REG_DATA = 0xBB;
-        }
-        k530_resp_count++;
-    } else if (k530_txn_cmd == 0xA2) {
-        // РЕАЛЬНАЯ ПЕРЕДАЧА нашего исходящего кадра, байт за байтом:
-        uint8_t tx_idx = k530_resp_count;
-        SPI0_REG_DATA = (tx_idx < K530_FRAME_LEN) ? k530_tx_frame[tx_idx] : 0;
-        k530_resp_count++;
-    } else {
-        SPI0_REG_DATA = 0;
-        k530_resp_count++;
-    }
+    // Один байт вошёл -> один байт ответа вышел. Реактивно, без ожиданий.
+    static uint8_t rx_snapshot[K530_RX_FRAME_LEN];
+    uint8_t rx_snapshot_len = 0;
+    bool complete = false, csok = false;
+    uint8_t resp = k530_rx_tx_step(byte_in, (const uint8_t *)k530_tx_frame,
+                                   rx_snapshot, &rx_snapshot_len,
+                                   &complete, &csok);
+    SPI0_REG_DATA = resp;
 
-    // Подтверждение прерывания (write-1-to-clear бита 2, как и раньше)
+    // Подтверждаем прерывание (write-1-to-clear бит 2) СРАЗУ.
     SPI0_REG_IC = (SPI0_REG_IC & ~SPI0_RIS_RX_BIT) + SPI0_RIS_RX_BIT;
 
-    if (!boundary_found) {
-        return; // граница пока не найдена — просто продолжаем накапливать
-    }
+    if (complete) {
+        // НИКАКОГО dprintf здесь! Печать в прерывании на скорости побайтового
+        // SPI съедает время обработчика -> мастер продолжает клоковать -> мы
+        // теряем байты -> автомат рассинхронизируется -> клава виснет (ровно
+        // это было в логах). Только быстрый снимок в volatile; печать — в
+        // bluetooth_task() по флагу frame_ready.
+        k530_debug.last_txn_cmd = k530_cmd;
+        {
+            uint8_t n = (rx_snapshot_len <= K530_RX_FRAME_LEN)
+                          ? rx_snapshot_len : K530_RX_FRAME_LEN;
+            memcpy((void *)k530_debug.last_rx_frame, rx_snapshot, n);
+            k530_debug.last_rx_frame_len = n;
+        }
+        k530_debug.last_checksum_ok  = csok;
+        k530_debug.frame_ready       = true;
 
-    // --- Подтверждённая чек-суммой граница конца 21-байтного кадра ---
-    uint8_t frame[K530_FRAME_LEN];
-    k530_sync_ring_extract(frame);
-
-    memcpy((void *)k530_debug.last_rx_frame, frame, K530_FRAME_LEN);
-    k530_debug.last_checksum_ok = true; // по определению — иначе boundary_found не был бы true
-    k530_debug.frame_ready = true;
-
-    // Обработка входящих команд от BT-модуля (см. отчёт по реверс-
-    // инжинирингу, раунд про FUN_00009B2E): только 0xA7 подтверждён.
-    if (frame[0] == 0xA7) {
-        // TODO: назначение — в оригинале копирует байты [3],[4],[5] входящего
-        // кадра в переменные состояния (0x200000C0/BF/C1), назначение которых
-        // мы не идентифицировали. Возможно связано с параметрами хоста/слота
-        // сопряжения — требует дальнейшего анализа при необходимости.
-    }
-
-    // ПОДТВЕРЖДЕНО дословным дизассемблированием: в оригинале FUN_00009A44
-    // (disable) и FUN_000099B8 (reinit) вызываются БЕЗУСЛОВНО сразу после
-    // детекта полного кадра. Раньше это триггерилось нашим (ненадёжным)
-    // счётчиком rx_count>=21 — теперь триггерится ПОДТВЕРЖДЁННОЙ чек-суммой
-    // границей, что строго точнее.
-    {
-        uint32_t t0 = SysTick->VAL;
+        // Как в стоке: на границе кадра — disable()+reinit().
         k530_spi0_disable();
         k530_spi0_reinit();
-        uint32_t t1 = SysTick->VAL;
-        uint32_t elapsed = (t0 >= t1) ? (t0 - t1) : (t0 + (SysTick->LOAD + 1u) - t1);
-        k530_debug.reinit_ticks         = elapsed;
-        k530_debug.reinit_report_pending = true;
     }
 
-    // Следующий байт, который реально придёт по SPI, — это команда
-    // СЛЕДУЮЩЕГО кадра. Готовимся принять и корректно на него ответить.
-    k530_expect_cmd_next = true;
+    k530_isr_busy = false;
 }
 
 // ----------------------------------------------------------------------
@@ -938,7 +967,7 @@ OSAL_IRQ_HANDLER(SN32_SPI0_HANDLER) {
 //   [2]      длина полезной нагрузки (в оригинале для 6-key отчёта = 8)
 //   [3..19]  полезная нагрузка (17 байт, для 6-key используются первые 8:
 //             [3]=modifier, [4]=reserved(0x00), [5..10]=6 keycodes,
-//             [11..19]=не используются для этой команды, заполняем нулями)
+//             [11..19]=не используются для этой команды, заполняем ��улями)
 //   [20]     чек-сумма = (сумма байт [0..19]) & 0xFF
 
 // (константы K530_FRAME_LEN / K530_CMD_KEYBOARD_6KEY вынесены в начало
@@ -986,13 +1015,148 @@ static void k530_build_keyboard_frame(const report_keyboard_t *report, uint8_t o
         out[5 + i] = report->keys[i];
     }
 
-    // байты [11..19] остаются нулями (memset выше)
-
-    out[20] = k530_checksum(out, 20);
+    // байты [11..37] остаются нулями (memset выше)
+    // ВАЖНО: реальный кадр на шине — 39 байт, чек-сумма на смещении 38
+    // (running-sum bytes[0..37] & 0xFF). Подтверждено дизассемблером стоковой
+    // прошивки: ISR SPI0 (IRQ6, 0x9D06) накапливает до индекса 0x27=39 и
+    // сверяет байт[38]; модуль читает ровно столько же байт с нашей линии
+    // MISO из TX-таблицы 0x20000B38. При длине 21 байт чек-сумма попадала на
+    // позицию 20, а на позиции 38 модуль видел 0x00 -> отвергал кадр.
+    out[38] = k530_checksum(out, 38);
 }
 
 // ============================================================================
-// 5. ВЫСОКОУРОВНЕВЫЕ ФУНКЦИИ QMK BLUETOOTH DRIVER API
+// 4Б. УПРАВЛЯЮЩИЙ КАДР ВКЛ/ВЫКЛ BT (команда 0xA5, стоковый построитель 0x02AC)
+// ============================================================================
+// Ключевой вывод реверса стока (2RCData4000.bin): выключение BT
+// НЕ через питание/GPIO. Главный чип шлёт модулю по SPI
+// управляющий кадр, где состояние линка — байт[7] (RAM 0x200000BB):
+//   0x01 = ON, 0x02 = OFF.  Пока кадр не отправлен, модуль активен
+// и продолжает рекламу. Формат (39 байт), декодирован @0x02AC:
+//   [0]=0xA5 cmd; [1]=хост №2; [2]=0x05 (B6=длина payload); [3]=слот 0x02/0x00;
+//   [4]=0x0A; [5]=0x19; [6]=0x00; [7]=линк 0x01/0x02; [8..37]=0; [38]=cs.
+#define K530_CMD_BT_CONTROL 0xA5u
+
+static void k530_build_control_frame(bool enabled, uint8_t out[K530_FRAME_LEN]) {
+    // === ЭМПИРИЧЕСКИ по log11 (строб заработал, модуль отвечает) ===
+    // Соответствие "наша команда -> состояние модуля A7[4]" (4 перехода):
+    //   byte[7]=0x02, byte[3]=0x00  ->  A7[4]=0x01  ->  РЕКЛАМА ВКЛ (виден в эфире)
+    //   byte[7]=0x01, byte[3]=0x02  ->  A7[4]=0x00  ->  РЕКЛАМА ВЫКЛ
+    // Т.е. прежняя логика была ИНВЕРТИРОВАНА: при ON мы глушили рекламу.
+    // Теперь enabled(=физ. ON) -> кадр рекламы; !enabled(=физ. OFF) -> стоп.
+    //
+    // ВАЖНО: byte[1] НЕ задаёт draconic-N (проверено log12: byte[1]=0x02,
+    // а в эфире всё равно draconic-1). Номер хоста задаёт byte[3].
+    //
+    // byte[3] = ИНДЕКС ХОСТА (0-based): 0->draconic-1, 1->draconic-2, 2->draconic-3.
+    // Берём из аппаратного селектора host_slot (P0.6/P0.7): 1/2/3 -> 0/1/2.
+    // Раньше byte[3] был 0x00 всегда -> в эфире всегда draconic-1.
+    uint8_t host_idx = (k530_host_slot_stable >= K530_HOST_SLOT_1 &&
+                        k530_host_slot_stable <= K530_HOST_SLOT_3)
+                           ? (uint8_t)((uint8_t)k530_host_slot_stable - 1u) : 0u;
+
+    memset(out, 0, K530_FRAME_LEN);
+    out[0] = K530_CMD_BT_CONTROL;
+    out[1] = 0x02u;                    // канал (на имя draconic-N НЕ влияет)
+    out[2] = 0x05u;                    // B6 = длина payload ([3..7] = 5 байт)
+    out[3] = host_idx;                 // индекс хоста 0/1/2 = draconic-1/2/3
+    out[4] = 0x0Au;
+    out[5] = 0x19u;
+    // byte[6]: ПРОВЕРЕНО (log14) — НЕ канал. При byte[6]!=0 модуль перестаёт
+    // слушать byte[7] (ON/OFF не выключает рекламу), а статус byte[5] уходит в FF.
+    // Держим 0x00 — это рабочий ON/OFF.
+    out[6] = 0x00u;
+    out[7] = enabled ? 0x02u : 0x01u;  // ИНВЕРСИЯ: реклама<-0x02, стоп<-0x01
+    out[38] = k530_checksum(out, 38);
+}
+
+// Передать модулю команду вкл/выкл линка. Заставляет сам модуль
+// разорвать соединение и прекратить рекламу при OFF.
+// Точный порт стокового строба 0x043C: P0.1 ПРИНУДИТЕЛЬНО в output, затем
+// импульс HIGH -> (кратко) -> LOW -> длинная выдержка (сток: delay 100).
+// В отличие от k530_bt_pulse_ready() гарантируем направление пина
+// (SPI0-инициализация могла оставить P0.1 не как GPIO-выход) и даём паузу
+// после строба, чтобы модуль успел инициировать чтение управляющего кадра.
+static void k530_bt_strobe_control(void) {
+    GPIO_REG_MODE(K530_GPIO0_BASE) |= (1u << K530_BT_READY_PIN);  // P0.1 = output
+    k530_gpio_set(K530_GPIO0_BASE, K530_BT_READY_PIN);           // P0.1 HIGH
+    wait_us(K530_BT_STROBE_DELAY_US);
+    k530_gpio_clear(K530_GPIO0_BASE, K530_BT_READY_PIN);         // P0.1 LOW
+    wait_us(100u * K530_BT_STROBE_DELAY_US);                     // выдержка (сток: delay 100)
+}
+
+// Передать модулю команду вкл/выкл линка. Заставляет сам модуль
+// разорвать соединени�� и прекратить рекламу при OFF.
+static void k530_send_bt_control(bool enabled) {
+    uint8_t frame[K530_FRAME_LEN];
+    k530_build_control_frame(enabled, frame);
+    K530_BT_LOG_FRAME("TX BT control frame", frame, K530_FRAME_LEN);
+    // Держим управляющий кадр в TX-буфере и стробим НЕСКОЛЬКО раз,
+    // чтобы модуль гарантированно забрал его на одном из своих опросов
+    // (в стоке кадр защищён флагом-гейтом bit5; здесь имитируем повторами).
+    // STOCK-FAITHFUL: reinit SPI0 (FUN_00009b90) immediately before the frame,
+    // then load + single strobe (stock sends once via the gate, not in a loop).
+    k530_spi0_reinit();
+    k530_spi0_load_tx_buffer(frame, K530_FRAME_LEN);
+    k530_bt_strobe_control();
+}
+
+// === Остановка рекламы (команда 0x00) ===
+// ЛОГ ДОКАЗАЛ: реклама автономна — отключение SPI0 её НЕ гасит
+// (IRQ-счётчик замирал, но модуль вещал). Сток шлёт по ЖИВОМУ линку
+// кадр с командой 0x00 в состоянии BB==2 (advertise) — дизасм 0x86FE..0x8712.
+#define K530_CMD_BT_STOP 0x00u
+
+// Период повторной отправки 0x00 в положении OFF (housekeeping-таск).
+#define K530_BT_OFF_STOP_PERIOD 200u
+
+// === Смена активного хоста draconic-1/2/3 (команда 0xA6) ===
+// Реверс стока: обработчик смены селектора (0x56D6) при изменении хоста
+// шлёт ОТДЕЛЬНУЮ команду 0xA6 (не 0xA5!). Сборщик 0x02AC для 0xA6
+// (case 0x0336) кладёт: TX[3]=BE(=0x02), TX[4]=номер хоста (в стоке из 0x20000125).
+// byte[1]/byte[2] общие для всех команд (P1.14 -> 0x02; B6 -> 0x05).
+#define K530_CMD_BT_HOST_SWITCH 0xA6u
+
+static void k530_build_host_switch_frame(uint8_t out[K530_FRAME_LEN]) {
+    // 0-based индекс: draconic-1 -> 0, draconic-2 -> 1, draconic-3 -> 2.
+    // Если окажется сдвиг на 1 — поправим по логу (host_idx +/- 1).
+    uint8_t host_idx = (k530_host_slot_stable >= K530_HOST_SLOT_1 &&
+                        k530_host_slot_stable <= K530_HOST_SLOT_3)
+                           ? (uint8_t)((uint8_t)k530_host_slot_stable - 1u) : 0u;
+    memset(out, 0, K530_FRAME_LEN);
+    out[0] = K530_CMD_BT_HOST_SWITCH;  // 0xA6
+    out[1] = 0x02u;                    // как в 0xA5 (P1.14-канал)
+    out[2] = 0x05u;                    // B6 (общий для команд)
+    out[3] = 0x02u;                    // BE
+    out[4] = host_idx;                 // *** НОМЕР ХОСТА (draconic-N) ***
+    out[38] = k530_checksum(out, 38);
+}
+
+static void k530_send_bt_host_switch(void) {
+    uint8_t frame[K530_FRAME_LEN];
+    k530_build_host_switch_frame(frame);
+    K530_BT_LOG_FRAME("TX BT host-switch frame", frame, K530_FRAME_LEN);
+    // STOCK-FAITHFUL: reinit SPI0 (FUN_00009b90) immediately before the frame,
+    // then load + single strobe (stock sends once via the gate, not in a loop).
+    k530_spi0_reinit();
+    k530_spi0_load_tx_buffer(frame, K530_FRAME_LEN);
+    k530_bt_strobe_control();
+}
+
+// Временный флаг: пока добиваем ON/OFF по стоку, НЕ шлём 0xA6-переключение
+// хоста (чтобы тесты тумблера были чистыми). Вернём в true, когда
+// ON/OFF станет стабильным.
+static const bool k530_bt_host_switch_enabled = false;
+
+// NOTE: SPI-command shutdown (0xA5/0xAA) approach REMOVED. Per GitHub pinout
+// the module has NO enable/reset line, only 5 SPI wires (P0.1-P0.5), so it
+// cannot be silenced by a frame. Real OFF = fully disabling SPI0 on the MCU
+// (clock gate 0x4005E000 + CTRL0.enable + IRQ), same as stock (0x9A44/0x94F0)
+// and bluetooth_working.c. See k530_spi0_disable() in the OFF branch below.
+
+
+// ============================================================================
+// 5. ВЫСОКОУРОВНЕВЫЕ ФУН��ЦИИ QMK BLUETOOTH DRIVER API
 // ============================================================================
 // Соответствуют weak-символам из drivers/bluetooth/bluetooth.c в mainline QMK
 // (см. https://github.com/qmk/qmk_firmware/issues/20233). Если ваш форк
@@ -1022,7 +1186,7 @@ void bluetooth_init(void) {
 #endif
     }
 
-    // Направление и функция P0.1 (наш строб) теперь настраиваются внутри
+    // Направление и функция P0.1 (��аш строб) теперь настраиваются внутри
     // k530_spi0_pins_to_alt_function(), которая вызывается из
     // k530_spi0_hw_init() выше (только если BT включен тумблером).
 
@@ -1034,14 +1198,14 @@ void bluetooth_init(void) {
 
 void bluetooth_task(void) {
     // Периодический опрос обоих тумблеров с debounce (вызывайте эту функцию
-    // из главного цикла QMK — например, из matrix_scan_user() или housekeeping
+    // из главного цикла QMK — например, и�� matrix_scan_user() ��ли housekeeping
     // task с достаточной частотой, чтобы debounce отрабатывал корректно;
     // оригинал опрашивает это как часть основного цикла сканирования матрицы,
     // см. отчёт, раунд 6).
-    bool bt_changed = k530_poll_bt_toggle();
-    k530_poll_host_slot(); // TODO: пока результат явно не используется ниже,
+    bool bt_changed   = k530_poll_bt_toggle();
+    bool host_changed = k530_poll_host_slot(); // TODO: пока результат явно не используется ниже,
                              // кроме хранения в k530_host_slot_stable — если
-                             // нужно программно передавать номер слота в
+                             // нужно программно ��ередавать номер ��лота в
                              // TX[1]/TX[2] кадра, самое время сделать это тут.
 
     if (bt_changed) {
@@ -1049,16 +1213,56 @@ void bluetooth_task(void) {
             // Тумблер только что переключили в положение "BT ON":
             k530_spi0_hw_init();
             k530_spi0_slave_ready = true;
+            // Выбор активного хоста (0xA6) — ВРЕМЕННО ОТКЛЮЧЕНО, сначала
+            // добиваем ON/OFF (см. k530_bt_host_switch_enabled).
+            if (k530_bt_host_switch_enabled) {
+                k530_send_bt_host_switch();
+            }
+            // Сообщаем модулю: линк ВКЛ (0xA5, byte[7]=0x01), чтобы он снова
+            // начал рекламу после предыдущего OFF.
+            k530_send_bt_control(true);
 #ifdef K530_BT_DEBUG
-            dprintf("[K530_BT] BT toggle -> ON, SPI0 (re)started\n");
+            dprintf("[K530_BT] BT toggle -> ON, SPI0 (re)started + link-enable frame sent\n");
 #endif
         } else {
             // Тумблер только что переключили в положение "BT OFF":
-            k530_spi0_disable();
-            k530_spi0_slave_ready = false;
+            // ИСПРАВЛЕНО: не глушим SPI0 сразу. Сначала передаём модулю
+            // команду выключения линка (0xA5, byte[7]=0x02) — иначе модуль
+            // остаётся активным и про��олжает рекламу (лог: A7-кадры
+            // идут даже при OFF). SPI0 держим живым, чтобы модуль
+            // успел опросить кадр и разорвать соединение.
+            // ИСПРАВЛЕНО (реверс стока): реальное выключение — команда 0xAA,
+            // а НЕ 0xA5. 0xA5/byte[7]=0x01 в стоке = реконнект (модуль вещает).
+            // Держим SPI0 ЖИВЫМ и шлём модулю команду 0x00 (стоп рекламы).
+            k530_spi0_hw_init();
+            k530_spi0_slave_ready = true;
+            // STOCK: OFF = valid 0xA5 frame with BB=1 (reconnect/silent) -> module
+            // stops advertising draconic-N. There is NO 0x00 stop opcode in stock.
+            k530_send_bt_control(false);
 #ifdef K530_BT_DEBUG
-            dprintf("[K530_BT] BT toggle -> OFF, SPI0 disabled\n");
+            dprintf("[K530_BT] BT toggle -> OFF, reconnect frame (BB=1) sent, SPI0 kept alive\n");
 #endif
+        }
+    } else if (host_changed && k530_bt_enabled_stable) {
+        // Селектор хоста (P0.6/P0.7) сменился при включённом BT: пере-
+        // рекламируемся на новом канале. Раньше кадр слался ТОЛЬКО по ON/OFF,
+        // поэтому модуль не узнавал о смене хоста и имя в эфире не менялось.
+        if (k530_bt_host_switch_enabled) {
+            k530_send_bt_host_switch();   // 0xA6: сменить активный хост (draconic-N)
+            k530_send_bt_control(true);   // 0xA5: реклама на новом хосте
+#ifdef K530_BT_DEBUG
+            dprintf("[K530_BT] host slot changed -> 0xA6 host-switch, slot=%d\n",
+                    (int)k530_host_slot_stable);
+#endif
+        }
+    }
+    // OFF hold: модуль сам возобновляет рекламу, поэтому пока тумблер в OFF —
+    // периодически пере-отправляем 0x00 по живому линку.
+    if (!k530_bt_enabled_stable) {
+        static uint16_t k530_off_stop_ctr = 0;
+        if (++k530_off_stop_ctr >= K530_BT_OFF_STOP_PERIOD) {
+            k530_off_stop_ctr = 0;
+            /* No periodic re-send: OFF already put module into silent reconnect (BB=1). */
         }
     }
 
@@ -1069,6 +1273,32 @@ void bluetooth_task(void) {
 
 #ifdef K530_BT_DEBUG
     k530_debug_task_print();
+    {
+        static uint32_t last_irq_snapshot = 0;
+        uint32_t cur = k530_debug.irq_count;
+        if (cur != last_irq_snapshot) {
+            last_irq_snapshot = cur;
+            uint8_t snap[32];
+            for (uint8_t i = 0; i < 32; i++) {
+                snap[i] = k530_sync_ring[(k530_sync_ring_pos + K530_RX_FRAME_LEN - 32 + i) % K530_RX_FRAME_LEN];
+            }
+            dprintf("[K530_BT] WINDOW32: ");
+            for (uint8_t i = 0; i < 32; i++) dprintf("%02X ", snap[i]);
+            dprintf("\n");
+            int8_t a7 = -1;
+            for (uint8_t i = 0; i < 32; i++) { if (snap[i] == 0xA7u) { a7 = (int8_t)i; break; } }
+            if (a7 >= 0) {
+                uint8_t blk[48]; uint8_t bl = 0;
+                for (uint8_t i = (uint8_t)a7; i < 48 && i < 32; i++) {
+                    blk[bl++] = snap[i];
+                    if (snap[i] == 0x0Cu && i > (uint8_t)a7) break;
+                }
+                dprintf("[K530_BT] TASK A7..0C len=%u: ", (unsigned)bl);
+                for (uint8_t i = 0; i < bl; i++) dprintf("%02X ", blk[i]);
+                dprintf("\n");
+            }
+        }
+    }
 #endif
 }
 
@@ -1078,7 +1308,7 @@ void bluetooth_send_keyboard(report_keyboard_t *report) {
     }
 
     if (!k530_bt_enabled_stable) {
-        // Тумблер физически выключен — не пытаемся ничего слать.
+        // Тумблер физически выключен — не пытаемся ничего слат��.
         return;
     }
 
@@ -1116,7 +1346,7 @@ void bluetooth_send_keyboard(report_keyboard_t *report) {
 // ============================================================================
 // k530_bt_enabled_stable/k530_host_slot_stable объявлены static выше и не
 // видны за пределами этого файла (bluetooth.c компилируется отдельной
-// единицей трансляции через SRC += в rules.mk). Эти две функции — тонкие
+// единиц��й трансляции через SRC += в rules.mk). Эти две функции — тонкие
 // геттеры, не меняющие ничего в уже проверенной логике выше, нужны только
 // чтобы keymap.c мог: (а) узнать, включён ли BT физически тумблером, прежде
 // чем передавать в bluetooth_send_keyboard() собранный отчёт; (б) вывести
@@ -1149,9 +1379,9 @@ uint8_t k530_bluetooth_host_slot(void) {
  *    теперь читаются программно (раздел 2Б) с debounce. Проверьте на
  *    логическом анализаторе, что k530_poll_bt_toggle()/k530_poll_host_slot()
  *    дают ожидаемый результат при переключении тумблеров вручную — ПРЕЖДЕ
- *    чем доверять автоматическому старту/остановке SPI0 в bluetooth_task().
+ *    че�� доверять автоматическому старту/остановке SPI0 в bluetooth_task().
  *    Алгоритм для слота хоста (drive-HIGH/drive-LOW на P0.7, чтение P0.6)
- *    подтверждён дословно из дизассемблера как МЕХАНИЗМ, но итоговая логика
+ *    подтверждён дословно из дизассемблера как МЕХАНИЗМ, н�� итоговая логика
  *    "результат -> позиция 1/2/3" реконструирована по вашим физическим
  *    измерениям, а не перенесена байт-в-байт — это первое, что стоит
  *    перепроверить, если слот определяется неверно.
