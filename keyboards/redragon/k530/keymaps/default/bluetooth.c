@@ -179,6 +179,7 @@ static void k530_bt_pulse_ready(void) {
 // ----------------------------------------------------------------------
 #define K530_BT_TOGGLE_PIN 13u
 #define K530_BT_DEBOUNCE_THRESHOLD 16u
+#define K530_HOST_SLOT_SETTLE_POLLS 150u  // selector must REST this many polls before we act (kills sweep-through of slot 2)
 
 static uint8_t k530_bt_toggle_debounce_hi = 0; // счётчик "линия HIGH стабильно"
 static uint8_t k530_bt_toggle_debounce_lo = 0; // счётчик "линия LOW стабильно"
@@ -284,6 +285,7 @@ typedef enum {
 // доработать протокол (вероятно, отправка команды 0xA7 с номером слота при
 // смене k530_poll_host_slot(), либо иной, пока не найденный механизм).
 static k530_host_slot_t k530_host_slot_stable = K530_HOST_SLOT_UNKNOWN;
+static k530_host_slot_t k530_host_slot_candidate = K530_HOST_SLOT_UNKNOWN;
 static uint8_t k530_host_slot_debounce_counter = 0;
 
 // Кратковременно настраивает P0.7 как выход с заданным уровнем, читает P0.6,
@@ -338,15 +340,32 @@ static bool k530_poll_host_slot(void) {
     }
 
     bool changed = false;
-    if (detected == k530_host_slot_stable) {
+    // Settle-debounce: RESTART the counter whenever the raw position changes,
+    // so a manual sweep 1->2->3 never commits the intermediate slot 2. Only a
+    // position held steady for K530_HOST_SLOT_SETTLE_POLLS commits and fires
+    // once. The old counter accumulated across the whole sweep and committed
+    // whatever slot was current when it hit the threshold -> chaotic name.
+    if (detected != k530_host_slot_candidate) {
+        k530_host_slot_candidate = detected;
         k530_host_slot_debounce_counter = 0;
-    } else {
-        k530_host_slot_debounce_counter++;
-        if (k530_host_slot_debounce_counter > K530_BT_DEBOUNCE_THRESHOLD) {
+    } else if (detected != k530_host_slot_stable) {
+        if (k530_host_slot_debounce_counter < K530_HOST_SLOT_SETTLE_POLLS) {
+            k530_host_slot_debounce_counter++;
+        } else {
+            // STOCK-FAITHFUL COLD START: the very first commit out of UNKNOWN
+            // (right after boot) must NOT fire a host switch. Stock does not
+            // sample the physical selector at cold boot -- it sends 0xA6 with
+            // the STATIC index stored in flash (0xA080) and lets the BT module
+            // reconnect to its own remembered host. So on the initial
+            // UNKNOWN->slot latch we adopt the position SILENTLY and only fire
+            // 0xA6 on subsequent LIVE selector changes.
+            bool was_unknown = (k530_host_slot_stable == K530_HOST_SLOT_UNKNOWN);
             k530_host_slot_stable = detected;
             k530_host_slot_debounce_counter = 0;
-            changed = true;
+            changed = !was_unknown;
         }
+    } else {
+        k530_host_slot_debounce_counter = 0;
     }
     return changed;
 }
@@ -599,7 +618,7 @@ static void k530_spi0_load_tx_buffer(const uint8_t *frame, uint8_t len) {
 // печать (uprintf/dprintf) происходит из bluetooth_task(), которая
 // вызывается из основного цикла QMK, не из прерывания.
 //
-// Использование: добавьте в rules.mk вашей клавиатуры
+// Использование: добавьте в rules.mk ��ашей клавиатуры
 //     CONSOLE_ENABLE = yes
 //     OPT_DEFS += -DK530_BT_DEBUG
 // и смотрите вывод через `qmk console` (или hid_listen/QMK Toolbox).
@@ -682,6 +701,30 @@ static inline void k530_raw_log_push(uint8_t b) {
 static inline void k530_debug_led_toggle(void) {
     // TODO: реализовать под ваш конкретный пин индикатора, если консоль
     // недоступна. Оставлено пустым намеренно — не гадаем адрес светодиода.
+}
+
+// ============================================================================
+// СВЕТОДИОДЫ У ТУМБЛЕРА (host-slot + battery) — ЗАГЛУШКИ
+// ============================================================================
+// Рядом с тумблером 1/2/3 на стоковой плате стоят ДВА светодиода:
+//   1) HOST-LED  — какой draconic (1/2/3) сейчас рекламируется (в стоке — цветом).
+//   2) BATT-LED  — заряд батареи (в стоке полный заряд = ЗЕЛЁНЫЙ; остальное — выяснить).
+//
+// TODO(след. модель): найти по стоку GPIO-пины обоих LED и кодировку цветов.
+// Отправная точка в дизасме: запись LED около 0x5728 по 0x40044000 бит 7
+// (рядом обработчик смены хоста 0x56D6 и разбор A7-статуса). Тела
+// намеренно пустые — не гадаем адреса/цвета. Точки вызова уже расставлены.
+
+// slot: K530_HOST_SLOT_1..3 (какой draconic активен). UNKNOWN = погасить/idle.
+static inline void k530_led_host_indicator_set(k530_host_slot_t slot) {
+    (void)slot;
+    // TODO(след. модель): выставить цвет host-LED под слот 1/2/3 (см. сток).
+}
+
+// battery_raw: сырой байт заряда из A7-кадра. В стоке full charge = green.
+static inline void k530_led_battery_indicator_set(uint8_t battery_raw) {
+    (void)battery_raw;
+    // TODO(след. модель): выставить цвет batt-LED по уровню заряда (full=green).
 }
 
 #ifdef K530_BT_DEBUG
@@ -1038,35 +1081,22 @@ static void k530_build_keyboard_frame(const report_keyboard_t *report, uint8_t o
 #define K530_CMD_BT_CONTROL 0xA5u
 
 static void k530_build_control_frame(bool enabled, uint8_t out[K530_FRAME_LEN]) {
-    // === ЭМПИРИЧЕСКИ по log11 (строб заработал, модуль отвечает) ===
-    // Соответствие "наша команда -> состояние модуля A7[4]" (4 перехода):
-    //   byte[7]=0x02, byte[3]=0x00  ->  A7[4]=0x01  ->  РЕКЛАМА ВКЛ (виден в эфире)
-    //   byte[7]=0x01, byte[3]=0x02  ->  A7[4]=0x00  ->  РЕКЛАМА ВЫКЛ
-    // Т.е. прежняя логика была ИНВЕРТИРОВАНА: при ON мы глушили рекламу.
-    // Теперь enabled(=физ. ON) -> кадр рекламы; !enabled(=физ. OFF) -> стоп.
-    //
-    // ВАЖНО: byte[1] НЕ задаёт draconic-N (проверено log12: byte[1]=0x02,
-    // а в эфире всё равно draconic-1). Номер хоста задаёт byte[3].
-    //
-    // byte[3] = ИНДЕКС ХОСТА (0-based): 0->draconic-1, 1->draconic-2, 2->draconic-3.
-    // Берём из аппаратного селектора host_slot (P0.6/P0.7): 1/2/3 -> 0/1/2.
-    // Раньше byte[3] был 0x00 всегда -> в эфире всегда draconic-1.
-    uint8_t host_idx = (k530_host_slot_stable >= K530_HOST_SLOT_1 &&
-                        k530_host_slot_stable <= K530_HOST_SLOT_3)
-                           ? (uint8_t)((uint8_t)k530_host_slot_stable - 1u) : 0u;
-
+    // === STOCK A5 automaton (disasm 0x0A64..0x0AE2 + serializer 0x02E4..0x0334) ===
+    // A5 frame: [0]=0xA5,[1]=mode,[2]=B6,[3]=C2,[4]=0x0A,[5]=0x19,[6]=C3,[7]=BB,[8..37]=0,[38]=cksum.
+    //   ADVERTISE/CONNECT (phys ON):  byte[7]=BB=0x02, byte[3]=C2=0x00
+    //   SILENT/DISCONNECT (phys OFF): byte[7]=BB=0x01, byte[3]=C2=0x03
+    // FIX: byte[3] previously held host_idx (0..2). For slot 1 the OFF frame was
+    // [3]=0x00,[7]=0x01, which does NOT match stock (C2 must be 0x03) -> the module
+    // never dropped the link. Host number is a SEPARATE 0xA6 command, not this field.
     memset(out, 0, K530_FRAME_LEN);
-    out[0] = K530_CMD_BT_CONTROL;
-    out[1] = 0x02u;                    // канал (на имя draconic-N НЕ влияет)
-    out[2] = 0x05u;                    // B6 = длина payload ([3..7] = 5 байт)
-    out[3] = host_idx;                 // индекс хоста 0/1/2 = draconic-1/2/3
+    out[0] = K530_CMD_BT_CONTROL;      // 0xA5
+    out[1] = 0x02u;                    // mode (stock: 0x40046000 bit14; link-agnostic)
+    out[2] = 0x05u;                    // B6 = payload length ([3..7] = 5 bytes)
+    out[3] = enabled ? 0x00u : 0x03u;  // C2: 0x00 advertise / 0x03 disconnect (STOCK)
     out[4] = 0x0Au;
     out[5] = 0x19u;
-    // byte[6]: ПРОВЕРЕНО (log14) — НЕ канал. При byte[6]!=0 модуль перестаёт
-    // слушать byte[7] (ON/OFF не выключает рекламу), а статус byte[5] уходит в FF.
-    // Держим 0x00 — это рабочий ON/OFF.
-    out[6] = 0x00u;
-    out[7] = enabled ? 0x02u : 0x01u;  // ИНВЕРСИЯ: реклама<-0x02, стоп<-0x01
+    out[6] = 0x00u;                    // C3 (stock zeroes it after building the frame)
+    out[7] = enabled ? 0x02u : 0x01u;  // BB: 0x02 advertise / 0x01 stop/reconnect (STOCK)
     out[38] = k530_checksum(out, 38);
 }
 
@@ -1104,11 +1134,28 @@ static void k530_send_bt_control(bool enabled) {
 // === Остановка рекламы (команда 0x00) ===
 // ЛОГ ДОКАЗАЛ: реклама автономна — отключение SPI0 её НЕ гасит
 // (IRQ-счётчик замирал, но модуль вещал). Сток шлёт по ЖИВОМУ линку
-// кадр с командой 0x00 в состоянии BB==2 (advertise) — дизасм 0x86FE..0x8712.
+// к��др с командой 0x00 в состоянии BB==2 (advertise) — дизасм 0x86FE..0x8712.
 #define K530_CMD_BT_STOP 0x00u
 
 // Период повторной отправки 0x00 в положении OFF (housekeeping-таск).
 #define K530_BT_OFF_STOP_PERIOD 200u
+
+// Stock inserts real watchdog-fed delays (BL 0x025A, args 0x14/0x28) after a
+// 0xA6 host-switch before doing anything else. Without a settle the module
+// has not committed the new host yet, so the immediately-following 0xA5
+// re-advertises on the PREVIOUS host -> displayed name lags one step behind
+// the physical 1/2/3 selector. Give the module time to switch hosts.
+#define K530_BT_HOST_SWITCH_SETTLE_MS 30u
+
+// AUTO OFF->switch->ON cycle timings for the 1/2/3 host selector. The module
+// will NOT switch host while a link is up (A7 byte[4] >= 0x02), so on a slot
+// change we disconnect, WAIT until the module actually drops (polling A7
+// byte[4]), then switch host + re-advertise. Timings are deliberately generous
+// (user preference) -- a brief link drop while switching is fine.
+#define K530_BT_HOST_SWITCH_DROP_TIMEOUT_MS 3000u  // max wait for FULL disconnect (A7==0x00)
+#define K530_BT_HOST_SWITCH_REKICK_MS        250u   // re-send disconnect every N ms (gentle, let module answer)
+#define K530_BT_HOST_SWITCH_PRE_MS          150u   // settle after disconnect, before 0xA6
+#define K530_BT_HOST_SWITCH_POST_MS         200u   // settle after 0xA6, before advertise
 
 // === Смена активного хоста draconic-1/2/3 (команда 0xA6) ===
 // Реверс стока: обработчик смены селектора (0x56D6) при изменении хоста
@@ -1132,27 +1179,56 @@ static void k530_build_host_switch_frame(uint8_t out[K530_FRAME_LEN]) {
     out[38] = k530_checksum(out, 38);
 }
 
+// STOCK PREP @0x043C -- the host-switch-specific "primer" strobe. This is the
+// ONLY extra thing stock does for 0xA6 that it never does for the 0xA5 control
+// path: hold the P0.1 ready line HIGH for 1ms, then LOW for 100ms. That 100ms
+// LOW is the brief backlight-off the user sees on every 1/2/3 flick -- an
+// attention/re-sync signal that primes the BT module to accept the incoming
+// host switch. Without it the module only honored the 0xA6 intermittently.
+static void k530_bt_prep_host_switch(void) {
+    GPIO_REG_BSET(K530_GPIO0_BASE) = (1u << K530_BT_READY_PIN);   // P0.1 HIGH
+    GPIO_REG_MODE(K530_GPIO0_BASE) =
+        (GPIO_REG_MODE(K530_GPIO0_BASE) & ~(1u << K530_BT_READY_PIN))
+        | (1u << K530_BT_READY_PIN);                              // P0.1 OUTPUT
+    GPIO_REG_BSET(K530_GPIO0_BASE) = (1u << K530_BT_READY_PIN);   // P0.1 HIGH
+    wait_ms(1u);                                                  // stock BL 0x025A(1)
+    GPIO_REG_BCLR(K530_GPIO0_BASE) = (1u << K530_BT_READY_PIN);   // P0.1 LOW
+    wait_ms(100u);                                                // stock BL 0x025A(0x64) -> backlight blink
+}
+
 static void k530_send_bt_host_switch(void) {
     uint8_t frame[K530_FRAME_LEN];
     k530_build_host_switch_frame(frame);
     K530_BT_LOG_FRAME("TX BT host-switch frame", frame, K530_FRAME_LEN);
-    // STOCK-FAITHFUL: reinit SPI0 (FUN_00009b90) immediately before the frame,
-    // then load + single strobe (stock sends once via the gate, not in a loop).
-    k530_spi0_reinit();
+    // === STOCK-FAITHFUL host switch (disasm 0x56D6) ===
+    // Stock does NOT disconnect, NOT wait for A7==0x00, NOT cycle OFF/ON, and
+    // sends NO 0xA5 afterwards. It runs the PREP primer strobe, then clocks
+    // exactly ONE 0xA6 frame; the module switches host and advertises the new
+    // name (draconic-N) by itself. Replicate 1:1.
+    k530_bt_prep_host_switch();                 // 0x043C primer (P0.1 1ms HIGH / 100ms LOW)
+    k530_spi0_reinit();                         // fresh SPI0 slave state before the frame
     k530_spi0_load_tx_buffer(frame, K530_FRAME_LEN);
-    k530_bt_strobe_control();
+    wait_ms(20u);                               // stock BL 0x025A(0x14): 20ms settle after frame prep, before send
+    k530_bt_strobe_control();                   // normal 10us send strobe (stock send-tail)
+    wait_ms(40u);                               // stock BL 0x025A(0x28): 40ms hold after send, before returning
 }
 
 // Временный флаг: пока добиваем ON/OFF по стоку, НЕ шлём 0xA6-переключение
 // хоста (чтобы тесты тумблера были чистыми). Вернём в true, когда
 // ON/OFF станет стабильным.
-static const bool k530_bt_host_switch_enabled = false;
+// ENABLED: ON/OFF is stable and confirmed by logs. Host/name switching by the
+// 1/2/3 selector now sends the stock 0xA6 command (A6 02 05 02 <host_idx>...)
+// on ON-transition and on any host-slot change while ON. host_idx is 0-based
+// (draconic-1->0, draconic-2->1, draconic-3->2); adjust in
+// k530_build_host_switch_frame if the log shows an off-by-one.
+static const bool k530_bt_host_switch_enabled = true;
 
-// NOTE: SPI-command shutdown (0xA5/0xAA) approach REMOVED. Per GitHub pinout
-// the module has NO enable/reset line, only 5 SPI wires (P0.1-P0.5), so it
-// cannot be silenced by a frame. Real OFF = fully disabling SPI0 on the MCU
-// (clock gate 0x4005E000 + CTRL0.enable + IRQ), same as stock (0x9A44/0x94F0)
-// and bluetooth_working.c. See k530_spi0_disable() in the OFF branch below.
+// NOTE (CORRECTED): OFF is done by an SPI FRAME, not by disabling SPI0.
+// Hardware proof: only 5 SPI wires + P0.1 strobe, no power/reset line, yet
+// stock instantly drops the iPhone link on OFF -> disconnect MUST be a frame.
+// Stock sends A5 with C2=0x03 / BB=0x01 via the gated serializer (0x02AC) +
+// P0.1 strobe. Disabling MCU SPI0 does NOT silence the autonomous radio
+// (log: A7 status frames kept coming at OFF). See k530_send_bt_control().
 
 
 // ============================================================================
@@ -1176,13 +1252,19 @@ void bluetooth_init(void) {
     k530_poll_bt_toggle();
     k530_poll_host_slot();
 
-    if (k530_bt_enabled_stable) {
-        k530_spi0_hw_init();
-        k530_spi0_slave_ready = true;
-    } else {
-        k530_spi0_slave_ready = false;
+    // Start SPI0 in BOTH states. Even when the toggle is OFF at cold boot the
+    // BT module powers up and auto-advertises/connects on its own. If SPI0 is
+    // not started we never see that (RX silent, last_rx_frame stays 0x00) and
+    // never send a disconnect -> keyboard connects while OFF until a manual
+    // toggle. So bring SPI0 up regardless, and when OFF send an initial
+    // disconnect. The OFF-hold gate in bluetooth_task() then keeps re-sending
+    // (A7[4]!=0x00) until the module is actually knocked down.
+    k530_spi0_hw_init();
+    k530_spi0_slave_ready = true;
+    if (!k530_bt_enabled_stable) {
+        k530_send_bt_control(false);   /* knock down module that auto-connected at power-up */
 #ifdef K530_BT_DEBUG
-        dprintf("[K530_BT] BT toggle switch is OFF at init, SPI0 not started\n");
+        dprintf("[K530_BT] BT toggle OFF at init: SPI0 started, initial disconnect sent\n");
 #endif
     }
 
@@ -1248,8 +1330,13 @@ void bluetooth_task(void) {
         // рекламируемся на новом канале. Раньше кадр слался ТОЛЬКО по ON/OFF,
         // поэтому модуль не узнавал о смене хоста и имя в эфире не менялось.
         if (k530_bt_host_switch_enabled) {
-            k530_send_bt_host_switch();   // 0xA6: сменить активный хост (draconic-N)
-            k530_send_bt_control(true);   // 0xA5: реклама на новом хосте
+            // STOCK-FAITHFUL (0x56D6): on a SETTLED selector change just send
+            // ONE 0xA6 host switch -- no disconnect, no wait, no OFF/ON cycle,
+            // and NO trailing 0xA5 (a trailing advertise could bounce the module
+            // back to the previous host). The settle-debounce above guarantees
+            // this is the FINAL resting slot, so we fire exactly once.
+            k530_send_bt_host_switch();             // 0xA6 primer + frame -> draconic-N
+            k530_led_host_indicator_set(k530_host_slot_stable);  // stub: host-slot LED
 #ifdef K530_BT_DEBUG
             dprintf("[K530_BT] host slot changed -> 0xA6 host-switch, slot=%d\n",
                     (int)k530_host_slot_stable);
@@ -1259,10 +1346,36 @@ void bluetooth_task(void) {
     // OFF hold: модуль сам возобновляет рекламу, поэтому пока тумблер в OFF —
     // периодически пере-отправляем 0x00 по живому линку.
     if (!k530_bt_enabled_stable) {
+        // OFF hold: re-send disconnect ONLY while the module still reports it
+        // is up (A7 status byte[4] != 0x00). Once it is down (0x00) we STOP, so
+        // there is no continuous frame spam / chip load while OFF. Stock is
+        // event-driven and does not spam either; this matches that intent but
+        // still re-kicks if the module tries to re-advertise on its own
+        // (observed ~12x per OFF window in the logs). Mirrors the ON retry.
         static uint16_t k530_off_stop_ctr = 0;
-        if (++k530_off_stop_ctr >= K530_BT_OFF_STOP_PERIOD) {
-            k530_off_stop_ctr = 0;
-            /* No periodic re-send: OFF already put module into silent reconnect (BB=1). */
+        if (k530_debug.last_rx_frame[4] != 0x00u) {
+            if (++k530_off_stop_ctr >= K530_BT_OFF_STOP_PERIOD) {
+                k530_off_stop_ctr = 0;
+                k530_send_bt_control(false);   /* knock module back down if it came up */
+            }
+        } else {
+            k530_off_stop_ctr = 0;   /* already down -> stop sending, no spam */
+        }
+    } else {
+        // ON cold-start fix: at cold boot the BT module can miss the single
+        // advertise frame (it is still initializing) and the link never comes
+        // up until the toggle is cycled by hand. While the module reports idle
+        // (A7 status byte[4] == 0x00), periodically re-send advertise. Once it
+        // comes up (0x02 advertising / 0x03 connected) we STOP, so an active
+        // link is never disturbed. (Mirrors the OFF-hold re-send above.)
+        static uint16_t k530_on_adv_ctr = 0;
+        if (k530_debug.last_rx_frame[4] == 0x00u) {
+            if (++k530_on_adv_ctr >= K530_BT_OFF_STOP_PERIOD) {
+                k530_on_adv_ctr = 0;
+                k530_send_bt_control(true);   /* re-advertise until module comes up */
+            }
+        } else {
+            k530_on_adv_ctr = 0;   /* module is up -> stop retrying */
         }
     }
 
@@ -1271,7 +1384,11 @@ void bluetooth_task(void) {
     // реализовать здесь. Пока не реализовано (не критично для первого теста
     // "работают ли вообще нажатия клавиш").
 
-#ifdef K530_BT_DEBUG
+// --- Индикаторные светодиоды у тумблера (заглушки) ---
+    k530_led_host_indicator_set(k530_host_slot_stable);
+    k530_led_battery_indicator_set(k530_debug.last_rx_frame[7]);  /* TODO/CONFIRM: battery byte index in A7 frame */
+
+    #ifdef K530_BT_DEBUG
     k530_debug_task_print();
     {
         static uint32_t last_irq_snapshot = 0;
