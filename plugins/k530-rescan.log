@@ -1,0 +1,40 @@
+﻿2026-07-28 14:47:57 [INFO] ========================================
+2026-07-28 14:47:57 [INFO] Watcher started. Looking for VID_0C45&PID_5004
+2026-07-28 14:47:57 [INFO] Log file: C:\Users\alexk\AppData\Roaming\com.skydimo.desktop\plugins\k530-rescan.log
+2026-07-28 14:48:01 [INFO] K530 arrival detected.
+2026-07-28 14:48:06 [INFO] RPC port found: 55300
+2026-07-28 14:48:06 [INFO] scan_devices OK - Skydimo asked to re-enumerate.
+2026-07-28 14:49:42 [INFO] Watcher stopped.
+2026-07-28 14:49:54 [INFO] ========================================
+2026-07-28 14:49:54 [INFO] Watcher started. Looking for VID_0C45&PID_5004
+2026-07-28 14:49:54 [INFO] Log file: C:\Users\alexk\AppData\Roaming\com.skydimo.desktop\plugins\k530-rescan.log
+2026-07-28 14:55:33 [INFO] ========================================
+2026-07-28 14:55:33 [INFO] Watcher started. Looking for VID_0C45&PID_5004
+2026-07-28 14:55:33 [INFO] Log file: C:\Users\alexk\AppData\Roaming\com.skydimo.desktop\plugins\k530-rescan.log
+2026-07-28 14:55:50 [INFO] K530 arrival detected.
+2026-07-28 14:55:55 [INFO] RPC port found: 53021
+2026-07-28 14:55:55 [INFO] scan_devices OK - Skydimo asked to re-enumerate.
+2026-07-28 14:56:06 [INFO] K530 arrival detected.
+2026-07-28 14:56:10 [INFO] RPC port found: 53021
+2026-07-28 14:56:10 [INFO] scan_devices OK - Skydimo asked to re-enumerate.
+2026-07-28 14:56:34 [INFO] K530 arrival detected.
+2026-07-28 14:56:38 [INFO] RPC port found: 53021
+2026-07-28 14:56:38 [INFO] scan_devices OK - Skydimo asked to re-enumerate.
+2026-07-28 14:57:25 [INFO] K530 arrival detected.
+2026-07-28 14:57:29 [INFO] RPC port found: 53021
+2026-07-28 14:57:29 [INFO] scan_devices OK - Skydimo asked to re-enumerate.
+2026-07-28 15:01:50 [INFO] ========================================
+2026-07-28 15:01:50 [INFO] Watcher started. Looking for VID_0C45&PID_5004
+2026-07-28 15:01:50 [INFO] Log file: C:\Users\alexk\AppData\Roaming\com.skydimo.desktop\plugins\k530-rescan.log
+2026-07-28 15:02:53 [INFO] K530 arrival detected.
+2026-07-28 15:02:57 [INFO] RPC port found: 53021
+2026-07-28 15:02:57 [INFO] scan_devices OK - Skydimo asked to re-enumerate.
+2026-07-28 15:04:33 [INFO] ========================================
+2026-07-28 15:04:33 [INFO] Watcher started. Looking for VID_0C45&PID_5004
+2026-07-28 15:04:33 [INFO] Log file: C:\Users\alexk\AppData\Roaming\com.skydimo.desktop\plugins\k530-rescan.log
+2026-07-28 15:04:44 [INFO] K530 arrival detected.
+2026-07-28 15:04:49 [INFO] RPC port found: 64613
+2026-07-28 15:04:49 [INFO] scan_devices OK - Skydimo asked to re-enumerate.
+2026-07-28 15:05:35 [INFO] K530 arrival detected.
+2026-07-28 15:05:39 [INFO] RPC port found: 64613
+2026-07-28 15:05:39 [INFO] scan_devices OK - Skydimo asked to re-enumerate.

@@ -1,0 +1,231 @@
+<#
+    Autostart installer for k530-rescan-watcher.ps1 (ASCII only)
+
+    Put this file in the SAME folder as k530-rescan-watcher.ps1:
+      C:\Users\alexk\AppData\Roaming\com.skydimo.desktop\plugins\
+
+    Run it ONCE:
+      powershell -ExecutionPolicy Bypass -File "$env:APPDATA\com.skydimo.desktop\plugins\install-k530-task.ps1"
+
+    The task starts the watcher at logon with NO console window at all.
+
+    Why not -WindowStyle Hidden alone: powershell.exe creates its console
+    first and hides it afterwards, so the window still shows up in the
+    taskbar. Two ways to avoid creating a console in the first place:
+
+      conhost --headless   (default, Windows 10 1809+ / Windows 11)
+      wscript + .vbs shim  (-UseVbs, works everywhere)
+
+    If the taskbar entry is still there after installing, reinstall with:
+      powershell -ExecutionPolicy Bypass -File ".\install-k530-task.ps1" -UseVbs
+
+    To remove everything:
+      powershell -ExecutionPolicy Bypass -File ".\install-k530-task.ps1" -Uninstall
+#>
+
+[CmdletBinding()]
+param(
+    [string]$TaskName = 'K530 Skydimo Rescan',
+
+    # Wait this many seconds after logon before starting the watcher,
+    # so Skydimo has time to come up first.
+    [int]$StartDelaySeconds = 45,
+
+    # Use the wscript.exe + .vbs launcher instead of conhost --headless.
+    [switch]$UseVbs,
+
+    [switch]$Uninstall
+)
+
+$ErrorActionPreference = 'Stop'
+
+function Write-Step {
+    param([string]$Text, [string]$Color = 'Cyan')
+    Write-Host "`n$Text" -ForegroundColor $Color
+}
+
+# ---------------------------------------------------------------------------
+# Kill any watcher instance that is already running
+# ---------------------------------------------------------------------------
+function Stop-RunningWatchers {
+    $killed = 0
+    try {
+        $procs = Get-CimInstance Win32_Process -Filter "Name = 'powershell.exe' OR Name = 'wscript.exe' OR Name = 'conhost.exe'" -ErrorAction SilentlyContinue
+        foreach ($p in $procs) {
+            if ($p.CommandLine -and $p.CommandLine -match 'k530-rescan') {
+                if ($p.ProcessId -eq $PID) { continue }
+                Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue
+                $killed++
+            }
+        }
+    }
+    catch { }
+
+    if ($killed -gt 0) { Write-Host "  stopped $killed old watcher process(es)." -ForegroundColor Yellow }
+}
+
+# ---------------------------------------------------------------------------
+# Uninstall mode
+# ---------------------------------------------------------------------------
+if ($Uninstall) {
+    Write-Step "Removing scheduled task '$TaskName' ..."
+
+    $existing = Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue
+    if ($existing) {
+        Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false
+        Write-Host '  task removed.' -ForegroundColor Green
+    }
+    else {
+        Write-Host '  task was not installed.' -ForegroundColor Yellow
+    }
+
+    Stop-RunningWatchers
+
+    $baseDir = $PSScriptRoot
+    if ([string]::IsNullOrWhiteSpace($baseDir)) { $baseDir = (Get-Location).Path }
+    $vbs = Join-Path $baseDir 'k530-rescan-hidden.vbs'
+    if (Test-Path $vbs) {
+        Remove-Item $vbs -Force -ErrorAction SilentlyContinue
+        Write-Host '  launcher shim removed.' -ForegroundColor Green
+    }
+
+    Write-Host "`nDone." -ForegroundColor Green
+    return
+}
+
+# ---------------------------------------------------------------------------
+# Locate the watcher script (must be next to this installer)
+# ---------------------------------------------------------------------------
+$baseDir = $PSScriptRoot
+if ([string]::IsNullOrWhiteSpace($baseDir)) { $baseDir = (Get-Location).Path }
+
+$watcher = Join-Path $baseDir 'k530-rescan-watcher.ps1'
+
+Write-Step 'Checking files ...'
+Write-Host "  folder : $baseDir"
+Write-Host "  watcher: $watcher"
+
+if (-not (Test-Path $watcher)) {
+    Write-Host "`nERROR: k530-rescan-watcher.ps1 was not found in this folder." -ForegroundColor Red
+    Write-Host 'Put both files in the same directory and run this again.' -ForegroundColor Red
+    exit 1
+}
+Write-Host '  OK' -ForegroundColor Green
+
+# ---------------------------------------------------------------------------
+# Build the launch command so that no console window is ever created
+# ---------------------------------------------------------------------------
+$psExe   = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+$psArgs  = '-NoProfile -ExecutionPolicy Bypass -File "{0}"' -f $watcher
+$vbsPath = Join-Path $baseDir 'k530-rescan-hidden.vbs'
+
+if ($UseVbs) {
+    # wscript.exe is a GUI host: it never allocates a console.
+    Write-Step 'Creating the hidden launcher shim (wscript mode) ...'
+
+    $q = [char]34
+    $inner = '{0} {1}' -f $psExe, $psArgs
+    $lines = @(
+        "' Hidden launcher for the K530 Skydimo rescan watcher.",
+        "' Generated by install-k530-task.ps1 - do not edit.",
+        'Set sh = CreateObject(' + $q + 'WScript.Shell' + $q + ')',
+        'sh.Run ' + $q + ($inner -replace $q, ($q + $q)) + $q + ', 0, False'
+    )
+    Set-Content -Path $vbsPath -Value $lines -Encoding ASCII
+    Write-Host "  created: $vbsPath" -ForegroundColor Green
+
+    $exeToRun  = Join-Path $env:SystemRoot 'System32\wscript.exe'
+    $argToRun  = '"{0}"' -f $vbsPath
+    $modeLabel = 'wscript + vbs shim'
+}
+else {
+    # conhost --headless starts the console host without a visible window.
+    if (Test-Path $vbsPath) { Remove-Item $vbsPath -Force -ErrorAction SilentlyContinue }
+
+    $exeToRun  = Join-Path $env:SystemRoot 'System32\conhost.exe'
+    $argToRun  = '--headless "{0}" {1}' -f $psExe, $psArgs
+    $modeLabel = 'conhost --headless'
+}
+
+# ---------------------------------------------------------------------------
+# Register the task
+# ---------------------------------------------------------------------------
+Write-Step 'Registering scheduled task ...'
+Write-Host "  name    : $TaskName"
+Write-Host "  mode    : $modeLabel"
+Write-Host "  runs as : $env:USERDOMAIN\$env:USERNAME (no admin rights)"
+Write-Host "  trigger : at logon, delayed by $StartDelaySeconds s"
+
+try {
+    $existing = Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue
+    if ($existing) {
+        Write-Host '  an old task exists - replacing it.' -ForegroundColor Yellow
+        Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false
+    }
+
+    Stop-RunningWatchers
+
+    $action = New-ScheduledTaskAction -Execute $exeToRun -Argument $argToRun -WorkingDirectory $baseDir
+
+    $trigger = New-ScheduledTaskTrigger -AtLogOn -User "$env:USERDOMAIN\$env:USERNAME"
+    $trigger.Delay = [System.Xml.XmlConvert]::ToString([TimeSpan]::FromSeconds($StartDelaySeconds))
+
+    $settings = New-ScheduledTaskSettingsSet `
+        -AllowStartIfOnBatteries `
+        -DontStopIfGoingOnBatteries `
+        -StartWhenAvailable `
+        -MultipleInstances IgnoreNew `
+        -Hidden `
+        -ExecutionTimeLimit ([TimeSpan]::Zero)
+
+    $principal = New-ScheduledTaskPrincipal `
+        -UserId "$env:USERDOMAIN\$env:USERNAME" `
+        -LogonType Interactive `
+        -RunLevel Limited
+
+    Register-ScheduledTask `
+        -TaskName $TaskName `
+        -Action $action `
+        -Trigger $trigger `
+        -Settings $settings `
+        -Principal $principal `
+        -Description 'Sends scan_devices to Skydimo Core when the Redragon K530 is plugged in. Runs without a console window.' | Out-Null
+
+    Write-Host '  registered.' -ForegroundColor Green
+}
+catch {
+    Write-Host ("`nERROR while registering the task: {0}" -f $_.Exception.Message) -ForegroundColor Red
+    Write-Host 'Try running this installer from an ADMIN PowerShell window.' -ForegroundColor Yellow
+    exit 1
+}
+
+# ---------------------------------------------------------------------------
+# Start it right now so you do not have to log off
+# ---------------------------------------------------------------------------
+Write-Step 'Starting the task now ...'
+try {
+    Start-ScheduledTask -TaskName $TaskName
+    Start-Sleep -Seconds 4
+    $info = Get-ScheduledTask -TaskName $TaskName | Get-ScheduledTaskInfo
+    Write-Host ("  state: {0}, last result: {1}" -f (Get-ScheduledTask -TaskName $TaskName).State, $info.LastTaskResult)
+}
+catch {
+    Write-Host ("  could not start: {0}" -f $_.Exception.Message) -ForegroundColor Yellow
+}
+
+# ---------------------------------------------------------------------------
+# Summary
+# ---------------------------------------------------------------------------
+$log = Join-Path $baseDir 'k530-rescan.log'
+
+Write-Step 'Done.' 'Green'
+Write-Host 'There should be NO console window and no taskbar entry now.'
+Write-Host 'Replug the keyboard and watch the log instead:'
+Write-Host ("  Get-Content -Wait -Tail 20 '{0}'" -f $log)
+Write-Host ''
+Write-Host 'If a window still appears, reinstall in wscript mode:'
+Write-Host ("  powershell -ExecutionPolicy Bypass -File '{0}' -UseVbs" -f (Join-Path $baseDir 'install-k530-task.ps1'))
+Write-Host ''
+Write-Host 'Other commands:'
+Write-Host ("  Get-ScheduledTask -TaskName '{0}' | Get-ScheduledTaskInfo" -f $TaskName)
+Write-Host ("  powershell -ExecutionPolicy Bypass -File '{0}' -Uninstall" -f (Join-Path $baseDir 'install-k530-task.ps1'))
